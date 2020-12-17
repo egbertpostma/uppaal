@@ -79,6 +79,7 @@ import org.muml.uppaal.types.StructTypeSpecification
 import org.muml.uppaal.types.Type
 import org.muml.uppaal.types.TypeReference
 import org.muml.uppaal.visuals.ColorKind
+import org.muml.uppaal.expressions.ClockRateExpression
 
 class UppaalSerialization {
     var moveEdgeLabelsAway = false;
@@ -398,6 +399,9 @@ class UppaalSerialization {
 
     def dispatch expression(
         BitShiftExpression it) '''«expressionOptionalParentheses(firstExpr)» «IF operator==BitShiftOperator::LEFT»<<«ENDIF»«IF operator==BitShiftOperator::RIGHT»>>«ENDIF» «expressionOptionalParenthesesNonAssoc(secondExpr)»'''
+
+    def dispatch expression(
+        ClockRateExpression it) '''«expressionOptionalParentheses(firstExpr)» '== «expressionOptionalParenthesesNonAssoc(secondExpr)»'''
 
     /* define system */
     def system(

@@ -809,6 +809,43 @@ public interface ExpressionsPackage extends EPackage {
 	int BITWISE_EXPRESSION_FEATURE_COUNT = BINARY_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.muml.uppaal.expressions.impl.ClockRateExpressionImpl <em>Clock Rate Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.muml.uppaal.expressions.impl.ClockRateExpressionImpl
+	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getClockRateExpression()
+	 * @generated
+	 */
+	int CLOCK_RATE_EXPRESSION = 19;
+
+	/**
+	 * The feature id for the '<em><b>First Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RATE_EXPRESSION__FIRST_EXPR = BINARY_EXPRESSION__FIRST_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Second Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RATE_EXPRESSION__SECOND_EXPR = BINARY_EXPRESSION__SECOND_EXPR;
+
+	/**
+	 * The number of structural features of the '<em>Clock Rate Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RATE_EXPRESSION_FEATURE_COUNT = BINARY_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.muml.uppaal.expressions.AssignmentOperator <em>Assignment Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -816,7 +853,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getAssignmentOperator()
 	 * @generated
 	 */
-	int ASSIGNMENT_OPERATOR = 19;
+	int ASSIGNMENT_OPERATOR = 20;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.expressions.ArithmeticOperator <em>Arithmetic Operator</em>}' enum.
@@ -826,7 +863,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getArithmeticOperator()
 	 * @generated
 	 */
-	int ARITHMETIC_OPERATOR = 20;
+	int ARITHMETIC_OPERATOR = 21;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.expressions.LogicalOperator <em>Logical Operator</em>}' enum.
@@ -836,7 +873,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getLogicalOperator()
 	 * @generated
 	 */
-	int LOGICAL_OPERATOR = 21;
+	int LOGICAL_OPERATOR = 22;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.expressions.CompareOperator <em>Compare Operator</em>}' enum.
@@ -846,7 +883,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getCompareOperator()
 	 * @generated
 	 */
-	int COMPARE_OPERATOR = 22;
+	int COMPARE_OPERATOR = 23;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.expressions.Quantifier <em>Quantifier</em>}' enum.
@@ -856,7 +893,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 23;
+	int QUANTIFIER = 24;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.expressions.IncrementDecrementOperator <em>Increment Decrement Operator</em>}' enum.
@@ -866,7 +903,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getIncrementDecrementOperator()
 	 * @generated
 	 */
-	int INCREMENT_DECREMENT_OPERATOR = 24;
+	int INCREMENT_DECREMENT_OPERATOR = 25;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.expressions.IncrementDecrementPosition <em>Increment Decrement Position</em>}' enum.
@@ -876,7 +913,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getIncrementDecrementPosition()
 	 * @generated
 	 */
-	int INCREMENT_DECREMENT_POSITION = 25;
+	int INCREMENT_DECREMENT_POSITION = 26;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.expressions.BitShiftOperator <em>Bit Shift Operator</em>}' enum.
@@ -886,7 +923,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getBitShiftOperator()
 	 * @generated
 	 */
-	int BIT_SHIFT_OPERATOR = 26;
+	int BIT_SHIFT_OPERATOR = 27;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.expressions.MinMaxOperator <em>Min Max Operator</em>}' enum.
@@ -896,7 +933,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getMinMaxOperator()
 	 * @generated
 	 */
-	int MIN_MAX_OPERATOR = 27;
+	int MIN_MAX_OPERATOR = 28;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.expressions.BitwiseOperator <em>Bitwise Operator</em>}' enum.
@@ -906,7 +943,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getBitwiseOperator()
 	 * @generated
 	 */
-	int BITWISE_OPERATOR = 28;
+	int BITWISE_OPERATOR = 29;
 
 
 	/**
@@ -1395,6 +1432,16 @@ public interface ExpressionsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBitwiseExpression_Operator();
+
+	/**
+	 * Returns the meta object for class '{@link org.muml.uppaal.expressions.ClockRateExpression <em>Clock Rate Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Clock Rate Expression</em>'.
+	 * @see org.muml.uppaal.expressions.ClockRateExpression
+	 * @generated
+	 */
+	EClass getClockRateExpression();
 
 	/**
 	 * Returns the meta object for enum '{@link org.muml.uppaal.expressions.AssignmentOperator <em>Assignment Operator</em>}'.
@@ -1923,6 +1970,16 @@ public interface ExpressionsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BITWISE_EXPRESSION__OPERATOR = eINSTANCE.getBitwiseExpression_Operator();
+
+		/**
+		 * The meta object literal for the '{@link org.muml.uppaal.expressions.impl.ClockRateExpressionImpl <em>Clock Rate Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.muml.uppaal.expressions.impl.ClockRateExpressionImpl
+		 * @see org.muml.uppaal.expressions.impl.ExpressionsPackageImpl#getClockRateExpression()
+		 * @generated
+		 */
+		EClass CLOCK_RATE_EXPRESSION = eINSTANCE.getClockRateExpression();
 
 		/**
 		 * The meta object literal for the '{@link org.muml.uppaal.expressions.AssignmentOperator <em>Assignment Operator</em>}' enum.

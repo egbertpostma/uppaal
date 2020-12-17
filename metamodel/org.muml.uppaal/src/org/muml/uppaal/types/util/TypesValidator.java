@@ -10,6 +10,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.muml.uppaal.core.util.CoreValidator;
+import org.muml.uppaal.types.*;
 import org.muml.uppaal.types.BuiltInType;
 import org.muml.uppaal.types.DeclaredType;
 import org.muml.uppaal.types.IntegerBounds;

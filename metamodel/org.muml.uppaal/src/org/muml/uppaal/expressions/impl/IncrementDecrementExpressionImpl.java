@@ -103,6 +103,7 @@ public class IncrementDecrementExpressionImpl extends ExpressionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Expression getExpression() {
 		return expression;
 	}
@@ -127,6 +128,7 @@ public class IncrementDecrementExpressionImpl extends ExpressionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExpression(Expression newExpression) {
 		if (newExpression != expression) {
 			NotificationChain msgs = null;
@@ -146,6 +148,7 @@ public class IncrementDecrementExpressionImpl extends ExpressionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IncrementDecrementPosition getPosition() {
 		return position;
 	}
@@ -155,6 +158,7 @@ public class IncrementDecrementExpressionImpl extends ExpressionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPosition(IncrementDecrementPosition newPosition) {
 		IncrementDecrementPosition oldPosition = position;
 		position = newPosition == null ? POSITION_EDEFAULT : newPosition;
@@ -167,6 +171,7 @@ public class IncrementDecrementExpressionImpl extends ExpressionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IncrementDecrementOperator getOperator() {
 		return operator;
 	}
@@ -176,6 +181,7 @@ public class IncrementDecrementExpressionImpl extends ExpressionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOperator(IncrementDecrementOperator newOperator) {
 		IncrementDecrementOperator oldOperator = operator;
 		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
@@ -284,7 +290,7 @@ public class IncrementDecrementExpressionImpl extends ExpressionImpl implements 
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (position: ");
 		result.append(position);
 		result.append(", operator: ");

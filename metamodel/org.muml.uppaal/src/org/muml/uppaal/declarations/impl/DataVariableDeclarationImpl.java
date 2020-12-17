@@ -67,6 +67,7 @@ public class DataVariableDeclarationImpl extends VariableDeclarationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataVariablePrefix getPrefix() {
 		return prefix;
 	}
@@ -76,6 +77,7 @@ public class DataVariableDeclarationImpl extends VariableDeclarationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPrefix(DataVariablePrefix newPrefix) {
 		DataVariablePrefix oldPrefix = prefix;
 		prefix = newPrefix == null ? PREFIX_EDEFAULT : newPrefix;
@@ -150,7 +152,7 @@ public class DataVariableDeclarationImpl extends VariableDeclarationImpl impleme
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (prefix: ");
 		result.append(prefix);
 		result.append(')');

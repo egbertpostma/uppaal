@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.muml.uppaal.expressions.*;
 import org.muml.uppaal.expressions.ArithmeticExpression;
 import org.muml.uppaal.expressions.ArithmeticOperator;
 import org.muml.uppaal.expressions.AssignmentExpression;
@@ -99,6 +100,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 			case ExpressionsPackage.BIT_SHIFT_EXPRESSION: return createBitShiftExpression();
 			case ExpressionsPackage.MIN_MAX_EXPRESSION: return createMinMaxExpression();
 			case ExpressionsPackage.BITWISE_EXPRESSION: return createBitwiseExpression();
+			case ExpressionsPackage.CLOCK_RATE_EXPRESSION: return createClockRateExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -175,6 +177,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NegationExpression createNegationExpression() {
 		NegationExpressionImpl negationExpression = new NegationExpressionImpl();
 		return negationExpression;
@@ -185,6 +188,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PlusExpression createPlusExpression() {
 		PlusExpressionImpl plusExpression = new PlusExpressionImpl();
 		return plusExpression;
@@ -195,6 +199,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MinusExpression createMinusExpression() {
 		MinusExpressionImpl minusExpression = new MinusExpressionImpl();
 		return minusExpression;
@@ -205,6 +210,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssignmentExpression createAssignmentExpression() {
 		AssignmentExpressionImpl assignmentExpression = new AssignmentExpressionImpl();
 		return assignmentExpression;
@@ -215,6 +221,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IdentifierExpression createIdentifierExpression() {
 		IdentifierExpressionImpl identifierExpression = new IdentifierExpressionImpl();
 		return identifierExpression;
@@ -225,6 +232,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LiteralExpression createLiteralExpression() {
 		LiteralExpressionImpl literalExpression = new LiteralExpressionImpl();
 		return literalExpression;
@@ -235,6 +243,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArithmeticExpression createArithmeticExpression() {
 		ArithmeticExpressionImpl arithmeticExpression = new ArithmeticExpressionImpl();
 		return arithmeticExpression;
@@ -245,6 +254,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LogicalExpression createLogicalExpression() {
 		LogicalExpressionImpl logicalExpression = new LogicalExpressionImpl();
 		return logicalExpression;
@@ -255,6 +265,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FunctionCallExpression createFunctionCallExpression() {
 		FunctionCallExpressionImpl functionCallExpression = new FunctionCallExpressionImpl();
 		return functionCallExpression;
@@ -265,6 +276,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CompareExpression createCompareExpression() {
 		CompareExpressionImpl compareExpression = new CompareExpressionImpl();
 		return compareExpression;
@@ -275,6 +287,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConditionExpression createConditionExpression() {
 		ConditionExpressionImpl conditionExpression = new ConditionExpressionImpl();
 		return conditionExpression;
@@ -285,6 +298,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ScopedIdentifierExpression createScopedIdentifierExpression() {
 		ScopedIdentifierExpressionImpl scopedIdentifierExpression = new ScopedIdentifierExpressionImpl();
 		return scopedIdentifierExpression;
@@ -295,6 +309,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QuantificationExpression createQuantificationExpression() {
 		QuantificationExpressionImpl quantificationExpression = new QuantificationExpressionImpl();
 		return quantificationExpression;
@@ -305,6 +320,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IncrementDecrementExpression createIncrementDecrementExpression() {
 		IncrementDecrementExpressionImpl incrementDecrementExpression = new IncrementDecrementExpressionImpl();
 		return incrementDecrementExpression;
@@ -315,6 +331,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BitShiftExpression createBitShiftExpression() {
 		BitShiftExpressionImpl bitShiftExpression = new BitShiftExpressionImpl();
 		return bitShiftExpression;
@@ -325,6 +342,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MinMaxExpression createMinMaxExpression() {
 		MinMaxExpressionImpl minMaxExpression = new MinMaxExpressionImpl();
 		return minMaxExpression;
@@ -335,9 +353,21 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BitwiseExpression createBitwiseExpression() {
 		BitwiseExpressionImpl bitwiseExpression = new BitwiseExpressionImpl();
 		return bitwiseExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ClockRateExpression createClockRateExpression() {
+		ClockRateExpressionImpl clockRateExpression = new ClockRateExpressionImpl();
+		return clockRateExpression;
 	}
 
 	/**
@@ -545,6 +575,7 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExpressionsPackage getExpressionsPackage() {
 		return (ExpressionsPackage)getEPackage();
 	}

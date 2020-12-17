@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.muml.uppaal.declarations.*;
 import org.muml.uppaal.declarations.ArrayInitializer;
 import org.muml.uppaal.declarations.CallType;
 import org.muml.uppaal.declarations.ChannelVariableDeclaration;
@@ -131,6 +132,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GlobalDeclarations createGlobalDeclarations() {
 		GlobalDeclarationsImpl globalDeclarations = new GlobalDeclarationsImpl();
 		return globalDeclarations;
@@ -141,6 +143,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LocalDeclarations createLocalDeclarations() {
 		LocalDeclarationsImpl localDeclarations = new LocalDeclarationsImpl();
 		return localDeclarations;
@@ -151,6 +154,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SystemDeclarations createSystemDeclarations() {
 		SystemDeclarationsImpl systemDeclarations = new SystemDeclarationsImpl();
 		return systemDeclarations;
@@ -161,6 +165,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ChannelVariableDeclaration createChannelVariableDeclaration() {
 		ChannelVariableDeclarationImpl channelVariableDeclaration = new ChannelVariableDeclarationImpl();
 		return channelVariableDeclaration;
@@ -171,6 +176,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ClockVariableDeclaration createClockVariableDeclaration() {
 		ClockVariableDeclarationImpl clockVariableDeclaration = new ClockVariableDeclarationImpl();
 		return clockVariableDeclaration;
@@ -181,6 +187,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataVariableDeclaration createDataVariableDeclaration() {
 		DataVariableDeclarationImpl dataVariableDeclaration = new DataVariableDeclarationImpl();
 		return dataVariableDeclaration;
@@ -191,6 +198,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FunctionDeclaration createFunctionDeclaration() {
 		FunctionDeclarationImpl functionDeclaration = new FunctionDeclarationImpl();
 		return functionDeclaration;
@@ -201,6 +209,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Function createFunction() {
 		FunctionImpl function = new FunctionImpl();
 		return function;
@@ -211,6 +220,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeDeclaration createTypeDeclaration() {
 		TypeDeclarationImpl typeDeclaration = new TypeDeclarationImpl();
 		return typeDeclaration;
@@ -221,6 +231,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Variable createVariable() {
 		VariableImpl variable = new VariableImpl();
 		return variable;
@@ -231,6 +242,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ValueIndex createValueIndex() {
 		ValueIndexImpl valueIndex = new ValueIndexImpl();
 		return valueIndex;
@@ -241,6 +253,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeIndex createTypeIndex() {
 		TypeIndexImpl typeIndex = new TypeIndexImpl();
 		return typeIndex;
@@ -251,6 +264,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
@@ -261,6 +275,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExpressionInitializer createExpressionInitializer() {
 		ExpressionInitializerImpl expressionInitializer = new ExpressionInitializerImpl();
 		return expressionInitializer;
@@ -271,6 +286,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArrayInitializer createArrayInitializer() {
 		ArrayInitializerImpl arrayInitializer = new ArrayInitializerImpl();
 		return arrayInitializer;
@@ -321,6 +337,7 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DeclarationsPackage getDeclarationsPackage() {
 		return (DeclarationsPackage)getEPackage();
 	}

@@ -67,6 +67,7 @@ public abstract class CommentableElementImpl extends EObjectImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getComment() {
 		return comment;
 	}
@@ -76,6 +77,7 @@ public abstract class CommentableElementImpl extends EObjectImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setComment(String newComment) {
 		String oldComment = comment;
 		comment = newComment;
@@ -150,7 +152,7 @@ public abstract class CommentableElementImpl extends EObjectImpl implements Comm
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (comment: ");
 		result.append(comment);
 		result.append(')');

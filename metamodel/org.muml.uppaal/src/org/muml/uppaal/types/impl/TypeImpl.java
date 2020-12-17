@@ -88,6 +88,7 @@ public abstract class TypeImpl extends NamedElementImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Index> getIndex() {
 		if (index == null) {
 			index = new EObjectContainmentEList<Index>(Index.class, this, TypesPackage.TYPE__INDEX);
@@ -100,6 +101,7 @@ public abstract class TypeImpl extends NamedElementImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BuiltInType getBaseType() {
 		return (BuiltInType)BASE_TYPE__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
@@ -109,6 +111,7 @@ public abstract class TypeImpl extends NamedElementImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeSpecification getTypeSpecification() {
 		return (TypeSpecification)TYPE_SPECIFICATION__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}

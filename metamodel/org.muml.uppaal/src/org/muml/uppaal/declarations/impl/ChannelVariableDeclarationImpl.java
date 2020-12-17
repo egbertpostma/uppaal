@@ -87,6 +87,7 @@ public class ChannelVariableDeclarationImpl extends VariableDeclarationImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUrgent() {
 		return urgent;
 	}
@@ -96,6 +97,7 @@ public class ChannelVariableDeclarationImpl extends VariableDeclarationImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUrgent(boolean newUrgent) {
 		boolean oldUrgent = urgent;
 		urgent = newUrgent;
@@ -108,6 +110,7 @@ public class ChannelVariableDeclarationImpl extends VariableDeclarationImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isBroadcast() {
 		return broadcast;
 	}
@@ -117,6 +120,7 @@ public class ChannelVariableDeclarationImpl extends VariableDeclarationImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBroadcast(boolean newBroadcast) {
 		boolean oldBroadcast = broadcast;
 		broadcast = newBroadcast;
@@ -201,7 +205,7 @@ public class ChannelVariableDeclarationImpl extends VariableDeclarationImpl impl
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (urgent: ");
 		result.append(urgent);
 		result.append(", broadcast: ");

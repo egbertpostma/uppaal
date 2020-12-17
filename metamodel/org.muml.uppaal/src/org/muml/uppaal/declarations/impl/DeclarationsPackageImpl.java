@@ -250,7 +250,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link DeclarationsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -264,20 +264,30 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		if (isInited) return (DeclarationsPackage)EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DeclarationsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DeclarationsPackageImpl());
+		Object registeredDeclarationsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		DeclarationsPackageImpl theDeclarationsPackage = registeredDeclarationsPackage instanceof DeclarationsPackageImpl ? (DeclarationsPackageImpl)registeredDeclarationsPackage : new DeclarationsPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) instanceof UppaalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) : UppaalPackage.eINSTANCE);
-		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) instanceof GlobalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) : GlobalPackage.eINSTANCE);
-		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) instanceof TemplatesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) : TemplatesPackage.eINSTANCE);
-		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) instanceof StatementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) : StatementsPackage.eINSTANCE);
-		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) instanceof ExpressionsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) : ExpressionsPackage.eINSTANCE);
-		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) instanceof VisualsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) : VisualsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI);
+		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(registeredPackage instanceof UppaalPackageImpl ? registeredPackage : UppaalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackageImpl theCorePackage = (CorePackageImpl)(registeredPackage instanceof CorePackageImpl ? registeredPackage : CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(registeredPackage instanceof TypesPackageImpl ? registeredPackage : TypesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI);
+		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(registeredPackage instanceof GlobalPackageImpl ? registeredPackage : GlobalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
+		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(registeredPackage instanceof SystemPackageImpl ? registeredPackage : SystemPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI);
+		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(registeredPackage instanceof TemplatesPackageImpl ? registeredPackage : TemplatesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
+		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(registeredPackage instanceof StatementsPackageImpl ? registeredPackage : StatementsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
+		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(registeredPackage instanceof ExpressionsPackageImpl ? registeredPackage : ExpressionsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI);
+		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(registeredPackage instanceof VisualsPackageImpl ? registeredPackage : VisualsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theDeclarationsPackage.createPackageContents();
@@ -305,8 +315,9 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theDeclarationsPackage, 
+			(theDeclarationsPackage,
 			 new EValidator.Descriptor() {
+				 @Override
 				 public EValidator getEValidator() {
 					 return DeclarationsValidator.INSTANCE;
 				 }
@@ -315,7 +326,6 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		// Mark meta-data to indicate it can't be changed
 		theDeclarationsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DeclarationsPackage.eNS_URI, theDeclarationsPackage);
 		return theDeclarationsPackage;
@@ -326,6 +336,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDeclarations() {
 		return declarationsEClass;
 	}
@@ -335,6 +346,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDeclarations_Declaration() {
 		return (EReference)declarationsEClass.getEStructuralFeatures().get(0);
 	}
@@ -344,6 +356,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGlobalDeclarations() {
 		return globalDeclarationsEClass;
 	}
@@ -353,6 +366,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getGlobalDeclarations_ChannelPriority() {
 		return (EReference)globalDeclarationsEClass.getEStructuralFeatures().get(0);
 	}
@@ -362,6 +376,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLocalDeclarations() {
 		return localDeclarationsEClass;
 	}
@@ -371,6 +386,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSystemDeclarations() {
 		return systemDeclarationsEClass;
 	}
@@ -380,6 +396,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSystemDeclarations_System() {
 		return (EReference)systemDeclarationsEClass.getEStructuralFeatures().get(0);
 	}
@@ -389,6 +406,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSystemDeclarations_ProgressMeasure() {
 		return (EReference)systemDeclarationsEClass.getEStructuralFeatures().get(1);
 	}
@@ -398,6 +416,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDeclaration() {
 		return declarationEClass;
 	}
@@ -407,6 +426,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getVariableDeclaration() {
 		return variableDeclarationEClass;
 	}
@@ -416,6 +436,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChannelVariableDeclaration() {
 		return channelVariableDeclarationEClass;
 	}
@@ -425,6 +446,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChannelVariableDeclaration_Urgent() {
 		return (EAttribute)channelVariableDeclarationEClass.getEStructuralFeatures().get(0);
 	}
@@ -434,6 +456,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChannelVariableDeclaration_Broadcast() {
 		return (EAttribute)channelVariableDeclarationEClass.getEStructuralFeatures().get(1);
 	}
@@ -443,6 +466,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getClockVariableDeclaration() {
 		return clockVariableDeclarationEClass;
 	}
@@ -452,6 +476,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDataVariableDeclaration() {
 		return dataVariableDeclarationEClass;
 	}
@@ -461,6 +486,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDataVariableDeclaration_Prefix() {
 		return (EAttribute)dataVariableDeclarationEClass.getEStructuralFeatures().get(0);
 	}
@@ -470,6 +496,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFunctionDeclaration() {
 		return functionDeclarationEClass;
 	}
@@ -479,6 +506,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFunctionDeclaration_Function() {
 		return (EReference)functionDeclarationEClass.getEStructuralFeatures().get(0);
 	}
@@ -488,6 +516,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFunction() {
 		return functionEClass;
 	}
@@ -497,6 +526,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFunction_ReturnType() {
 		return (EReference)functionEClass.getEStructuralFeatures().get(0);
 	}
@@ -506,6 +536,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFunction_Block() {
 		return (EReference)functionEClass.getEStructuralFeatures().get(1);
 	}
@@ -515,6 +546,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFunction_Parameter() {
 		return (EReference)functionEClass.getEStructuralFeatures().get(2);
 	}
@@ -524,6 +556,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTypeDeclaration() {
 		return typeDeclarationEClass;
 	}
@@ -533,6 +566,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTypeDeclaration_Type() {
 		return (EReference)typeDeclarationEClass.getEStructuralFeatures().get(0);
 	}
@@ -542,6 +576,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTypeDeclaration_TypeDefinition() {
 		return (EReference)typeDeclarationEClass.getEStructuralFeatures().get(1);
 	}
@@ -551,6 +586,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getVariable() {
 		return variableEClass;
 	}
@@ -560,6 +596,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getVariable_Index() {
 		return (EReference)variableEClass.getEStructuralFeatures().get(0);
 	}
@@ -569,6 +606,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getVariable_Container() {
 		return (EReference)variableEClass.getEStructuralFeatures().get(1);
 	}
@@ -578,6 +616,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getVariable_TypeDefinition() {
 		return (EReference)variableEClass.getEStructuralFeatures().get(2);
 	}
@@ -587,6 +626,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getVariable_Initializer() {
 		return (EReference)variableEClass.getEStructuralFeatures().get(3);
 	}
@@ -596,6 +636,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIndex() {
 		return indexEClass;
 	}
@@ -605,6 +646,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getValueIndex() {
 		return valueIndexEClass;
 	}
@@ -614,6 +656,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getValueIndex_SizeExpression() {
 		return (EReference)valueIndexEClass.getEStructuralFeatures().get(0);
 	}
@@ -623,6 +666,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTypeIndex() {
 		return typeIndexEClass;
 	}
@@ -632,6 +676,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTypeIndex_TypeDefinition() {
 		return (EReference)typeIndexEClass.getEStructuralFeatures().get(0);
 	}
@@ -641,6 +686,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getVariableContainer() {
 		return variableContainerEClass;
 	}
@@ -650,6 +696,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getVariableContainer_TypeDefinition() {
 		return (EReference)variableContainerEClass.getEStructuralFeatures().get(0);
 	}
@@ -659,6 +706,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getVariableContainer_Variable() {
 		return (EReference)variableContainerEClass.getEStructuralFeatures().get(1);
 	}
@@ -668,6 +716,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getParameter() {
 		return parameterEClass;
 	}
@@ -677,6 +726,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getParameter_VariableDeclaration() {
 		return (EReference)parameterEClass.getEStructuralFeatures().get(0);
 	}
@@ -686,6 +736,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_CallType() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
 	}
@@ -695,6 +746,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInitializer() {
 		return initializerEClass;
 	}
@@ -704,6 +756,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExpressionInitializer() {
 		return expressionInitializerEClass;
 	}
@@ -713,6 +766,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExpressionInitializer_Expression() {
 		return (EReference)expressionInitializerEClass.getEStructuralFeatures().get(0);
 	}
@@ -722,6 +776,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArrayInitializer() {
 		return arrayInitializerEClass;
 	}
@@ -731,6 +786,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArrayInitializer_Initializer() {
 		return (EReference)arrayInitializerEClass.getEStructuralFeatures().get(0);
 	}
@@ -740,6 +796,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getDataVariablePrefix() {
 		return dataVariablePrefixEEnum;
 	}
@@ -749,6 +806,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getCallType() {
 		return callTypeEEnum;
 	}
@@ -758,6 +816,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DeclarationsFactory getDeclarationsFactory() {
 		return (DeclarationsFactory)getEFactoryInstance();
 	}
@@ -1004,92 +1063,92 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
-		  (this, 
-		   source, 
+		  (this,
+		   source,
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
-		   });	
+			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
+		   });
 		addAnnotation
-		  (declarationsEClass, 
-		   source, 
+		  (declarationsEClass,
+		   source,
 		   new String[] {
-			 "constraints", "UniqueFunctionNames UniqueVariableNames UniqueTypeNames"
-		   });	
+			   "constraints", "UniqueFunctionNames UniqueVariableNames UniqueTypeNames"
+		   });
 		addAnnotation
-		  (globalDeclarationsEClass, 
-		   source, 
+		  (globalDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "constraints", "NoTemplateDeclarations"
-		   });	
+			   "constraints", "NoTemplateDeclarations"
+		   });
 		addAnnotation
-		  (localDeclarationsEClass, 
-		   source, 
+		  (localDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "constraints", "NoTemplateDeclarations NoChannelDeclarations"
-		   });	
+			   "constraints", "NoTemplateDeclarations NoChannelDeclarations"
+		   });
 		addAnnotation
-		  (systemDeclarationsEClass, 
-		   source, 
+		  (systemDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "constraints", "UniqueTemplateNames NoChannelDeclarations"
-		   });	
+			   "constraints", "UniqueTemplateNames NoChannelDeclarations"
+		   });
 		addAnnotation
-		  (channelVariableDeclarationEClass, 
-		   source, 
+		  (channelVariableDeclarationEClass,
+		   source,
 		   new String[] {
-			 "constraints", "MatchingType"
-		   });	
+			   "constraints", "MatchingType"
+		   });
 		addAnnotation
-		  (clockVariableDeclarationEClass, 
-		   source, 
+		  (clockVariableDeclarationEClass,
+		   source,
 		   new String[] {
-			 "constraints", "MatchingType"
-		   });	
+			   "constraints", "MatchingType"
+		   });
 		addAnnotation
-		  (dataVariableDeclarationEClass, 
-		   source, 
+		  (dataVariableDeclarationEClass,
+		   source,
 		   new String[] {
-			 "constraints", "MatchingType"
-		   });	
+			   "constraints", "MatchingType"
+		   });
 		addAnnotation
-		  (functionEClass, 
-		   source, 
+		  (functionEClass,
+		   source,
 		   new String[] {
-			 "constraints", "ValidReturnType UniqueParameterNames"
-		   });	
+			   "constraints", "ValidReturnType UniqueParameterNames"
+		   });
 		addAnnotation
-		  (typeDeclarationEClass, 
-		   source, 
+		  (typeDeclarationEClass,
+		   source,
 		   new String[] {
-			 "constraints", "UniqueTypeNames"
-		   });	
+			   "constraints", "UniqueTypeNames"
+		   });
 		addAnnotation
-		  (variableEClass, 
-		   source, 
+		  (variableEClass,
+		   source,
 		   new String[] {
-			 "constraints", "NoInitializerForClockAndChannelVariables"
-		   });	
+			   "constraints", "NoInitializerForClockAndChannelVariables"
+		   });
 		addAnnotation
-		  (typeIndexEClass, 
-		   source, 
+		  (typeIndexEClass,
+		   source,
 		   new String[] {
-			 "constraints", "IntegerBasedIndex"
-		   });	
+			   "constraints", "IntegerBasedIndex"
+		   });
 		addAnnotation
-		  (variableContainerEClass, 
-		   source, 
+		  (variableContainerEClass,
+		   source,
 		   new String[] {
-			 "constraints", "NoVoidVariables UniqueVariableNames"
-		   });	
+			   "constraints", "NoVoidVariables UniqueVariableNames"
+		   });
 		addAnnotation
-		  (parameterEClass, 
-		   source, 
+		  (parameterEClass,
+		   source,
 		   new String[] {
-			 "constraints", "SingleVariable"
+			   "constraints", "SingleVariable"
 		   });
 	}
 
@@ -1100,34 +1159,34 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		addAnnotation
-		  (declarationsEClass, 
-		   source, 
+		  (declarationsEClass,
+		   source,
 		   new String[] {
-			 "name", "Declarations",
-			 "kind", "elementOnly"
-		   });	
+			   "name", "Declarations",
+			   "kind", "elementOnly"
+		   });
 		addAnnotation
-		  (variableDeclarationEClass, 
-		   source, 
+		  (variableDeclarationEClass,
+		   source,
 		   new String[] {
-			 "name", "VariableDeclaration",
-			 "kind", "elementOnly"
-		   });	
+			   "name", "VariableDeclaration",
+			   "kind", "elementOnly"
+		   });
 		addAnnotation
-		  (variableEClass, 
-		   source, 
+		  (variableEClass,
+		   source,
 		   new String[] {
-			 "name", "Variable",
-			 "kind", "empty"
-		   });	
+			   "name", "Variable",
+			   "kind", "empty"
+		   });
 		addAnnotation
-		  (getVariableContainer_Variable(), 
-		   source, 
+		  (getVariableContainer_Variable(),
+		   source,
 		   new String[] {
-			 "kind", "element",
-			 "name", "variable"
+			   "kind", "element",
+			   "name", "variable"
 		   });
 	}
 
@@ -1138,96 +1197,96 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * @generated
 	 */
 	protected void createOCLAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";
 		addAnnotation
-		  (declarationsEClass, 
-		   source, 
+		  (declarationsEClass,
+		   source,
 		   new String[] {
-			 "UniqueFunctionNames", "self.declaration->select(oclIsKindOf(FunctionDeclaration)).oclAsType(FunctionDeclaration)->collect(function)->isUnique(name)",
-			 "UniqueVariableNames", "self.declaration->select(oclIsKindOf(VariableDeclaration)).oclAsType(VariableDeclaration)->collect(variable)->isUnique(name)",
-			 "UniqueTypeNames", "self.declaration->select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)->collect(type)->isUnique(name)"
-		   });	
+			   "UniqueFunctionNames", "self.declaration->select(oclIsKindOf(FunctionDeclaration)).oclAsType(FunctionDeclaration)->collect(function)->isUnique(name)",
+			   "UniqueVariableNames", "self.declaration->select(oclIsKindOf(VariableDeclaration)).oclAsType(VariableDeclaration)->collect(variable)->isUnique(name)",
+			   "UniqueTypeNames", "self.declaration->select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)->collect(type)->isUnique(name)"
+		   });
 		addAnnotation
-		  (globalDeclarationsEClass, 
-		   source, 
+		  (globalDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "NoTemplateDeclarations", "not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))"
-		   });	
+			   "NoTemplateDeclarations", "not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))"
+		   });
 		addAnnotation
-		  (localDeclarationsEClass, 
-		   source, 
+		  (localDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "NoTemplateDeclarations", "not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))",
-			 "NoChannelDeclarations", "not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))"
-		   });	
+			   "NoTemplateDeclarations", "not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))",
+			   "NoChannelDeclarations", "not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))"
+		   });
 		addAnnotation
-		  (systemDeclarationsEClass, 
-		   source, 
+		  (systemDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "UniqueTemplateNames", "self.declaration->select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)->collect(declaredTemplate)->isUnique(name)",
-			 "NoChannelDeclarations", "not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))"
-		   });	
+			   "UniqueTemplateNames", "self.declaration->select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)->collect(declaredTemplate)->isUnique(name)",
+			   "NoChannelDeclarations", "not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))"
+		   });
 		addAnnotation
-		  (channelVariableDeclarationEClass, 
-		   source, 
+		  (channelVariableDeclarationEClass,
+		   source,
 		   new String[] {
-			 "MatchingType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::CHAN"
-		   });	
+			   "MatchingType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::CHAN"
+		   });
 		addAnnotation
-		  (clockVariableDeclarationEClass, 
-		   source, 
+		  (clockVariableDeclarationEClass,
+		   source,
 		   new String[] {
-			 "MatchingType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::CLOCK"
-		   });	
+			   "MatchingType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::CLOCK"
+		   });
 		addAnnotation
-		  (dataVariableDeclarationEClass, 
-		   source, 
+		  (dataVariableDeclarationEClass,
+		   source,
 		   new String[] {
-			 "MatchingType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\n(self.typeDefinition.baseType <> types::BuiltInType::CHAN\r\nand\r\nself.typeDefinition.baseType <> types::BuiltInType::CLOCK)"
-		   });	
+			   "MatchingType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\n(self.typeDefinition.baseType <> types::BuiltInType::CHAN\r\nand\r\nself.typeDefinition.baseType <> types::BuiltInType::CLOCK)"
+		   });
 		addAnnotation
-		  (functionEClass, 
-		   source, 
+		  (functionEClass,
+		   source,
 		   new String[] {
-			 "ValidReturnType", "(not returnType.oclIsUndefined())\r\nimplies\r\n(returnType.baseType = types::BuiltInType::VOID or\r\n returnType.baseType = types::BuiltInType::INT or\r\n returnType.baseType = types::BuiltInType::BOOL)",
-			 "UniqueParameterNames", "self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)"
-		   });	
+			   "ValidReturnType", "(not returnType.oclIsUndefined())\r\nimplies\r\n(returnType.baseType = types::BuiltInType::VOID or\r\n returnType.baseType = types::BuiltInType::INT or\r\n returnType.baseType = types::BuiltInType::BOOL)",
+			   "UniqueParameterNames", "self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)"
+		   });
 		addAnnotation
-		  (typeDeclarationEClass, 
-		   source, 
+		  (typeDeclarationEClass,
+		   source,
 		   new String[] {
-			 "UniqueTypeNames", "self.type->isUnique(name)"
-		   });	
+			   "UniqueTypeNames", "self.type->isUnique(name)"
+		   });
 		addAnnotation
-		  (variableEClass, 
-		   source, 
+		  (variableEClass,
+		   source,
 		   new String[] {
-			 "NoInitializerForClockAndChannelVariables", "((not self.typeDefinition.oclIsUndefined()) and\r\n(self.typeDefinition.baseType = types::BuiltInType::CHAN or\r\n self.typeDefinition.baseType = types::BuiltInType::CLOCK))\r\n implies self.initializer.oclIsUndefined()"
-		   });	
+			   "NoInitializerForClockAndChannelVariables", "((not self.typeDefinition.oclIsUndefined()) and\r\n(self.typeDefinition.baseType = types::BuiltInType::CHAN or\r\n self.typeDefinition.baseType = types::BuiltInType::CLOCK))\r\n implies self.initializer.oclIsUndefined()"
+		   });
 		addAnnotation
-		  (getVariable_TypeDefinition(), 
-		   source, 
+		  (getVariable_TypeDefinition(),
+		   source,
 		   new String[] {
-			 "derivation", "if self.container.oclIsUndefined()\r\nthen null \r\nelse \r\nself.container.typeDefinition \r\nendif"
-		   });	
+			   "derivation", "if self.container.oclIsUndefined()\r\nthen null \r\nelse \r\nself.container.typeDefinition \r\nendif"
+		   });
 		addAnnotation
-		  (typeIndexEClass, 
-		   source, 
+		  (typeIndexEClass,
+		   source,
 		   new String[] {
-			 "IntegerBasedIndex", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::INT"
-		   });	
+			   "IntegerBasedIndex", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::INT"
+		   });
 		addAnnotation
-		  (variableContainerEClass, 
-		   source, 
+		  (variableContainerEClass,
+		   source,
 		   new String[] {
-			 "NoVoidVariables", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType <> types::BuiltInType::VOID",
-			 "UniqueVariableNames", "self.variable->isUnique(name)"
-		   });	
+			   "NoVoidVariables", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType <> types::BuiltInType::VOID",
+			   "UniqueVariableNames", "self.variable->isUnique(name)"
+		   });
 		addAnnotation
-		  (parameterEClass, 
-		   source, 
+		  (parameterEClass,
+		   source,
 		   new String[] {
-			 "SingleVariable", "(not self.variableDeclaration.oclIsUndefined())\r\nimplies\r\nself.variableDeclaration.variable->size() <= 1"
+			   "SingleVariable", "(not self.variableDeclaration.oclIsUndefined())\r\nimplies\r\nself.variableDeclaration.variable->size() <= 1"
 		   });
 	}
 

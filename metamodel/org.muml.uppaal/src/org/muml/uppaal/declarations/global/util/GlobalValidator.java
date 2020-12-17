@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.muml.uppaal.declarations.global.*;
 import org.muml.uppaal.declarations.global.ChannelList;
 import org.muml.uppaal.declarations.global.ChannelPriority;
 import org.muml.uppaal.declarations.global.ChannelPriorityItem;

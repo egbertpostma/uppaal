@@ -89,6 +89,7 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ColorKind getColor() {
 		return color;
 	}
@@ -98,6 +99,7 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColor(ColorKind newColor) {
 		ColorKind oldColor = color;
 		color = newColor == null ? COLOR_EDEFAULT : newColor;
@@ -110,6 +112,7 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getColorCode() {
 		return colorCode;
 	}
@@ -119,6 +122,7 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColorCode(String newColorCode) {
 		String oldColorCode = colorCode;
 		colorCode = newColorCode;
@@ -203,7 +207,7 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (color: ");
 		result.append(color);
 		result.append(", colorCode: ");

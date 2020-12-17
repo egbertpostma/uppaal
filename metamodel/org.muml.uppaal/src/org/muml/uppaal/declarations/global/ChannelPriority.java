@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.global.GlobalPackage#getChannelPriority()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL AtMostOneDefaultItem='self.item->select(oclIsKindOf(DefaultChannelPriority))->size() <= 1' EachChannelContainedAtMostOnce='self.item->select(oclIsKindOf(ChannelList)).oclAsType(ChannelList)->collect(channelExpression)->isUnique(variable)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL AtMostOneDefaultItem='self.item-&gt;select(oclIsKindOf(DefaultChannelPriority))-&gt;size() &lt;= 1' EachChannelContainedAtMostOnce='self.item-&gt;select(oclIsKindOf(ChannelList)).oclAsType(ChannelList)-&gt;collect(channelExpression)-&gt;isUnique(variable)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='AtMostOneDefaultItem EachChannelContainedAtMostOnce'"
  * @generated
  */

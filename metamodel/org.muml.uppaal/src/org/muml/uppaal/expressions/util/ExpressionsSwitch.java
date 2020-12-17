@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.expressions.*;
 import org.muml.uppaal.expressions.ArithmeticExpression;
 import org.muml.uppaal.expressions.AssignmentExpression;
 import org.muml.uppaal.expressions.BinaryExpression;
@@ -221,6 +222,14 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 				T result = caseBitwiseExpression(bitwiseExpression);
 				if (result == null) result = caseBinaryExpression(bitwiseExpression);
 				if (result == null) result = caseExpression(bitwiseExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExpressionsPackage.CLOCK_RATE_EXPRESSION: {
+				ClockRateExpression clockRateExpression = (ClockRateExpression)theEObject;
+				T result = caseClockRateExpression(clockRateExpression);
+				if (result == null) result = caseBinaryExpression(clockRateExpression);
+				if (result == null) result = caseExpression(clockRateExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -510,6 +519,21 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBitwiseExpression(BitwiseExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Clock Rate Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Clock Rate Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClockRateExpression(ClockRateExpression object) {
 		return null;
 	}
 

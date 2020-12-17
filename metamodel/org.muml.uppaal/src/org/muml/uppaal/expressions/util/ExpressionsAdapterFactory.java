@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.expressions.*;
 import org.muml.uppaal.expressions.ArithmeticExpression;
 import org.muml.uppaal.expressions.AssignmentExpression;
 import org.muml.uppaal.expressions.BinaryExpression;
@@ -159,6 +160,10 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBitwiseExpression(BitwiseExpression object) {
 				return createBitwiseExpressionAdapter();
+			}
+			@Override
+			public Adapter caseClockRateExpression(ClockRateExpression object) {
+				return createClockRateExpressionAdapter();
 			}
 			@Override
 			public Adapter caseVariableContainer(VariableContainer object) {
@@ -447,6 +452,20 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBitwiseExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.expressions.ClockRateExpression <em>Clock Rate Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.muml.uppaal.expressions.ClockRateExpression
+	 * @generated
+	 */
+	public Adapter createClockRateExpressionAdapter() {
 		return null;
 	}
 

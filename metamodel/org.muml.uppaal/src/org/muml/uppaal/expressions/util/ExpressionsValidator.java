@@ -10,6 +10,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.muml.uppaal.declarations.util.DeclarationsValidator;
+import org.muml.uppaal.expressions.*;
 import org.muml.uppaal.expressions.ArithmeticExpression;
 import org.muml.uppaal.expressions.ArithmeticOperator;
 import org.muml.uppaal.expressions.AssignmentExpression;
@@ -160,6 +161,8 @@ public class ExpressionsValidator extends EObjectValidator {
 				return validateMinMaxExpression((MinMaxExpression)value, diagnostics, context);
 			case ExpressionsPackage.BITWISE_EXPRESSION:
 				return validateBitwiseExpression((BitwiseExpression)value, diagnostics, context);
+			case ExpressionsPackage.CLOCK_RATE_EXPRESSION:
+				return validateClockRateExpression((ClockRateExpression)value, diagnostics, context);
 			case ExpressionsPackage.ASSIGNMENT_OPERATOR:
 				return validateAssignmentOperator((AssignmentOperator)value, diagnostics, context);
 			case ExpressionsPackage.ARITHMETIC_OPERATOR:
@@ -436,6 +439,15 @@ public class ExpressionsValidator extends EObjectValidator {
 	 */
 	public boolean validateBitwiseExpression(BitwiseExpression bitwiseExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bitwiseExpression, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateClockRateExpression(ClockRateExpression clockRateExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(clockRateExpression, diagnostics, context);
 	}
 
 	/**

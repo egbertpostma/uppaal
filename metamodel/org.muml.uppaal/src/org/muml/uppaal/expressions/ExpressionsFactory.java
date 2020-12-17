@@ -175,6 +175,15 @@ public interface ExpressionsFactory extends EFactory {
 	BitwiseExpression createBitwiseExpression();
 
 	/**
+	 * Returns a new object of class '<em>Clock Rate Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Clock Rate Expression</em>'.
+	 * @generated
+	 */
+	ClockRateExpression createClockRateExpression();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

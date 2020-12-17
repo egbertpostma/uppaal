@@ -93,6 +93,7 @@ public class VariableImpl extends NamedElementImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Index> getIndex() {
 		if (index == null) {
 			index = new EObjectContainmentEList<Index>(Index.class, this, DeclarationsPackage.VARIABLE__INDEX);
@@ -105,6 +106,7 @@ public class VariableImpl extends NamedElementImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public VariableContainer getContainer() {
 		if (eContainerFeatureID() != DeclarationsPackage.VARIABLE__CONTAINER) return null;
 		return (VariableContainer)eInternalContainer();
@@ -125,6 +127,7 @@ public class VariableImpl extends NamedElementImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContainer(VariableContainer newContainer) {
 		if (newContainer != eInternalContainer() || (eContainerFeatureID() != DeclarationsPackage.VARIABLE__CONTAINER && newContainer != null)) {
 			if (EcoreUtil.isAncestor(this, newContainer))
@@ -146,6 +149,7 @@ public class VariableImpl extends NamedElementImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeDefinition getTypeDefinition() {
 		return (TypeDefinition)TYPE_DEFINITION__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
@@ -164,6 +168,7 @@ public class VariableImpl extends NamedElementImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Initializer getInitializer() {
 		return initializer;
 	}
@@ -188,6 +193,7 @@ public class VariableImpl extends NamedElementImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInitializer(Initializer newInitializer) {
 		if (newInitializer != initializer) {
 			NotificationChain msgs = null;

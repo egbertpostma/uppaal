@@ -67,6 +67,7 @@ public class BitwiseExpressionImpl extends BinaryExpressionImpl implements Bitwi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BitwiseOperator getOperator() {
 		return operator;
 	}
@@ -76,6 +77,7 @@ public class BitwiseExpressionImpl extends BinaryExpressionImpl implements Bitwi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOperator(BitwiseOperator newOperator) {
 		BitwiseOperator oldOperator = operator;
 		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
@@ -150,7 +152,7 @@ public class BitwiseExpressionImpl extends BinaryExpressionImpl implements Bitwi
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (operator: ");
 		result.append(operator);
 		result.append(')');

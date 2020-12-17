@@ -88,6 +88,7 @@ public class PointImpl extends EObjectImpl implements Point {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getX() {
 		return x;
 	}
@@ -97,6 +98,7 @@ public class PointImpl extends EObjectImpl implements Point {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setX(int newX) {
 		int oldX = x;
 		x = newX;
@@ -109,6 +111,7 @@ public class PointImpl extends EObjectImpl implements Point {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getY() {
 		return y;
 	}
@@ -118,6 +121,7 @@ public class PointImpl extends EObjectImpl implements Point {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setY(int newY) {
 		int oldY = y;
 		y = newY;
@@ -202,7 +206,7 @@ public class PointImpl extends EObjectImpl implements Point {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (x: ");
 		result.append(x);
 		result.append(", y: ");

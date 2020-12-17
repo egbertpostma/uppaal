@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.muml.uppaal.*;
 import org.muml.uppaal.NTA;
 import org.muml.uppaal.UppaalFactory;
 import org.muml.uppaal.UppaalPackage;
@@ -66,6 +67,7 @@ public class UppaalFactoryImpl extends EFactoryImpl implements UppaalFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NTA createNTA() {
 		NTAImpl nta = new NTAImpl();
 		return nta;
@@ -76,6 +78,7 @@ public class UppaalFactoryImpl extends EFactoryImpl implements UppaalFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public UppaalPackage getUppaalPackage() {
 		return (UppaalPackage)getEPackage();
 	}

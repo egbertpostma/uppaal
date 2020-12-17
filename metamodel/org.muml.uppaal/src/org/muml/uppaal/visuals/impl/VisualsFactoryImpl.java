@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.muml.uppaal.visuals.*;
 import org.muml.uppaal.visuals.ColorKind;
 import org.muml.uppaal.visuals.Point;
 import org.muml.uppaal.visuals.VisualsFactory;
@@ -98,6 +99,7 @@ public class VisualsFactoryImpl extends EFactoryImpl implements VisualsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Point createPoint() {
 		PointImpl point = new PointImpl();
 		return point;
@@ -128,6 +130,7 @@ public class VisualsFactoryImpl extends EFactoryImpl implements VisualsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public VisualsPackage getVisualsPackage() {
 		return (VisualsPackage)getEPackage();
 	}

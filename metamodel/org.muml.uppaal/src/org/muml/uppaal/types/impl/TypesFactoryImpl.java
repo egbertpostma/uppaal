@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.muml.uppaal.types.*;
 import org.muml.uppaal.types.BuiltInType;
 import org.muml.uppaal.types.DeclaredType;
 import org.muml.uppaal.types.IntegerBounds;
@@ -112,6 +113,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PredefinedType createPredefinedType() {
 		PredefinedTypeImpl predefinedType = new PredefinedTypeImpl();
 		return predefinedType;
@@ -122,6 +124,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DeclaredType createDeclaredType() {
 		DeclaredTypeImpl declaredType = new DeclaredTypeImpl();
 		return declaredType;
@@ -132,6 +135,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeReference createTypeReference() {
 		TypeReferenceImpl typeReference = new TypeReferenceImpl();
 		return typeReference;
@@ -142,6 +146,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ScalarTypeSpecification createScalarTypeSpecification() {
 		ScalarTypeSpecificationImpl scalarTypeSpecification = new ScalarTypeSpecificationImpl();
 		return scalarTypeSpecification;
@@ -152,6 +157,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StructTypeSpecification createStructTypeSpecification() {
 		StructTypeSpecificationImpl structTypeSpecification = new StructTypeSpecificationImpl();
 		return structTypeSpecification;
@@ -162,6 +168,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RangeTypeSpecification createRangeTypeSpecification() {
 		RangeTypeSpecificationImpl rangeTypeSpecification = new RangeTypeSpecificationImpl();
 		return rangeTypeSpecification;
@@ -172,6 +179,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IntegerBounds createIntegerBounds() {
 		IntegerBoundsImpl integerBounds = new IntegerBoundsImpl();
 		return integerBounds;
@@ -182,6 +190,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Library createLibrary() {
 		LibraryImpl library = new LibraryImpl();
 		return library;
@@ -212,6 +221,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypesPackage getTypesPackage() {
 		return (TypesPackage)getEPackage();
 	}

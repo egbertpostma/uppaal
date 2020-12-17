@@ -50,7 +50,7 @@ public enum BitShiftOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LEFT
-	 * @model literal="<<"
+	 * @model literal="&lt;&lt;"
 	 * @generated
 	 * @ordered
 	 */
@@ -65,7 +65,7 @@ public enum BitShiftOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #RIGHT
-	 * @model literal=">>"
+	 * @model literal="&gt;&gt;"
 	 * @generated
 	 * @ordered
 	 */
@@ -181,6 +181,7 @@ public enum BitShiftOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 	  return value;
 	}
@@ -190,6 +191,7 @@ public enum BitShiftOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 	  return name;
 	}
@@ -199,6 +201,7 @@ public enum BitShiftOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 	  return literal;
 	}

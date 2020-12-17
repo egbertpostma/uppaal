@@ -69,6 +69,7 @@ public abstract class TypeDefinitionImpl extends EObjectImpl implements TypeDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BuiltInType getBaseType() {
 		return (BuiltInType)BASE_TYPE__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
@@ -78,6 +79,7 @@ public abstract class TypeDefinitionImpl extends EObjectImpl implements TypeDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeSpecification getTypeSpecification() {
 		return (TypeSpecification)TYPE_SPECIFICATION__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}

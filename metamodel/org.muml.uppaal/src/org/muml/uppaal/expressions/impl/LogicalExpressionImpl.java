@@ -67,6 +67,7 @@ public class LogicalExpressionImpl extends BinaryExpressionImpl implements Logic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LogicalOperator getOperator() {
 		return operator;
 	}
@@ -76,6 +77,7 @@ public class LogicalExpressionImpl extends BinaryExpressionImpl implements Logic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOperator(LogicalOperator newOperator) {
 		LogicalOperator oldOperator = operator;
 		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
@@ -150,7 +152,7 @@ public class LogicalExpressionImpl extends BinaryExpressionImpl implements Logic
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (operator: ");
 		result.append(operator);
 		result.append(')');

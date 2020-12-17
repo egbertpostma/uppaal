@@ -64,6 +64,7 @@ public class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeDeclaration getTypeDeclaration() {
 		if (eContainerFeatureID() != TypesPackage.DECLARED_TYPE__TYPE_DECLARATION) return null;
 		return (TypeDeclaration)eInternalContainer();
@@ -84,6 +85,7 @@ public class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTypeDeclaration(TypeDeclaration newTypeDeclaration) {
 		if (newTypeDeclaration != eInternalContainer() || (eContainerFeatureID() != TypesPackage.DECLARED_TYPE__TYPE_DECLARATION && newTypeDeclaration != null)) {
 			if (EcoreUtil.isAncestor(this, newTypeDeclaration))
@@ -105,6 +107,7 @@ public class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeDefinition getTypeDefinition() {
 		return (TypeDefinition)TYPE_DEFINITION__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}

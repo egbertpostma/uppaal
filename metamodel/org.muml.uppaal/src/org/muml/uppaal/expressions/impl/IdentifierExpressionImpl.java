@@ -76,6 +76,7 @@ public class IdentifierExpressionImpl extends ExpressionImpl implements Identifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NamedElement getIdentifier() {
 		if (identifier != null && identifier.eIsProxy()) {
 			InternalEObject oldIdentifier = (InternalEObject)identifier;
@@ -102,6 +103,7 @@ public class IdentifierExpressionImpl extends ExpressionImpl implements Identifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIdentifier(NamedElement newIdentifier) {
 		NamedElement oldIdentifier = identifier;
 		identifier = newIdentifier;
@@ -114,6 +116,7 @@ public class IdentifierExpressionImpl extends ExpressionImpl implements Identifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Expression> getIndex() {
 		if (index == null) {
 			index = new EObjectContainmentEList<Expression>(Expression.class, this, ExpressionsPackage.IDENTIFIER_EXPRESSION__INDEX);

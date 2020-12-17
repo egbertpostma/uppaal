@@ -144,7 +144,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link StatementsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -158,20 +158,30 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		if (isInited) return (StatementsPackage)EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof StatementsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new StatementsPackageImpl());
+		Object registeredStatementsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		StatementsPackageImpl theStatementsPackage = registeredStatementsPackage instanceof StatementsPackageImpl ? (StatementsPackageImpl)registeredStatementsPackage : new StatementsPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) instanceof UppaalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) : UppaalPackage.eINSTANCE);
-		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI) instanceof DeclarationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI) : DeclarationsPackage.eINSTANCE);
-		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) instanceof GlobalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) : GlobalPackage.eINSTANCE);
-		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) instanceof TemplatesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) : TemplatesPackage.eINSTANCE);
-		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) instanceof ExpressionsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) : ExpressionsPackage.eINSTANCE);
-		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) instanceof VisualsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) : VisualsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI);
+		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(registeredPackage instanceof UppaalPackageImpl ? registeredPackage : UppaalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackageImpl theCorePackage = (CorePackageImpl)(registeredPackage instanceof CorePackageImpl ? registeredPackage : CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(registeredPackage instanceof TypesPackageImpl ? registeredPackage : TypesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI);
+		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(registeredPackage instanceof DeclarationsPackageImpl ? registeredPackage : DeclarationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI);
+		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(registeredPackage instanceof GlobalPackageImpl ? registeredPackage : GlobalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
+		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(registeredPackage instanceof SystemPackageImpl ? registeredPackage : SystemPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI);
+		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(registeredPackage instanceof TemplatesPackageImpl ? registeredPackage : TemplatesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
+		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(registeredPackage instanceof ExpressionsPackageImpl ? registeredPackage : ExpressionsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI);
+		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(registeredPackage instanceof VisualsPackageImpl ? registeredPackage : VisualsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theStatementsPackage.createPackageContents();
@@ -199,8 +209,9 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theStatementsPackage, 
+			(theStatementsPackage,
 			 new EValidator.Descriptor() {
+				 @Override
 				 public EValidator getEValidator() {
 					 return StatementsValidator.INSTANCE;
 				 }
@@ -209,7 +220,6 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		// Mark meta-data to indicate it can't be changed
 		theStatementsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(StatementsPackage.eNS_URI, theStatementsPackage);
 		return theStatementsPackage;
@@ -220,6 +230,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStatement() {
 		return statementEClass;
 	}
@@ -229,6 +240,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBlock() {
 		return blockEClass;
 	}
@@ -238,6 +250,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBlock_Declarations() {
 		return (EReference)blockEClass.getEStructuralFeatures().get(0);
 	}
@@ -247,6 +260,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBlock_Statement() {
 		return (EReference)blockEClass.getEStructuralFeatures().get(1);
 	}
@@ -256,6 +270,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEmptyStatement() {
 		return emptyStatementEClass;
 	}
@@ -265,6 +280,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getForLoop() {
 		return forLoopEClass;
 	}
@@ -274,6 +290,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getForLoop_Initialization() {
 		return (EReference)forLoopEClass.getEStructuralFeatures().get(0);
 	}
@@ -283,6 +300,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getForLoop_Condition() {
 		return (EReference)forLoopEClass.getEStructuralFeatures().get(1);
 	}
@@ -292,6 +310,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getForLoop_Iteration() {
 		return (EReference)forLoopEClass.getEStructuralFeatures().get(2);
 	}
@@ -301,6 +320,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getForLoop_Statement() {
 		return (EReference)forLoopEClass.getEStructuralFeatures().get(3);
 	}
@@ -310,6 +330,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIteration() {
 		return iterationEClass;
 	}
@@ -319,6 +340,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIteration_Statement() {
 		return (EReference)iterationEClass.getEStructuralFeatures().get(0);
 	}
@@ -328,6 +350,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getWhileLoop() {
 		return whileLoopEClass;
 	}
@@ -337,6 +360,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getWhileLoop_Expression() {
 		return (EReference)whileLoopEClass.getEStructuralFeatures().get(0);
 	}
@@ -346,6 +370,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getWhileLoop_Statement() {
 		return (EReference)whileLoopEClass.getEStructuralFeatures().get(1);
 	}
@@ -355,6 +380,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDoWhileLoop() {
 		return doWhileLoopEClass;
 	}
@@ -364,6 +390,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDoWhileLoop_Statement() {
 		return (EReference)doWhileLoopEClass.getEStructuralFeatures().get(0);
 	}
@@ -373,6 +400,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDoWhileLoop_Expression() {
 		return (EReference)doWhileLoopEClass.getEStructuralFeatures().get(1);
 	}
@@ -382,6 +410,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIfStatement() {
 		return ifStatementEClass;
 	}
@@ -391,6 +420,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIfStatement_IfExpression() {
 		return (EReference)ifStatementEClass.getEStructuralFeatures().get(0);
 	}
@@ -400,6 +430,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIfStatement_ThenStatement() {
 		return (EReference)ifStatementEClass.getEStructuralFeatures().get(1);
 	}
@@ -409,6 +440,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIfStatement_ElseStatement() {
 		return (EReference)ifStatementEClass.getEStructuralFeatures().get(2);
 	}
@@ -418,6 +450,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getReturnStatement() {
 		return returnStatementEClass;
 	}
@@ -427,6 +460,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getReturnStatement_ReturnExpression() {
 		return (EReference)returnStatementEClass.getEStructuralFeatures().get(0);
 	}
@@ -436,6 +470,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExpressionStatement() {
 		return expressionStatementEClass;
 	}
@@ -445,6 +480,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExpressionStatement_Expression() {
 		return (EReference)expressionStatementEClass.getEStructuralFeatures().get(0);
 	}
@@ -454,6 +490,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StatementsFactory getStatementsFactory() {
 		return (StatementsFactory)getEFactoryInstance();
 	}
@@ -608,26 +645,26 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
-		  (this, 
-		   source, 
+		  (this,
+		   source,
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
-		   });	
+			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
+		   });
 		addAnnotation
-		  (blockEClass, 
-		   source, 
+		  (blockEClass,
+		   source,
 		   new String[] {
-			 "constraints", "DataVariableDeclarationsOnly"
-		   });	
+			   "constraints", "DataVariableDeclarationsOnly"
+		   });
 		addAnnotation
-		  (iterationEClass, 
-		   source, 
+		  (iterationEClass,
+		   source,
 		   new String[] {
-			 "constraints", "SingleVariable"
+			   "constraints", "SingleVariable"
 		   });
 	}
 
@@ -638,18 +675,18 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * @generated
 	 */
 	protected void createOCLAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";
 		addAnnotation
-		  (blockEClass, 
-		   source, 
+		  (blockEClass,
+		   source,
 		   new String[] {
-			 "DataVariableDeclarationsOnly", "(not self.declarations.oclIsUndefined())\r\nimplies\r\n(self.declarations.declaration->forAll(oclIsKindOf(declarations::DataVariableDeclaration)))"
-		   });	
+			   "DataVariableDeclarationsOnly", "(not self.declarations.oclIsUndefined())\r\nimplies\r\n(self.declarations.declaration->forAll(oclIsKindOf(declarations::DataVariableDeclaration)))"
+		   });
 		addAnnotation
-		  (iterationEClass, 
-		   source, 
+		  (iterationEClass,
+		   source,
 		   new String[] {
-			 "SingleVariable", "self.variable->size() <= 1"
+			   "SingleVariable", "self.variable->size() <= 1"
 		   });
 	}
 

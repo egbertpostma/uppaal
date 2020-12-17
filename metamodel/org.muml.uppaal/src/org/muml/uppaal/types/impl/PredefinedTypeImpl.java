@@ -67,6 +67,7 @@ public class PredefinedTypeImpl extends TypeImpl implements PredefinedType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BuiltInType getType() {
 		return type;
 	}
@@ -76,6 +77,7 @@ public class PredefinedTypeImpl extends TypeImpl implements PredefinedType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(BuiltInType newType) {
 		BuiltInType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
@@ -150,7 +152,7 @@ public class PredefinedTypeImpl extends TypeImpl implements PredefinedType {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (type: ");
 		result.append(type);
 		result.append(')');

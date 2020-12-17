@@ -60,7 +60,7 @@ public enum BitwiseOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #AND
-	 * @model literal="&"
+	 * @model literal="&amp;"
 	 * @generated
 	 * @ordered
 	 */
@@ -208,6 +208,7 @@ public enum BitwiseOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 	  return value;
 	}
@@ -217,6 +218,7 @@ public enum BitwiseOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 	  return name;
 	}
@@ -226,6 +228,7 @@ public enum BitwiseOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 	  return literal;
 	}

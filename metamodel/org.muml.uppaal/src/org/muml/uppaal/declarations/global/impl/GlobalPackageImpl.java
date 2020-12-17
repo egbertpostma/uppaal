@@ -96,7 +96,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link GlobalPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -110,20 +110,30 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 		if (isInited) return (GlobalPackage)EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI);
 
 		// Obtain or create and register package
-		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GlobalPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new GlobalPackageImpl());
+		Object registeredGlobalPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		GlobalPackageImpl theGlobalPackage = registeredGlobalPackage instanceof GlobalPackageImpl ? (GlobalPackageImpl)registeredGlobalPackage : new GlobalPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) instanceof UppaalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) : UppaalPackage.eINSTANCE);
-		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI) instanceof DeclarationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI) : DeclarationsPackage.eINSTANCE);
-		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) instanceof TemplatesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) : TemplatesPackage.eINSTANCE);
-		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) instanceof StatementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) : StatementsPackage.eINSTANCE);
-		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) instanceof ExpressionsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) : ExpressionsPackage.eINSTANCE);
-		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) instanceof VisualsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) : VisualsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI);
+		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(registeredPackage instanceof UppaalPackageImpl ? registeredPackage : UppaalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackageImpl theCorePackage = (CorePackageImpl)(registeredPackage instanceof CorePackageImpl ? registeredPackage : CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(registeredPackage instanceof TypesPackageImpl ? registeredPackage : TypesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI);
+		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(registeredPackage instanceof DeclarationsPackageImpl ? registeredPackage : DeclarationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
+		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(registeredPackage instanceof SystemPackageImpl ? registeredPackage : SystemPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI);
+		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(registeredPackage instanceof TemplatesPackageImpl ? registeredPackage : TemplatesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
+		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(registeredPackage instanceof StatementsPackageImpl ? registeredPackage : StatementsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
+		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(registeredPackage instanceof ExpressionsPackageImpl ? registeredPackage : ExpressionsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI);
+		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(registeredPackage instanceof VisualsPackageImpl ? registeredPackage : VisualsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theGlobalPackage.createPackageContents();
@@ -151,8 +161,9 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theGlobalPackage, 
+			(theGlobalPackage,
 			 new EValidator.Descriptor() {
+				 @Override
 				 public EValidator getEValidator() {
 					 return GlobalValidator.INSTANCE;
 				 }
@@ -161,7 +172,6 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 		// Mark meta-data to indicate it can't be changed
 		theGlobalPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(GlobalPackage.eNS_URI, theGlobalPackage);
 		return theGlobalPackage;
@@ -172,6 +182,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChannelPriority() {
 		return channelPriorityEClass;
 	}
@@ -181,6 +192,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getChannelPriority_Item() {
 		return (EReference)channelPriorityEClass.getEStructuralFeatures().get(0);
 	}
@@ -190,6 +202,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChannelPriorityItem() {
 		return channelPriorityItemEClass;
 	}
@@ -199,6 +212,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChannelList() {
 		return channelListEClass;
 	}
@@ -208,6 +222,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getChannelList_ChannelExpression() {
 		return (EReference)channelListEClass.getEStructuralFeatures().get(0);
 	}
@@ -217,6 +232,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDefaultChannelPriority() {
 		return defaultChannelPriorityEClass;
 	}
@@ -226,6 +242,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GlobalFactory getGlobalFactory() {
 		return (GlobalFactory)getEFactoryInstance();
 	}
@@ -319,26 +336,26 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
-		  (this, 
-		   source, 
+		  (this,
+		   source,
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
-		   });	
+			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
+		   });
 		addAnnotation
-		  (channelPriorityEClass, 
-		   source, 
+		  (channelPriorityEClass,
+		   source,
 		   new String[] {
-			 "constraints", "AtMostOneDefaultItem EachChannelContainedAtMostOnce"
-		   });	
+			   "constraints", "AtMostOneDefaultItem EachChannelContainedAtMostOnce"
+		   });
 		addAnnotation
-		  (channelListEClass, 
-		   source, 
+		  (channelListEClass,
+		   source,
 		   new String[] {
-			 "constraints", "ChannelVariablesOnly"
+			   "constraints", "ChannelVariablesOnly"
 		   });
 	}
 
@@ -349,19 +366,19 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * @generated
 	 */
 	protected void createOCLAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";
 		addAnnotation
-		  (channelPriorityEClass, 
-		   source, 
+		  (channelPriorityEClass,
+		   source,
 		   new String[] {
-			 "AtMostOneDefaultItem", "self.item->select(oclIsKindOf(DefaultChannelPriority))->size() <= 1",
-			 "EachChannelContainedAtMostOnce", "self.item->select(oclIsKindOf(ChannelList)).oclAsType(ChannelList)->collect(channelExpression)->isUnique(variable)"
-		   });	
+			   "AtMostOneDefaultItem", "self.item->select(oclIsKindOf(DefaultChannelPriority))->size() <= 1",
+			   "EachChannelContainedAtMostOnce", "self.item->select(oclIsKindOf(ChannelList)).oclAsType(ChannelList)->collect(channelExpression)->isUnique(variable)"
+		   });
 		addAnnotation
-		  (channelListEClass, 
-		   source, 
+		  (channelListEClass,
+		   source,
 		   new String[] {
-			 "ChannelVariablesOnly", "self.channelExpression->forAll(\r\n\t(not identifier.typeDefinition.oclIsUndefined()) implies identifier.typeDefinition.baseType = types::BuiltInType::CHAN\r\n)"
+			   "ChannelVariablesOnly", "self.channelExpression->forAll(\r\n\t(not identifier.typeDefinition.oclIsUndefined()) implies identifier.typeDefinition.baseType = types::BuiltInType::CHAN\r\n)"
 		   });
 	}
 

@@ -31,132 +31,127 @@ import org.muml.uppaal.trace.TraceRepository;
 public class TraceRepositoryImpl extends MinimalEObjectImpl.Container implements TraceRepository
 {
   /**
-   * The cached value of the '{@link #getTraces() <em>Traces</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTraces() <em>Traces</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTraces()
-   * @generated
-   * @ordered
-   */
+	 * @see #getTraces()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Trace> traces;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected TraceRepositoryImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return TracePackage.Literals.TRACE_REPOSITORY;
-  }
+		return TracePackage.Literals.TRACE_REPOSITORY;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Trace> getTraces()
+	 * @generated
+	 */
+  @Override
+		public EList<Trace> getTraces()
   {
-    if (traces == null)
-    {
-      traces = new EObjectContainmentEList<Trace>(Trace.class, this, TracePackage.TRACE_REPOSITORY__TRACES);
-    }
-    return traces;
-  }
+		if (traces == null) {
+			traces = new EObjectContainmentEList<Trace>(Trace.class, this, TracePackage.TRACE_REPOSITORY__TRACES);
+		}
+		return traces;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case TracePackage.TRACE_REPOSITORY__TRACES:
-        return ((InternalEList<?>)getTraces()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case TracePackage.TRACE_REPOSITORY__TRACES:
+				return ((InternalEList<?>)getTraces()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case TracePackage.TRACE_REPOSITORY__TRACES:
-        return getTraces();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case TracePackage.TRACE_REPOSITORY__TRACES:
+				return getTraces();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case TracePackage.TRACE_REPOSITORY__TRACES:
-        getTraces().clear();
-        getTraces().addAll((Collection<? extends Trace>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case TracePackage.TRACE_REPOSITORY__TRACES:
+				getTraces().clear();
+				getTraces().addAll((Collection<? extends Trace>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case TracePackage.TRACE_REPOSITORY__TRACES:
-        getTraces().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case TracePackage.TRACE_REPOSITORY__TRACES:
+				getTraces().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case TracePackage.TRACE_REPOSITORY__TRACES:
-        return traces != null && !traces.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case TracePackage.TRACE_REPOSITORY__TRACES:
+				return traces != null && !traces.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //TraceRepositoryImpl

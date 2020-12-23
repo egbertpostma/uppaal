@@ -15,7 +15,6 @@ import "platform:/resource/org.muml.uppaal/model/uppaal.ecore#//visuals" as visu
 
 generate trace "http://www.muml.org/uppaal/trace/1.0.0"
 
-
 TraceRepository:
 	('Cannot reuse state space when trace length optimisation is used.')?
 	(traces+=Trace)*

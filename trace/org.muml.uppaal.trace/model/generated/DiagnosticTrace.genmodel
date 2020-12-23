@@ -4,7 +4,7 @@
     editorDirectory="/org.muml.uppaal.trace.editor/src" modelPluginID="org.muml.uppaal.trace"
     forceOverwrite="true" modelName="DiagnosticTrace" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="org.muml.uppaal.trace.edit"
-    editorPluginID="org.muml.uppaal.trace.editor" runtimeVersion="2.12" usedGenPackages="platform:/resource/org.muml.uppaal/model/uppaal.genmodel#//uppaal/core platform:/resource/org.muml.uppaal/model/uppaal.genmodel#//uppaal/declarations platform:/resource/org.muml.uppaal/model/uppaal.genmodel#//uppaal/templates">
+    editorPluginID="org.muml.uppaal.trace.editor" runtimeVersion="2.12" usedGenPackages="../../../org.muml.uppaal/model/uppaal.genmodel#//uppaal/core ../../../org.muml.uppaal/model/uppaal.genmodel#//uppaal/declarations ../../../org.muml.uppaal/model/uppaal.genmodel#//uppaal/templates ../../../org.muml.uppaal/model/uppaal.genmodel#//uppaal/types ../../../org.muml.uppaal/model/uppaal.genmodel#//uppaal/statements ../../../org.muml.uppaal/model/uppaal.genmodel#//uppaal/expressions ../../../org.muml.uppaal/model/uppaal.genmodel#//uppaal/visuals">
   <genPackages prefix="Trace" basePackage="org.muml.uppaal" disposableProviderFactory="true"
       ecorePackage="DiagnosticTrace.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="DiagnosticTrace.ecore#//Result">

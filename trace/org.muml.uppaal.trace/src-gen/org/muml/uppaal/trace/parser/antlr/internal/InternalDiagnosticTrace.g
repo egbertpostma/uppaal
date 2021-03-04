@@ -625,7 +625,7 @@ ruleTraceItem returns [EObject current=null]
 // Entry rule entryRuleState
 entryRuleState returns [EObject current=null] 
 	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH", "RULE_TAU");
 	}
 	:
 	{ newCompositeNode(grammarAccess.getStateRule()); }
@@ -640,7 +640,7 @@ finally {
 // Rule State
 ruleState returns [EObject current=null] 
     @init { enterRule(); 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH", "RULE_TAU");
     }
     @after { leaveRule(); }:
 (	otherlv_0='State' 
@@ -808,6 +808,33 @@ ruleEdgeActivity returns [EObject current=null]
 
 
 
+// Entry rule entryRuleTauSynchronization
+entryRuleTauSynchronization returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getTauSynchronizationRule()); } 
+	 iv_ruleTauSynchronization=ruleTauSynchronization 
+	 { $current=$iv_ruleTauSynchronization.current.getText(); }  
+	 EOF 
+;
+
+// Rule TauSynchronization
+ruleTauSynchronization returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+
+	kw='tau' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTauSynchronizationAccess().getTauKeyword()); 
+    }
+
+    ;
+
+
+
+
+
 // Entry rule entryRuleChannelSynchronization
 entryRuleChannelSynchronization returns [EObject current=null] 
 	:
@@ -855,33 +882,6 @@ ruleChannelSynchronization returns [EObject current=null]
 )
 ))
 ;
-
-
-
-
-
-// Entry rule entryRuleTauSynchronization
-entryRuleTauSynchronization returns [String current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getTauSynchronizationRule()); } 
-	 iv_ruleTauSynchronization=ruleTauSynchronization 
-	 { $current=$iv_ruleTauSynchronization.current.getText(); }  
-	 EOF 
-;
-
-// Rule TauSynchronization
-ruleTauSynchronization returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-
-	kw='tau' 
-    {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getTauSynchronizationAccess().getTauKeyword()); 
-    }
-
-    ;
 
 
 
@@ -1089,6 +1089,8 @@ ruleSynchronizationKind returns [Enumerator current=null]
 
 
 RULE_DEPTH : '#depth=' RULE_INT;
+
+RULE_TAU : '#tau=' RULE_INT;
 
 RULE_EDGE : '{' ( options {greedy=false;} : . )*'}';
 

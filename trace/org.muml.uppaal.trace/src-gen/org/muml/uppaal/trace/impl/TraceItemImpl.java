@@ -3,7 +3,9 @@
 package org.muml.uppaal.trace.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.muml.uppaal.trace.TraceItem;
 import org.muml.uppaal.trace.TracePackage;
 
@@ -17,24 +19,24 @@ import org.muml.uppaal.trace.TracePackage;
 public class TraceItemImpl extends MinimalEObjectImpl.Container implements TraceItem
 {
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected TraceItemImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return TracePackage.Literals.TRACE_ITEM;
-	}
+    return TracePackage.Literals.TRACE_ITEM;
+  }
 
 } //TraceItemImpl

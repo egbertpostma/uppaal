@@ -1,25 +1,33 @@
 package org.muml.uppaal.trace.ui.contentassist.antlr.internal; 
 
-import org.antlr.runtime.BitSet;
-import org.antlr.runtime.NoViableAltException;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.RecognizerSharedState;
-import org.antlr.runtime.TokenStream;
-import org.eclipse.xtext.Grammar;
+import java.io.InputStream;
+import org.eclipse.xtext.*;
+import org.eclipse.xtext.parser.*;
+import org.eclipse.xtext.parser.impl.*;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
+import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.DFA;
 import org.muml.uppaal.trace.services.DiagnosticTraceGrammarAccess;
+
+
+
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalDiagnosticTraceParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_EDGE", "RULE_DEPTH", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'tau'", "'property'", "'formula'", "'Showing counter example.'", "'Showing example trace.'", "'-- Property is satisfied.'", "'-- Property is NOT satisfied.'", "'-- Formula is satisfied.'", "'-- Formula is NOT satisfied.'", "'='", "'<='", "'>='", "'?'", "'!'", "'Cannot reuse state space when trace length optimisation is used.'", "'Verifying'", "'at line'", "'('", "')'", "','", "'.'", "'-'", "'['", "']'", "'State'", "':'", "'->'", "'Delay:'", "'Transitions:'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_EDGE", "RULE_DEPTH", "RULE_TAU", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'tau'", "'property'", "'formula'", "'Showing counter example.'", "'Showing example trace.'", "'-- Property is satisfied.'", "'-- Property is NOT satisfied.'", "'-- Formula is satisfied.'", "'-- Formula is NOT satisfied.'", "'='", "'<='", "'>='", "'?'", "'!'", "'Cannot reuse state space when trace length optimisation is used.'", "'Verifying'", "'at line'", "'('", "')'", "','", "'.'", "'-'", "'['", "']'", "'State'", "':'", "'->'", "'Delay:'", "'Transitions:'"
     };
     public static final int RULE_DEPTH=7;
     public static final int RULE_EDGE=6;
-    public static final int RULE_STRING=8;
-    public static final int RULE_SL_COMMENT=10;
+    public static final int RULE_STRING=9;
+    public static final int RULE_SL_COMMENT=11;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__37=37;
@@ -30,7 +38,6 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
     public static final int T__18=18;
     public static final int T__33=33;
     public static final int T__34=34;
-    public static final int T__13=13;
     public static final int T__35=35;
     public static final int T__14=14;
     public static final int T__36=36;
@@ -39,21 +46,23 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
     public static final int T__31=31;
     public static final int T__32=32;
     public static final int RULE_ID=5;
-    public static final int RULE_WS=11;
-    public static final int RULE_ANY_OTHER=12;
+    public static final int RULE_WS=12;
+    public static final int RULE_ANY_OTHER=13;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
     public static final int RULE_INT=4;
     public static final int T__29=29;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=9;
+    public static final int RULE_ML_COMMENT=10;
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
     public static final int T__40=40;
     public static final int T__41=41;
     public static final int T__20=20;
+    public static final int T__42=42;
+    public static final int RULE_TAU=8;
     public static final int T__21=21;
 
     // delegates
@@ -713,7 +722,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
     // InternalDiagnosticTrace.g:284:1: entryRuleState : ruleState EOF ;
     public final void entryRuleState() throws RecognitionException {
 
-        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH");
+        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH", "RULE_TAU");
 
         try {
             // InternalDiagnosticTrace.g:288:1: ( ruleState EOF )
@@ -749,7 +758,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
     // InternalDiagnosticTrace.g:299:1: ruleState : ( ( rule__State__Group__0 ) ) ;
     public final void ruleState() throws RecognitionException {
 
-        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH");
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH", "RULE_TAU");
         		int stackSize = keepStackSize();
             
         try {
@@ -871,12 +880,79 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
     // $ANTLR end "ruleEdgeActivity"
 
 
+    // $ANTLR start "entryRuleTauSynchronization"
+    // InternalDiagnosticTrace.g:350:1: entryRuleTauSynchronization : ruleTauSynchronization EOF ;
+    public final void entryRuleTauSynchronization() throws RecognitionException {
+        try {
+            // InternalDiagnosticTrace.g:351:1: ( ruleTauSynchronization EOF )
+            // InternalDiagnosticTrace.g:352:1: ruleTauSynchronization EOF
+            {
+             before(grammarAccess.getTauSynchronizationRule()); 
+            pushFollow(FOLLOW_1);
+            ruleTauSynchronization();
+
+            state._fsp--;
+
+             after(grammarAccess.getTauSynchronizationRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleTauSynchronization"
+
+
+    // $ANTLR start "ruleTauSynchronization"
+    // InternalDiagnosticTrace.g:359:1: ruleTauSynchronization : ( 'tau' ) ;
+    public final void ruleTauSynchronization() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalDiagnosticTrace.g:363:2: ( ( 'tau' ) )
+            // InternalDiagnosticTrace.g:364:1: ( 'tau' )
+            {
+            // InternalDiagnosticTrace.g:364:1: ( 'tau' )
+            // InternalDiagnosticTrace.g:365:1: 'tau'
+            {
+             before(grammarAccess.getTauSynchronizationAccess().getTauKeyword()); 
+            match(input,14,FOLLOW_2); 
+             after(grammarAccess.getTauSynchronizationAccess().getTauKeyword()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleTauSynchronization"
+
+
     // $ANTLR start "entryRuleChannelSynchronization"
-    // InternalDiagnosticTrace.g:350:1: entryRuleChannelSynchronization : ruleChannelSynchronization EOF ;
+    // InternalDiagnosticTrace.g:380:1: entryRuleChannelSynchronization : ruleChannelSynchronization EOF ;
     public final void entryRuleChannelSynchronization() throws RecognitionException {
         try {
-            // InternalDiagnosticTrace.g:351:1: ( ruleChannelSynchronization EOF )
-            // InternalDiagnosticTrace.g:352:1: ruleChannelSynchronization EOF
+            // InternalDiagnosticTrace.g:381:1: ( ruleChannelSynchronization EOF )
+            // InternalDiagnosticTrace.g:382:1: ruleChannelSynchronization EOF
             {
              before(grammarAccess.getChannelSynchronizationRule()); 
             pushFollow(FOLLOW_1);
@@ -902,21 +978,21 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "ruleChannelSynchronization"
-    // InternalDiagnosticTrace.g:359:1: ruleChannelSynchronization : ( ( rule__ChannelSynchronization__Group__0 ) ) ;
+    // InternalDiagnosticTrace.g:389:1: ruleChannelSynchronization : ( ( rule__ChannelSynchronization__Group__0 ) ) ;
     public final void ruleChannelSynchronization() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalDiagnosticTrace.g:363:2: ( ( ( rule__ChannelSynchronization__Group__0 ) ) )
-            // InternalDiagnosticTrace.g:364:1: ( ( rule__ChannelSynchronization__Group__0 ) )
+            // InternalDiagnosticTrace.g:393:2: ( ( ( rule__ChannelSynchronization__Group__0 ) ) )
+            // InternalDiagnosticTrace.g:394:1: ( ( rule__ChannelSynchronization__Group__0 ) )
             {
-            // InternalDiagnosticTrace.g:364:1: ( ( rule__ChannelSynchronization__Group__0 ) )
-            // InternalDiagnosticTrace.g:365:1: ( rule__ChannelSynchronization__Group__0 )
+            // InternalDiagnosticTrace.g:394:1: ( ( rule__ChannelSynchronization__Group__0 ) )
+            // InternalDiagnosticTrace.g:395:1: ( rule__ChannelSynchronization__Group__0 )
             {
              before(grammarAccess.getChannelSynchronizationAccess().getGroup()); 
-            // InternalDiagnosticTrace.g:366:1: ( rule__ChannelSynchronization__Group__0 )
-            // InternalDiagnosticTrace.g:366:2: rule__ChannelSynchronization__Group__0
+            // InternalDiagnosticTrace.g:396:1: ( rule__ChannelSynchronization__Group__0 )
+            // InternalDiagnosticTrace.g:396:2: rule__ChannelSynchronization__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__ChannelSynchronization__Group__0();
@@ -946,73 +1022,6 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
         return ;
     }
     // $ANTLR end "ruleChannelSynchronization"
-
-
-    // $ANTLR start "entryRuleTauSynchronization"
-    // InternalDiagnosticTrace.g:378:1: entryRuleTauSynchronization : ruleTauSynchronization EOF ;
-    public final void entryRuleTauSynchronization() throws RecognitionException {
-        try {
-            // InternalDiagnosticTrace.g:379:1: ( ruleTauSynchronization EOF )
-            // InternalDiagnosticTrace.g:380:1: ruleTauSynchronization EOF
-            {
-             before(grammarAccess.getTauSynchronizationRule()); 
-            pushFollow(FOLLOW_1);
-            ruleTauSynchronization();
-
-            state._fsp--;
-
-             after(grammarAccess.getTauSynchronizationRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleTauSynchronization"
-
-
-    // $ANTLR start "ruleTauSynchronization"
-    // InternalDiagnosticTrace.g:387:1: ruleTauSynchronization : ( 'tau' ) ;
-    public final void ruleTauSynchronization() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalDiagnosticTrace.g:391:2: ( ( 'tau' ) )
-            // InternalDiagnosticTrace.g:392:1: ( 'tau' )
-            {
-            // InternalDiagnosticTrace.g:392:1: ( 'tau' )
-            // InternalDiagnosticTrace.g:393:1: 'tau'
-            {
-             before(grammarAccess.getTauSynchronizationAccess().getTauKeyword()); 
-            match(input,13,FOLLOW_2); 
-             after(grammarAccess.getTauSynchronizationAccess().getTauKeyword()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleTauSynchronization"
 
 
     // $ANTLR start "entryRuleDelayTransition"
@@ -1398,10 +1407,10 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==14) ) {
+            if ( (LA1_0==15) ) {
                 alt1=1;
             }
-            else if ( (LA1_0==15) ) {
+            else if ( (LA1_0==16) ) {
                 alt1=2;
             }
             else {
@@ -1418,7 +1427,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:555:1: 'property'
                     {
                      before(grammarAccess.getTraceAccess().getPropertyKeyword_1_0()); 
-                    match(input,14,FOLLOW_2); 
+                    match(input,15,FOLLOW_2); 
                      after(grammarAccess.getTraceAccess().getPropertyKeyword_1_0()); 
 
                     }
@@ -1433,7 +1442,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:563:1: 'formula'
                     {
                      before(grammarAccess.getTraceAccess().getFormulaKeyword_1_1()); 
-                    match(input,15,FOLLOW_2); 
+                    match(input,16,FOLLOW_2); 
                      after(grammarAccess.getTraceAccess().getFormulaKeyword_1_1()); 
 
                     }
@@ -1469,10 +1478,10 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==16) ) {
+            if ( (LA2_0==17) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==17) ) {
+            else if ( (LA2_0==18) ) {
                 alt2=2;
             }
             else {
@@ -1489,7 +1498,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:581:1: 'Showing counter example.'
                     {
                      before(grammarAccess.getTraceAccess().getShowingCounterExampleKeyword_6_0_0()); 
-                    match(input,16,FOLLOW_2); 
+                    match(input,17,FOLLOW_2); 
                      after(grammarAccess.getTraceAccess().getShowingCounterExampleKeyword_6_0_0()); 
 
                     }
@@ -1504,7 +1513,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:589:1: 'Showing example trace.'
                     {
                      before(grammarAccess.getTraceAccess().getShowingExampleTraceKeyword_6_0_1()); 
-                    match(input,17,FOLLOW_2); 
+                    match(input,18,FOLLOW_2); 
                      after(grammarAccess.getTraceAccess().getShowingExampleTraceKeyword_6_0_1()); 
 
                     }
@@ -1540,10 +1549,10 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==37) ) {
+            if ( (LA3_0==38) ) {
                 alt3=1;
             }
-            else if ( ((LA3_0>=40 && LA3_0<=41)) ) {
+            else if ( ((LA3_0>=41 && LA3_0<=42)) ) {
                 alt3=2;
             }
             else {
@@ -1619,10 +1628,10 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==41) ) {
+            if ( (LA4_0==42) ) {
                 alt4=1;
             }
-            else if ( (LA4_0==40) ) {
+            else if ( (LA4_0==41) ) {
                 alt4=2;
             }
             else {
@@ -1697,22 +1706,22 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:650:1: ( ( ( '-- Property is satisfied.' ) ) | ( ( '-- Property is NOT satisfied.' ) ) | ( ( '-- Formula is satisfied.' ) ) | ( ( '-- Formula is NOT satisfied.' ) ) )
             int alt5=4;
             switch ( input.LA(1) ) {
-            case 18:
+            case 19:
                 {
                 alt5=1;
                 }
                 break;
-            case 19:
+            case 20:
                 {
                 alt5=2;
                 }
                 break;
-            case 20:
+            case 21:
                 {
                 alt5=3;
                 }
                 break;
-            case 21:
+            case 22:
                 {
                 alt5=4;
                 }
@@ -1735,7 +1744,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:653:1: ( '-- Property is satisfied.' )
                     // InternalDiagnosticTrace.g:653:3: '-- Property is satisfied.'
                     {
-                    match(input,18,FOLLOW_2); 
+                    match(input,19,FOLLOW_2); 
 
                     }
 
@@ -1756,7 +1765,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:660:1: ( '-- Property is NOT satisfied.' )
                     // InternalDiagnosticTrace.g:660:3: '-- Property is NOT satisfied.'
                     {
-                    match(input,19,FOLLOW_2); 
+                    match(input,20,FOLLOW_2); 
 
                     }
 
@@ -1777,7 +1786,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:667:1: ( '-- Formula is satisfied.' )
                     // InternalDiagnosticTrace.g:667:3: '-- Formula is satisfied.'
                     {
-                    match(input,20,FOLLOW_2); 
+                    match(input,21,FOLLOW_2); 
 
                     }
 
@@ -1798,7 +1807,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:674:1: ( '-- Formula is NOT satisfied.' )
                     // InternalDiagnosticTrace.g:674:3: '-- Formula is NOT satisfied.'
                     {
-                    match(input,21,FOLLOW_2); 
+                    match(input,22,FOLLOW_2); 
 
                     }
 
@@ -1836,17 +1845,17 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:688:1: ( ( ( '=' ) ) | ( ( '<=' ) ) | ( ( '>=' ) ) )
             int alt6=3;
             switch ( input.LA(1) ) {
-            case 22:
+            case 23:
                 {
                 alt6=1;
                 }
                 break;
-            case 23:
+            case 24:
                 {
                 alt6=2;
                 }
                 break;
-            case 24:
+            case 25:
                 {
                 alt6=3;
                 }
@@ -1869,7 +1878,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:691:1: ( '=' )
                     // InternalDiagnosticTrace.g:691:3: '='
                     {
-                    match(input,22,FOLLOW_2); 
+                    match(input,23,FOLLOW_2); 
 
                     }
 
@@ -1890,7 +1899,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:698:1: ( '<=' )
                     // InternalDiagnosticTrace.g:698:3: '<='
                     {
-                    match(input,23,FOLLOW_2); 
+                    match(input,24,FOLLOW_2); 
 
                     }
 
@@ -1911,7 +1920,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:705:1: ( '>=' )
                     // InternalDiagnosticTrace.g:705:3: '>='
                     {
-                    match(input,24,FOLLOW_2); 
+                    match(input,25,FOLLOW_2); 
 
                     }
 
@@ -1950,10 +1959,10 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==25) ) {
+            if ( (LA7_0==26) ) {
                 alt7=1;
             }
-            else if ( (LA7_0==26) ) {
+            else if ( (LA7_0==27) ) {
                 alt7=2;
             }
             else {
@@ -1973,7 +1982,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:722:1: ( '?' )
                     // InternalDiagnosticTrace.g:722:3: '?'
                     {
-                    match(input,25,FOLLOW_2); 
+                    match(input,26,FOLLOW_2); 
 
                     }
 
@@ -1994,7 +2003,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                     // InternalDiagnosticTrace.g:729:1: ( '!' )
                     // InternalDiagnosticTrace.g:729:3: '!'
                     {
-                    match(input,26,FOLLOW_2); 
+                    match(input,27,FOLLOW_2); 
 
                     }
 
@@ -2078,14 +2087,14 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==27) ) {
+            if ( (LA8_0==28) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
                     // InternalDiagnosticTrace.g:761:2: 'Cannot reuse state space when trace length optimisation is used.'
                     {
-                    match(input,27,FOLLOW_2); 
+                    match(input,28,FOLLOW_2); 
 
                     }
                     break;
@@ -2167,7 +2176,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==28) ) {
+                if ( (LA9_0==29) ) {
                     alt9=1;
                 }
 
@@ -2264,7 +2273,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:822:1: 'Verifying'
             {
              before(grammarAccess.getTraceAccess().getVerifyingKeyword_0()); 
-            match(input,28,FOLLOW_2); 
+            match(input,29,FOLLOW_2); 
              after(grammarAccess.getTraceAccess().getVerifyingKeyword_0()); 
 
             }
@@ -2509,7 +2518,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:911:1: 'at line'
             {
              before(grammarAccess.getTraceAccess().getAtLineKeyword_3()); 
-            match(input,29,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getTraceAccess().getAtLineKeyword_3()); 
 
             }
@@ -2753,7 +2762,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( ((LA10_0>=16 && LA10_0<=17)) ) {
+            if ( ((LA10_0>=17 && LA10_0<=18)) ) {
                 alt10=1;
             }
             switch (alt10) {
@@ -2953,7 +2962,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                 int alt11=2;
                 int LA11_0 = input.LA(1);
 
-                if ( (LA11_0==37||(LA11_0>=40 && LA11_0<=41)) ) {
+                if ( (LA11_0==38||(LA11_0>=41 && LA11_0<=42)) ) {
                     alt11=1;
                 }
 
@@ -3137,7 +3146,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==30) ) {
+            if ( (LA12_0==31) ) {
                 alt12=1;
             }
             switch (alt12) {
@@ -3229,7 +3238,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:1171:1: '('
             {
              before(grammarAccess.getProcessIdentifierAccess().getLeftParenthesisKeyword_1_0()); 
-            match(input,30,FOLLOW_2); 
+            match(input,31,FOLLOW_2); 
              after(grammarAccess.getProcessIdentifierAccess().getLeftParenthesisKeyword_1_0()); 
 
             }
@@ -3395,7 +3404,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                 int alt13=2;
                 int LA13_0 = input.LA(1);
 
-                if ( (LA13_0==32) ) {
+                if ( (LA13_0==33) ) {
                     alt13=1;
                 }
 
@@ -3487,7 +3496,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:1259:1: ')'
             {
              before(grammarAccess.getProcessIdentifierAccess().getRightParenthesisKeyword_1_3()); 
-            match(input,31,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getProcessIdentifierAccess().getRightParenthesisKeyword_1_3()); 
 
             }
@@ -3562,7 +3571,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:1298:1: ','
             {
              before(grammarAccess.getProcessIdentifierAccess().getCommaKeyword_1_2_0()); 
-            match(input,32,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getProcessIdentifierAccess().getCommaKeyword_1_2_0()); 
 
             }
@@ -3802,7 +3811,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:1390:1: '.'
             {
              before(grammarAccess.getLocationActivityAccess().getFullStopKeyword_1()); 
-            match(input,33,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getLocationActivityAccess().getFullStopKeyword_1()); 
 
             }
@@ -4046,7 +4055,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==34) ) {
+            if ( (LA14_0==35) ) {
                 alt14=1;
             }
             switch (alt14) {
@@ -4303,7 +4312,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:1578:1: '-'
             {
              before(grammarAccess.getVariableValueAccess().getHyphenMinusKeyword_1_0()); 
-            match(input,34,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getVariableValueAccess().getHyphenMinusKeyword_1_0()); 
 
             }
@@ -4544,7 +4553,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                 int alt15=2;
                 int LA15_0 = input.LA(1);
 
-                if ( (LA15_0==35) ) {
+                if ( (LA15_0==36) ) {
                     alt15=1;
                 }
 
@@ -4641,7 +4650,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:1702:1: '['
             {
              before(grammarAccess.getSingleNamedElementReferenceAccess().getLeftSquareBracketKeyword_1_0()); 
-            match(input,35,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getSingleNamedElementReferenceAccess().getLeftSquareBracketKeyword_1_0()); 
 
             }
@@ -4796,7 +4805,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:1761:1: ']'
             {
              before(grammarAccess.getSingleNamedElementReferenceAccess().getRightSquareBracketKeyword_1_2()); 
-            match(input,36,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getSingleNamedElementReferenceAccess().getRightSquareBracketKeyword_1_2()); 
 
             }
@@ -4955,7 +4964,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( (LA16_0==33) ) {
+            if ( (LA16_0==34) ) {
                 alt16=1;
             }
             switch (alt16) {
@@ -5047,7 +5056,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:1859:1: '.'
             {
              before(grammarAccess.getNamedElementReferenceAccess().getFullStopKeyword_1_0()); 
-            match(input,33,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getNamedElementReferenceAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -5202,7 +5211,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:1922:1: 'State'
             {
              before(grammarAccess.getStateAccess().getStateKeyword_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getStateAccess().getStateKeyword_0()); 
 
             }
@@ -5281,14 +5290,14 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( (LA17_0==38) ) {
+            if ( (LA17_0==39) ) {
                 alt17=1;
             }
             switch (alt17) {
                 case 1 :
                     // InternalDiagnosticTrace.g:1955:2: ':'
                     {
-                    match(input,38,FOLLOW_2); 
+                    match(input,39,FOLLOW_2); 
 
                     }
                     break;
@@ -5369,7 +5378,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:1984:1: '('
             {
              before(grammarAccess.getStateAccess().getLeftParenthesisKeyword_2()); 
-            match(input,30,FOLLOW_2); 
+            match(input,31,FOLLOW_2); 
              after(grammarAccess.getStateAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -5572,7 +5581,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:2051:1: ')'
             {
              before(grammarAccess.getStateAccess().getRightParenthesisKeyword_4()); 
-            match(input,31,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getStateAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -5824,7 +5833,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
                 int alt20=2;
                 int LA20_0 = input.LA(1);
 
-                if ( (LA20_0==RULE_ID||LA20_0==32) ) {
+                if ( (LA20_0==RULE_ID||LA20_0==33) ) {
                     alt20=1;
                 }
 
@@ -5925,14 +5934,14 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             int alt21=2;
             int LA21_0 = input.LA(1);
 
-            if ( (LA21_0==32) ) {
+            if ( (LA21_0==33) ) {
                 alt21=1;
             }
             switch (alt21) {
                 case 1 :
                     // InternalDiagnosticTrace.g:2185:2: ','
                     {
-                    match(input,32,FOLLOW_2); 
+                    match(input,33,FOLLOW_2); 
 
                     }
                     break;
@@ -6178,7 +6187,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:2275:1: '->'
             {
              before(grammarAccess.getEdgeActivityAccess().getHyphenMinusGreaterThanSignKeyword_1()); 
-            match(input,39,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getEdgeActivityAccess().getHyphenMinusGreaterThanSignKeyword_1()); 
 
             }
@@ -6583,7 +6592,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:2433:1: 'Delay:'
             {
              before(grammarAccess.getDelayTransitionAccess().getDelayKeyword_0()); 
-            match(input,40,FOLLOW_2); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getDelayTransitionAccess().getDelayKeyword_0()); 
 
             }
@@ -6738,7 +6747,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
             // InternalDiagnosticTrace.g:2496:1: 'Transitions:'
             {
              before(grammarAccess.getActionTransitionAccess().getTransitionsKeyword_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getActionTransitionAccess().getTransitionsKeyword_0()); 
 
             }
@@ -8022,31 +8031,31 @@ public class InternalDiagnosticTraceParser extends AbstractInternalContentAssist
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000018000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000003C0000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000030000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000032000000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000032000000002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000180000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000100000002L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000780000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000060000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000064000000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000064000000002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000300000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000200000002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000400000000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000401C00000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000004040000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000803800000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000008080000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000100000000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000100000020L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000100000022L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000200000020L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000200000022L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000010000000000L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000006000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x000000000C000000L});
 
 }

@@ -6,28 +6,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.muml.uppaal.trace.*;
-import org.muml.uppaal.trace.ActionTransition;
-import org.muml.uppaal.trace.ChannelSynchronization;
-import org.muml.uppaal.trace.CompareOperator;
-import org.muml.uppaal.trace.DelayTransition;
-import org.muml.uppaal.trace.EdgeActivity;
-import org.muml.uppaal.trace.LocationActivity;
-import org.muml.uppaal.trace.NamedElementReference;
-import org.muml.uppaal.trace.ProcessIdentifier;
-import org.muml.uppaal.trace.Result;
-import org.muml.uppaal.trace.SingleNamedElementReference;
-import org.muml.uppaal.trace.State;
-import org.muml.uppaal.trace.Synchronization;
-import org.muml.uppaal.trace.Trace;
-import org.muml.uppaal.trace.TraceFactory;
-import org.muml.uppaal.trace.TraceItem;
-import org.muml.uppaal.trace.TracePackage;
-import org.muml.uppaal.trace.TraceRepository;
-import org.muml.uppaal.trace.Transition;
-import org.muml.uppaal.trace.VariableValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,346 +22,352 @@ import org.muml.uppaal.trace.VariableValue;
 public class TraceFactoryImpl extends EFactoryImpl implements TraceFactory
 {
   /**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+   * Creates the default factory implementation.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public static TraceFactory init()
   {
-		try {
-			TraceFactory theTraceFactory = (TraceFactory)EPackage.Registry.INSTANCE.getEFactory(TracePackage.eNS_URI);
-			if (theTraceFactory != null) {
-				return theTraceFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new TraceFactoryImpl();
-	}
+    try
+    {
+      TraceFactory theTraceFactory = (TraceFactory)EPackage.Registry.INSTANCE.getEFactory(TracePackage.eNS_URI);
+      if (theTraceFactory != null)
+      {
+        return theTraceFactory;
+      }
+    }
+    catch (Exception exception)
+    {
+      EcorePlugin.INSTANCE.log(exception);
+    }
+    return new TraceFactoryImpl();
+  }
 
   /**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+   * Creates an instance of the factory.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public TraceFactoryImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public EObject create(EClass eClass)
   {
-		switch (eClass.getClassifierID()) {
-			case TracePackage.TRACE_REPOSITORY: return createTraceRepository();
-			case TracePackage.TRACE: return createTrace();
-			case TracePackage.PROCESS_IDENTIFIER: return createProcessIdentifier();
-			case TracePackage.LOCATION_ACTIVITY: return createLocationActivity();
-			case TracePackage.VARIABLE_VALUE: return createVariableValue();
-			case TracePackage.SINGLE_NAMED_ELEMENT_REFERENCE: return createSingleNamedElementReference();
-			case TracePackage.NAMED_ELEMENT_REFERENCE: return createNamedElementReference();
-			case TracePackage.TRACE_ITEM: return createTraceItem();
-			case TracePackage.STATE: return createState();
-			case TracePackage.EDGE_ACTIVITY: return createEdgeActivity();
-			case TracePackage.SYNCHRONIZATION: return createSynchronization();
-			case TracePackage.CHANNEL_SYNCHRONIZATION: return createChannelSynchronization();
-			case TracePackage.DELAY_TRANSITION: return createDelayTransition();
-			case TracePackage.ACTION_TRANSITION: return createActionTransition();
-			case TracePackage.TRANSITION: return createTransition();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+    switch (eClass.getClassifierID())
+    {
+      case TracePackage.TRACE_REPOSITORY: return createTraceRepository();
+      case TracePackage.TRACE: return createTrace();
+      case TracePackage.PROCESS_IDENTIFIER: return createProcessIdentifier();
+      case TracePackage.LOCATION_ACTIVITY: return createLocationActivity();
+      case TracePackage.VARIABLE_VALUE: return createVariableValue();
+      case TracePackage.SINGLE_NAMED_ELEMENT_REFERENCE: return createSingleNamedElementReference();
+      case TracePackage.NAMED_ELEMENT_REFERENCE: return createNamedElementReference();
+      case TracePackage.TRACE_ITEM: return createTraceItem();
+      case TracePackage.STATE: return createState();
+      case TracePackage.EDGE_ACTIVITY: return createEdgeActivity();
+      case TracePackage.SYNCHRONIZATION: return createSynchronization();
+      case TracePackage.CHANNEL_SYNCHRONIZATION: return createChannelSynchronization();
+      case TracePackage.DELAY_TRANSITION: return createDelayTransition();
+      case TracePackage.ACTION_TRANSITION: return createActionTransition();
+      case TracePackage.TRANSITION: return createTransition();
+      default:
+        throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object createFromString(EDataType eDataType, String initialValue)
   {
-		switch (eDataType.getClassifierID()) {
-			case TracePackage.RESULT:
-				return createResultFromString(eDataType, initialValue);
-			case TracePackage.COMPARE_OPERATOR:
-				return createCompareOperatorFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+    switch (eDataType.getClassifierID())
+    {
+      case TracePackage.RESULT:
+        return createResultFromString(eDataType, initialValue);
+      case TracePackage.COMPARE_OPERATOR:
+        return createCompareOperatorFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String convertToString(EDataType eDataType, Object instanceValue)
   {
-		switch (eDataType.getClassifierID()) {
-			case TracePackage.RESULT:
-				return convertResultToString(eDataType, instanceValue);
-			case TracePackage.COMPARE_OPERATOR:
-				return convertCompareOperatorToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+    switch (eDataType.getClassifierID())
+    {
+      case TracePackage.RESULT:
+        return convertResultToString(eDataType, instanceValue);
+      case TracePackage.COMPARE_OPERATOR:
+        return convertCompareOperatorToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public TraceRepository createTraceRepository()
+  public TraceRepository createTraceRepository()
   {
-		TraceRepositoryImpl traceRepository = new TraceRepositoryImpl();
-		return traceRepository;
-	}
+    TraceRepositoryImpl traceRepository = new TraceRepositoryImpl();
+    return traceRepository;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public Trace createTrace()
+  public Trace createTrace()
   {
-		TraceImpl trace = new TraceImpl();
-		return trace;
-	}
+    TraceImpl trace = new TraceImpl();
+    return trace;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public ProcessIdentifier createProcessIdentifier()
+  public ProcessIdentifier createProcessIdentifier()
   {
-		ProcessIdentifierImpl processIdentifier = new ProcessIdentifierImpl();
-		return processIdentifier;
-	}
+    ProcessIdentifierImpl processIdentifier = new ProcessIdentifierImpl();
+    return processIdentifier;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public LocationActivity createLocationActivity()
+  public LocationActivity createLocationActivity()
   {
-		LocationActivityImpl locationActivity = new LocationActivityImpl();
-		return locationActivity;
-	}
+    LocationActivityImpl locationActivity = new LocationActivityImpl();
+    return locationActivity;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public VariableValue createVariableValue()
+  public VariableValue createVariableValue()
   {
-		VariableValueImpl variableValue = new VariableValueImpl();
-		return variableValue;
-	}
+    VariableValueImpl variableValue = new VariableValueImpl();
+    return variableValue;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public SingleNamedElementReference createSingleNamedElementReference()
+  public SingleNamedElementReference createSingleNamedElementReference()
   {
-		SingleNamedElementReferenceImpl singleNamedElementReference = new SingleNamedElementReferenceImpl();
-		return singleNamedElementReference;
-	}
+    SingleNamedElementReferenceImpl singleNamedElementReference = new SingleNamedElementReferenceImpl();
+    return singleNamedElementReference;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public NamedElementReference createNamedElementReference()
+  public NamedElementReference createNamedElementReference()
   {
-		NamedElementReferenceImpl namedElementReference = new NamedElementReferenceImpl();
-		return namedElementReference;
-	}
+    NamedElementReferenceImpl namedElementReference = new NamedElementReferenceImpl();
+    return namedElementReference;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public TraceItem createTraceItem()
+  public TraceItem createTraceItem()
   {
-		TraceItemImpl traceItem = new TraceItemImpl();
-		return traceItem;
-	}
+    TraceItemImpl traceItem = new TraceItemImpl();
+    return traceItem;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public State createState()
+  public State createState()
   {
-		StateImpl state = new StateImpl();
-		return state;
-	}
+    StateImpl state = new StateImpl();
+    return state;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public EdgeActivity createEdgeActivity()
+  public EdgeActivity createEdgeActivity()
   {
-		EdgeActivityImpl edgeActivity = new EdgeActivityImpl();
-		return edgeActivity;
-	}
+    EdgeActivityImpl edgeActivity = new EdgeActivityImpl();
+    return edgeActivity;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public Synchronization createSynchronization()
+  public Synchronization createSynchronization()
   {
-		SynchronizationImpl synchronization = new SynchronizationImpl();
-		return synchronization;
-	}
+    SynchronizationImpl synchronization = new SynchronizationImpl();
+    return synchronization;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public ChannelSynchronization createChannelSynchronization()
+  public ChannelSynchronization createChannelSynchronization()
   {
-		ChannelSynchronizationImpl channelSynchronization = new ChannelSynchronizationImpl();
-		return channelSynchronization;
-	}
+    ChannelSynchronizationImpl channelSynchronization = new ChannelSynchronizationImpl();
+    return channelSynchronization;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public DelayTransition createDelayTransition()
+  public DelayTransition createDelayTransition()
   {
-		DelayTransitionImpl delayTransition = new DelayTransitionImpl();
-		return delayTransition;
-	}
+    DelayTransitionImpl delayTransition = new DelayTransitionImpl();
+    return delayTransition;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public ActionTransition createActionTransition()
+  public ActionTransition createActionTransition()
   {
-		ActionTransitionImpl actionTransition = new ActionTransitionImpl();
-		return actionTransition;
-	}
+    ActionTransitionImpl actionTransition = new ActionTransitionImpl();
+    return actionTransition;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public Transition createTransition()
+  public Transition createTransition()
   {
-		TransitionImpl transition = new TransitionImpl();
-		return transition;
-	}
+    TransitionImpl transition = new TransitionImpl();
+    return transition;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public Result createResultFromString(EDataType eDataType, String initialValue)
   {
-		Result result = Result.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    Result result = Result.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public String convertResultToString(EDataType eDataType, Object instanceValue)
   {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    return instanceValue == null ? null : instanceValue.toString();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public CompareOperator createCompareOperatorFromString(EDataType eDataType, String initialValue)
   {
-		CompareOperator result = CompareOperator.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    CompareOperator result = CompareOperator.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public String convertCompareOperatorToString(EDataType eDataType, Object instanceValue)
   {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    return instanceValue == null ? null : instanceValue.toString();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
-		public TracePackage getTracePackage()
+  public TracePackage getTracePackage()
   {
-		return (TracePackage)getEPackage();
-	}
+    return (TracePackage)getEPackage();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+   * @deprecated
+   * @generated
+   */
   @Deprecated
   public static TracePackage getPackage()
   {
-		return TracePackage.eINSTANCE;
-	}
+    return TracePackage.eINSTANCE;
+  }
 
 } //TraceFactoryImpl

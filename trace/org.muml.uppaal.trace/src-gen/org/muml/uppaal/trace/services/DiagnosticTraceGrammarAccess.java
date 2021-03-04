@@ -3,27 +3,16 @@
  */
 package org.muml.uppaal.trace.services;
 
+import com.google.inject.Singleton;
+import com.google.inject.Inject;
+
 import java.util.List;
 
-import org.eclipse.xtext.Action;
-import org.eclipse.xtext.Alternatives;
-import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.CrossReference;
-import org.eclipse.xtext.EnumLiteralDeclaration;
-import org.eclipse.xtext.EnumRule;
-import org.eclipse.xtext.Grammar;
-import org.eclipse.xtext.GrammarUtil;
-import org.eclipse.xtext.Group;
-import org.eclipse.xtext.Keyword;
-import org.eclipse.xtext.ParserRule;
-import org.eclipse.xtext.RuleCall;
-import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
+import org.eclipse.xtext.*;
 import org.eclipse.xtext.service.GrammarProvider;
+import org.eclipse.xtext.service.AbstractElementFinder.*;
 
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
+import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 
 @Singleton
 public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
@@ -41,7 +30,8 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		//	traces+=Trace*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//'Cannot reuse state space when trace length optimisation is used.'? traces+=Trace*
+		//'Cannot reuse state space when trace length optimisation is used.'?
+		//traces+=Trace*
 		public Group getGroup() { return cGroup; }
 
 		//'Cannot reuse state space when trace length optimisation is used.'?
@@ -80,8 +70,8 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		//	result=Result (('Showing counter example.' | 'Showing example trace.') traceItems+=TraceItem+)?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//'Verifying' ('property' | 'formula') property=INT 'at line' line=INT result=Result (('Showing counter example.' |
-		//'Showing example trace.') traceItems+=TraceItem+)?
+		//'Verifying' ('property' | 'formula') property=INT 'at line' line=INT
+		//result=Result (('Showing counter example.' | 'Showing example trace.') traceItems+=TraceItem+)?
 		public Group getGroup() { return cGroup; }
 
 		//'Verifying'
@@ -403,7 +393,7 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cVariableValuesAssignment_5_1_1 = (Assignment)cGroup_5_1.eContents().get(1);
 		private final RuleCall cVariableValuesVariableValueParserRuleCall_5_1_1_0 = (RuleCall)cVariableValuesAssignment_5_1_1.eContents().get(0);
 		
-		//State hidden(WS, DEPTH):
+		//State hidden(WS, DEPTH, TAU):
 		//	'State' ':'? // declare colon as optional since some UPPAAL traces come without a colon behind the 'State' keyword
 		//	'(' locationActivities+=LocationActivity+ ')' (variableValues+=VariableValue (','? variableValues+=VariableValue)*)? // declare comma as optional since the list of UPPAAL variable values is sometimes comma-separated, sometimes not
 		//;
@@ -522,6 +512,18 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getTauSynchronizationParserRuleCall_1_1() { return cTauSynchronizationParserRuleCall_1_1; }
 	}
 
+	public class TauSynchronizationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.muml.uppaal.trace.DiagnosticTrace.TauSynchronization");
+		private final Keyword cTauKeyword = (Keyword)rule.eContents().get(1);
+		
+		//TauSynchronization:
+		//	'tau';
+		@Override public ParserRule getRule() { return rule; }
+
+		//'tau'
+		public Keyword getTauKeyword() { return cTauKeyword; }
+	}
+
 	public class ChannelSynchronizationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.muml.uppaal.trace.DiagnosticTrace.ChannelSynchronization");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -552,18 +554,6 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 
 		//SynchronizationKind
 		public RuleCall getKindSynchronizationKindEnumRuleCall_1_0() { return cKindSynchronizationKindEnumRuleCall_1_0; }
-	}
-
-	public class TauSynchronizationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.muml.uppaal.trace.DiagnosticTrace.TauSynchronization");
-		private final Keyword cTauKeyword = (Keyword)rule.eContents().get(1);
-		
-		//TauSynchronization:
-		//	'tau';
-		@Override public ParserRule getRule() { return rule; }
-
-		//'tau'
-		public Keyword getTauKeyword() { return cTauKeyword; }
 	}
 
 	public class DelayTransitionElements extends AbstractParserRuleElementFinder {
@@ -602,7 +592,8 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		//	edgeActivities+=EdgeActivity+;
 		@Override public ParserRule getRule() { return rule; }
 
-		//'Transitions:' edgeActivities+=EdgeActivity+
+		//'Transitions:'
+		//edgeActivities+=EdgeActivity+
 		public Group getGroup() { return cGroup; }
 
 		//'Transitions:'
@@ -755,15 +746,16 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 	private final CompareOperatorElements eCompareOperator;
 	private final SingleNamedElementReferenceElements pSingleNamedElementReference;
 	private final TerminalRule tDEPTH;
+	private final TerminalRule tTAU;
 	private final NamedElementReferenceElements pNamedElementReference;
 	private final TraceItemElements pTraceItem;
 	private final StateElements pState;
 	private final EdgeActivityElements pEdgeActivity;
 	private final TerminalRule tEDGE;
 	private final SynchronizationElements pSynchronization;
+	private final TauSynchronizationElements pTauSynchronization;
 	private final ChannelSynchronizationElements pChannelSynchronization;
 	private final SynchronizationKindElements eSynchronizationKind;
-	private final TauSynchronizationElements pTauSynchronization;
 	private final DelayTransitionElements pDelayTransition;
 	private final ActionTransitionElements pActionTransition;
 	private final TransitionElements pTransition;
@@ -787,15 +779,16 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		this.eCompareOperator = new CompareOperatorElements();
 		this.pSingleNamedElementReference = new SingleNamedElementReferenceElements();
 		this.tDEPTH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.muml.uppaal.trace.DiagnosticTrace.DEPTH");
+		this.tTAU = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.muml.uppaal.trace.DiagnosticTrace.TAU");
 		this.pNamedElementReference = new NamedElementReferenceElements();
 		this.pTraceItem = new TraceItemElements();
 		this.pState = new StateElements();
 		this.pEdgeActivity = new EdgeActivityElements();
 		this.tEDGE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.muml.uppaal.trace.DiagnosticTrace.EDGE");
 		this.pSynchronization = new SynchronizationElements();
+		this.pTauSynchronization = new TauSynchronizationElements();
 		this.pChannelSynchronization = new ChannelSynchronizationElements();
 		this.eSynchronizationKind = new SynchronizationKindElements();
-		this.pTauSynchronization = new TauSynchronizationElements();
 		this.pDelayTransition = new DelayTransitionElements();
 		this.pActionTransition = new ActionTransitionElements();
 		this.pTransition = new TransitionElements();
@@ -919,6 +912,12 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		return tDEPTH;
 	} 
 
+	//terminal TAU:
+	//	'#tau=' INT;
+	public TerminalRule getTAURule() {
+		return tTAU;
+	} 
+
 	//NamedElementReference:
 	//	singleNamedElementReference=SingleNamedElementReference ('.' namedElementReference=NamedElementReference)?;
 	public NamedElementReferenceElements getNamedElementReferenceAccess() {
@@ -939,7 +938,7 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		return getTraceItemAccess().getRule();
 	}
 
-	//State hidden(WS, DEPTH):
+	//State hidden(WS, DEPTH, TAU):
 	//	'State' ':'? // declare colon as optional since some UPPAAL traces come without a colon behind the 'State' keyword
 	//	'(' locationActivities+=LocationActivity+ ')' (variableValues+=VariableValue (','? variableValues+=VariableValue)*)? // declare comma as optional since the list of UPPAAL variable values is sometimes comma-separated, sometimes not
 	//;
@@ -977,6 +976,16 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		return getSynchronizationAccess().getRule();
 	}
 
+	//TauSynchronization:
+	//	'tau';
+	public TauSynchronizationElements getTauSynchronizationAccess() {
+		return pTauSynchronization;
+	}
+	
+	public ParserRule getTauSynchronizationRule() {
+		return getTauSynchronizationAccess().getRule();
+	}
+
 	//ChannelSynchronization:
 	//	channel=[declarations::Variable] kind=SynchronizationKind;
 	public ChannelSynchronizationElements getChannelSynchronizationAccess() {
@@ -995,16 +1004,6 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getSynchronizationKindRule() {
 		return getSynchronizationKindAccess().getRule();
-	}
-
-	//TauSynchronization:
-	//	'tau';
-	public TauSynchronizationElements getTauSynchronizationAccess() {
-		return pTauSynchronization;
-	}
-	
-	public ParserRule getTauSynchronizationRule() {
-		return getTauSynchronizationAccess().getRule();
 	}
 
 	//DelayTransition:
@@ -1051,13 +1050,14 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal STRING:
-	//	'"' ('\\' . | !('\\' | '"'))* '"' | "'" ('\\' . | !('\\' | "'"))* "'";
+	//	'"' ('\\' . | !('\\' | '"'))* '"' |
+	//	"'" ('\\' . | !('\\' | "'"))* "'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 
 
 	//terminal ML_COMMENT:
-	//	'/ *'->'* /';
+	//	'/*'->'*/';
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
 	} 

@@ -231,7 +231,7 @@ class UppaalSerialization {
 
     def id(Location it) '''«name»_«parentTemplate.name»'''
 
-    def name(NamedElement it) '''«name.replaceAll('\\.','')»'''
+    def name(NamedElement it) '''«if ( it !== null ) name.replaceAll('\\.','')»'''
 
     def location(Location it) '''
         <location id="«id(it)»" x="«if (position == null) "" else position.x»" y="«if (position == null) "" else position.y»" «IF colorToString(it) != null»color="«colorToString(it)»"«ENDIF»>

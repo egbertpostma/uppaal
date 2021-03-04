@@ -3,6 +3,7 @@
 package org.muml.uppaal.trace.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.muml.uppaal.trace.TracePackage;
 import org.muml.uppaal.trace.Transition;
 
@@ -16,24 +17,24 @@ import org.muml.uppaal.trace.Transition;
 public class TransitionImpl extends TraceItemImpl implements Transition
 {
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected TransitionImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return TracePackage.Literals.TRANSITION;
-	}
+    return TracePackage.Literals.TRANSITION;
+  }
 
 } //TransitionImpl

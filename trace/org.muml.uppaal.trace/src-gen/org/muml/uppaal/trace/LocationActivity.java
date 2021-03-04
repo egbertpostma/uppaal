@@ -3,6 +3,7 @@
 package org.muml.uppaal.trace;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.muml.uppaal.templates.Location;
 
 /**
@@ -25,55 +26,47 @@ import org.muml.uppaal.templates.Location;
 public interface LocationActivity extends EObject
 {
   /**
-	 * Returns the value of the '<em><b>Process</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Process</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
+   * Returns the value of the '<em><b>Process</b></em>' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Process</em>' containment reference.
-	 * @see #setProcess(ProcessIdentifier)
-	 * @see org.muml.uppaal.trace.TracePackage#getLocationActivity_Process()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Process</em>' containment reference.
+   * @see #setProcess(ProcessIdentifier)
+   * @see org.muml.uppaal.trace.TracePackage#getLocationActivity_Process()
+   * @model containment="true"
+   * @generated
+   */
   ProcessIdentifier getProcess();
 
   /**
-	 * Sets the value of the '{@link org.muml.uppaal.trace.LocationActivity#getProcess <em>Process</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link org.muml.uppaal.trace.LocationActivity#getProcess <em>Process</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Process</em>' containment reference.
-	 * @see #getProcess()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Process</em>' containment reference.
+   * @see #getProcess()
+   * @generated
+   */
   void setProcess(ProcessIdentifier value);
 
   /**
-	 * Returns the value of the '<em><b>Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Location</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
+   * Returns the value of the '<em><b>Location</b></em>' reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Location</em>' reference.
-	 * @see #setLocation(Location)
-	 * @see org.muml.uppaal.trace.TracePackage#getLocationActivity_Location()
-	 * @model
-	 * @generated
-	 */
+   * @return the value of the '<em>Location</em>' reference.
+   * @see #setLocation(Location)
+   * @see org.muml.uppaal.trace.TracePackage#getLocationActivity_Location()
+   * @model
+   * @generated
+   */
   Location getLocation();
 
   /**
-	 * Sets the value of the '{@link org.muml.uppaal.trace.LocationActivity#getLocation <em>Location</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link org.muml.uppaal.trace.LocationActivity#getLocation <em>Location</em>}' reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Location</em>' reference.
-	 * @see #getLocation()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Location</em>' reference.
+   * @see #getLocation()
+   * @generated
+   */
   void setLocation(Location value);
 
 } // LocationActivity

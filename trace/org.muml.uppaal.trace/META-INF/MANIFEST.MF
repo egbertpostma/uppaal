@@ -15,9 +15,12 @@ Require-Bundle: org.eclipse.xtext;bundle-version="2.23.0";visibility:=reexport,
  org.muml.uppaal;bundle-version="1.0.0",
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext.generator;bundle-version="2.23.0",
- org.eclipse.emf.mwe2.launch;bundle-version="2.12.0"
+ org.eclipse.emf.mwe2.launch;bundle-version="2.12.0",
+ org.objectweb.asm;bundle-version="[9.1.0,9.2.0)";resolution:=optional
 Import-Package: org.apache.log4j,
- org.eclipse.xtext.xbase.lib
+ org.apache.commons.logging,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtext.xbase
 Bundle-RequiredExecutionEnvironment: JavaSE-14
 Export-Package: org.muml.uppaal.trace,
  org.muml.uppaal.trace.formatting,
@@ -30,4 +33,3 @@ Export-Package: org.muml.uppaal.trace,
  org.muml.uppaal.trace.validation,
  org.muml.uppaal.trace.impl,
  org.muml.uppaal.trace.util
-

@@ -3,7 +3,9 @@
 package org.muml.uppaal.trace.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.muml.uppaal.trace.Synchronization;
 import org.muml.uppaal.trace.TracePackage;
 
@@ -17,24 +19,24 @@ import org.muml.uppaal.trace.TracePackage;
 public class SynchronizationImpl extends MinimalEObjectImpl.Container implements Synchronization
 {
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected SynchronizationImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return TracePackage.Literals.SYNCHRONIZATION;
-	}
+    return TracePackage.Literals.SYNCHRONIZATION;
+  }
 
 } //SynchronizationImpl

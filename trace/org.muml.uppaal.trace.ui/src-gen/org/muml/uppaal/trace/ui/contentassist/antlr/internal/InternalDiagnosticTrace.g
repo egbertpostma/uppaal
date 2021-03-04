@@ -283,7 +283,7 @@ finally {
 // Entry rule entryRuleState
 entryRuleState 
 @init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH");
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH", "RULE_TAU");
 }
 :
 { before(grammarAccess.getStateRule()); }
@@ -298,7 +298,7 @@ finally {
 // Rule State
 ruleState
     @init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH", "RULE_TAU");
 		int stackSize = keepStackSize();
     }
 	:
@@ -346,34 +346,6 @@ finally {
 
 
 
-// Entry rule entryRuleChannelSynchronization
-entryRuleChannelSynchronization 
-:
-{ before(grammarAccess.getChannelSynchronizationRule()); }
-	 ruleChannelSynchronization
-{ after(grammarAccess.getChannelSynchronizationRule()); } 
-	 EOF 
-;
-
-// Rule ChannelSynchronization
-ruleChannelSynchronization
-    @init {
-		int stackSize = keepStackSize();
-    }
-	:
-(
-{ before(grammarAccess.getChannelSynchronizationAccess().getGroup()); }
-(rule__ChannelSynchronization__Group__0)
-{ after(grammarAccess.getChannelSynchronizationAccess().getGroup()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
 // Entry rule entryRuleTauSynchronization
 entryRuleTauSynchronization 
 :
@@ -395,6 +367,34 @@ ruleTauSynchronization
 	'tau' 
 
 { after(grammarAccess.getTauSynchronizationAccess().getTauKeyword()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleChannelSynchronization
+entryRuleChannelSynchronization 
+:
+{ before(grammarAccess.getChannelSynchronizationRule()); }
+	 ruleChannelSynchronization
+{ after(grammarAccess.getChannelSynchronizationRule()); } 
+	 EOF 
+;
+
+// Rule ChannelSynchronization
+ruleChannelSynchronization
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getChannelSynchronizationAccess().getGroup()); }
+(rule__ChannelSynchronization__Group__0)
+{ after(grammarAccess.getChannelSynchronizationAccess().getGroup()); }
 )
 
 ;
@@ -2984,6 +2984,8 @@ finally {
 
 
 RULE_DEPTH : '#depth=' RULE_INT;
+
+RULE_TAU : '#tau=' RULE_INT;
 
 RULE_EDGE : '{' ( options {greedy=false;} : . )*'}';
 

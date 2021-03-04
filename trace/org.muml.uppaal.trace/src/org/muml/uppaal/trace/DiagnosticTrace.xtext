@@ -54,6 +54,10 @@ terminal DEPTH:
 	'#depth='INT 
 ;
 
+terminal TAU:
+	'#tau='INT
+;
+
 NamedElementReference:
 	singleNamedElementReference=SingleNamedElementReference ('.' namedElementReference=NamedElementReference)?
 ;
@@ -62,7 +66,7 @@ TraceItem:
 	State | Transition
 ;
 
-State hidden(WS,DEPTH):
+State hidden(WS,DEPTH,TAU):
 	'State' (':')? // declare colon as optional since some UPPAAL traces come without a colon behind the 'State' keyword
 	'(' (locationActivities+=LocationActivity)+ ')'
 	(variableValues+=VariableValue ((',')? variableValues+=VariableValue)*)? // declare comma as optional since the list of UPPAAL variable values is sometimes comma-separated, sometimes not
@@ -75,7 +79,11 @@ EdgeActivity:
 terminal EDGE: '{' -> '}';
 
 Synchronization:
-	ChannelSynchronization | {Synchronization} TauSynchronization 
+	ChannelSynchronization | {Synchronization} TauSynchronization
+;
+
+TauSynchronization:
+	'tau'
 ;
 
 ChannelSynchronization:
@@ -84,10 +92,6 @@ ChannelSynchronization:
 
 enum SynchronizationKind returns templates::SynchronizationKind:
 	RECEIVE='?' | SEND='!'
-;
-
-TauSynchronization:
-	'tau'
 ;
 
 DelayTransition:

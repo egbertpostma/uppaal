@@ -3,8 +3,8 @@
  */
 package org.muml.uppaal.trace.serializer;
 
+import com.google.inject.Inject;
 import java.util.Set;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.Action;
@@ -29,8 +29,6 @@ import org.muml.uppaal.trace.TracePackage;
 import org.muml.uppaal.trace.TraceRepository;
 import org.muml.uppaal.trace.VariableValue;
 import org.muml.uppaal.trace.services.DiagnosticTraceGrammarAccess;
-
-import com.google.inject.Inject;
 
 @SuppressWarnings("all")
 public class DiagnosticTraceSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -120,7 +118,7 @@ public class DiagnosticTraceSemanticSequencer extends AbstractDelegatingSemantic
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TracePackage.Literals.CHANNEL_SYNCHRONIZATION__KIND));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getChannelSynchronizationAccess().getChannelVariableIDTerminalRuleCall_0_0_1(), semanticObject.getChannel());
+		feeder.accept(grammarAccess.getChannelSynchronizationAccess().getChannelVariableIDTerminalRuleCall_0_0_1(), semanticObject.eGet(TracePackage.Literals.CHANNEL_SYNCHRONIZATION__CHANNEL, false));
 		feeder.accept(grammarAccess.getChannelSynchronizationAccess().getKindSynchronizationKindEnumRuleCall_1_0(), semanticObject.getKind());
 		feeder.finish();
 	}
@@ -186,7 +184,7 @@ public class DiagnosticTraceSemanticSequencer extends AbstractDelegatingSemantic
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLocationActivityAccess().getProcessProcessIdentifierParserRuleCall_0_0(), semanticObject.getProcess());
-		feeder.accept(grammarAccess.getLocationActivityAccess().getLocationLocationIDTerminalRuleCall_2_0_1(), semanticObject.getLocation());
+		feeder.accept(grammarAccess.getLocationActivityAccess().getLocationLocationIDTerminalRuleCall_2_0_1(), semanticObject.eGet(TracePackage.Literals.LOCATION_ACTIVITY__LOCATION, false));
 		feeder.finish();
 	}
 	

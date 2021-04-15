@@ -115,7 +115,6 @@ class UppaalSerialization {
 
     def dispatch declarations(LocalDeclarations it) '''«FOR i : declaration ?:emptyList»
 		«declaration(i)»
-		
 		«ENDFOR»'''
 
     def dispatch declarations(SystemDeclarations it) '''
@@ -215,9 +214,7 @@ class UppaalSerialization {
     def template(Template it) '''
         <template>
             <name>«name(it)»</name>
-        «IF (parameter.size > 0)»
-            <parameter>«FOR i : parameter ?:emptyList SEPARATOR ', '»«parameter(i)»«ENDFOR»</parameter>
-        «ENDIF»
+            «IF (parameter.size > 0)»<parameter>«FOR i : parameter ?:emptyList SEPARATOR ', '»«parameter(i)»«ENDFOR»</parameter>«ENDIF»
             <declaration>
         «declarations(declarations)»
             </declaration>	
@@ -271,9 +268,11 @@ class UppaalSerialization {
         «IF !(selection == null)»<label kind="select"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>«FOR i : selection ?:emptyList SEPARATOR ', '»«selection(i)»«ENDFOR»</label>«ENDIF»
         «IF !(guard == null)»<label kind="guard"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>«expression(guard)»</label>«ENDIF»
         «IF !(synchronization == null)»<label kind="synchronisation"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>«synchronization(synchronization)»</label>«ENDIF»
-        «IF !(update == null)»<label kind="assignment"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>«FOR i : update ?:emptyList SEPARATOR ","»
-            «expression(i)»
-        «ENDFOR»</label>«ENDIF»
+        «IF !(update == null)»
+        	<label kind="assignment"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>
+        		«FOR i : update ?:emptyList SEPARATOR ","»«expression(i)»«ENDFOR»
+        	</label>
+        «ENDIF»
         «IF !(bendPoint == null)»«FOR i : bendPoint ?:emptyList»
             <nail x="«i.x»" y="«i.y»"/>
         «ENDFOR»«ENDIF»

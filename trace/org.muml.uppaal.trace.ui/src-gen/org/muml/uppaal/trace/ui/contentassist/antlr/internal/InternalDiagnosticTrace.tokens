@@ -1,29 +1,34 @@
-'!'=27
-'('=31
-')'=32
-','=33
-'-'=35
-'-- Formula is NOT satisfied.'=22
-'-- Formula is satisfied.'=21
-'-- Property is NOT satisfied.'=20
+'!'=31
+'#tau'=42
+'('=35
+')'=36
+','=37
+'-'=39
+'-- Formula MAY NOT be satisfied.'=26
+'-- Formula MAY be satisfied.'=22
+'-- Formula is NOT satisfied.'=24
+'-- Formula is satisfied.'=20
+'-- Property MAY NOT be satisfied.'=25
+'-- Property MAY be satisfied.'=21
+'-- Property is NOT satisfied.'=23
 '-- Property is satisfied.'=19
-'->'=40
-'.'=34
-':'=39
-'<='=24
-'='=23
-'>='=25
-'?'=26
-'Cannot reuse state space when trace length optimisation is used.'=28
-'Delay:'=41
+'->'=45
+'.'=38
+':'=44
+'<='=28
+'='=27
+'>='=29
+'?'=30
+'Cannot reuse state space when trace length optimisation is used.'=32
+'Delay:'=46
 'Showing counter example.'=17
 'Showing example trace.'=18
-'State'=38
-'Transitions:'=42
-'Verifying'=29
-'['=36
-']'=37
-'at line'=30
+'State'=43
+'Transitions:'=47
+'Verifying'=33
+'['=40
+']'=41
+'at line'=34
 'formula'=16
 'property'=15
 'tau'=14
@@ -66,3 +71,8 @@ T__39=39
 T__40=40
 T__41=41
 T__42=42
+T__43=43
+T__44=44
+T__45=45
+T__46=46
+T__47=47

@@ -39,6 +39,7 @@ public class DiagnosticTraceParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getTraceAccess().getAlternatives_1(), "rule__Trace__Alternatives_1");
 					put(grammarAccess.getTraceAccess().getAlternatives_6_0(), "rule__Trace__Alternatives_6_0");
+					put(grammarAccess.getSingleNamedElementReferenceAccess().getAlternatives(), "rule__SingleNamedElementReference__Alternatives");
 					put(grammarAccess.getTraceItemAccess().getAlternatives(), "rule__TraceItem__Alternatives");
 					put(grammarAccess.getSynchronizationAccess().getAlternatives(), "rule__Synchronization__Alternatives");
 					put(grammarAccess.getTransitionAccess().getAlternatives(), "rule__Transition__Alternatives");
@@ -54,7 +55,8 @@ public class DiagnosticTraceParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLocationActivityAccess().getGroup(), "rule__LocationActivity__Group__0");
 					put(grammarAccess.getVariableValueAccess().getGroup(), "rule__VariableValue__Group__0");
 					put(grammarAccess.getVariableValueAccess().getGroup_1(), "rule__VariableValue__Group_1__0");
-					put(grammarAccess.getSingleNamedElementReferenceAccess().getGroup(), "rule__SingleNamedElementReference__Group__0");
+					put(grammarAccess.getSingleNamedElementReferenceAccess().getGroup_0(), "rule__SingleNamedElementReference__Group_0__0");
+					put(grammarAccess.getSingleNamedElementReferenceAccess().getGroup_0_1(), "rule__SingleNamedElementReference__Group_0_1__0");
 					put(grammarAccess.getSingleNamedElementReferenceAccess().getGroup_1(), "rule__SingleNamedElementReference__Group_1__0");
 					put(grammarAccess.getNamedElementReferenceAccess().getGroup(), "rule__NamedElementReference__Group__0");
 					put(grammarAccess.getNamedElementReferenceAccess().getGroup_1(), "rule__NamedElementReference__Group_1__0");
@@ -80,8 +82,8 @@ public class DiagnosticTraceParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVariableValueAccess().getSecondNamedElementReferenceAssignment_1_1(), "rule__VariableValue__SecondNamedElementReferenceAssignment_1_1");
 					put(grammarAccess.getVariableValueAccess().getOperatorAssignment_2(), "rule__VariableValue__OperatorAssignment_2");
 					put(grammarAccess.getVariableValueAccess().getValueAssignment_3(), "rule__VariableValue__ValueAssignment_3");
-					put(grammarAccess.getSingleNamedElementReferenceAccess().getNamedElementAssignment_0(), "rule__SingleNamedElementReference__NamedElementAssignment_0");
-					put(grammarAccess.getSingleNamedElementReferenceAccess().getIndexesAssignment_1_1(), "rule__SingleNamedElementReference__IndexesAssignment_1_1");
+					put(grammarAccess.getSingleNamedElementReferenceAccess().getNamedElementAssignment_0_0(), "rule__SingleNamedElementReference__NamedElementAssignment_0_0");
+					put(grammarAccess.getSingleNamedElementReferenceAccess().getIndexesAssignment_0_1_1(), "rule__SingleNamedElementReference__IndexesAssignment_0_1_1");
 					put(grammarAccess.getNamedElementReferenceAccess().getSingleNamedElementReferenceAssignment_0(), "rule__NamedElementReference__SingleNamedElementReferenceAssignment_0");
 					put(grammarAccess.getNamedElementReferenceAccess().getNamedElementReferenceAssignment_1_1(), "rule__NamedElementReference__NamedElementReferenceAssignment_1_1");
 					put(grammarAccess.getStateAccess().getLocationActivitiesAssignment_3(), "rule__State__LocationActivitiesAssignment_3");

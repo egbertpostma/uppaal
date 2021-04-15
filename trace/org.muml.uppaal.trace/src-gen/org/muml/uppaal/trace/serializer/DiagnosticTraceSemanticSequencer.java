@@ -218,7 +218,7 @@ public class DiagnosticTraceSemanticSequencer extends AbstractDelegatingSemantic
 	 *     SingleNamedElementReference returns SingleNamedElementReference
 	 *
 	 * Constraint:
-	 *     (namedElement=[NamedElement|ID] indexes+=INT*)
+	 *     (namedElement=[NamedElement|ID] indexes+=INT*)?
 	 */
 	protected void sequence_SingleNamedElementReference(ISerializationContext context, SingleNamedElementReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

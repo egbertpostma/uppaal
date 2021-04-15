@@ -22,32 +22,17 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_EDGE", "RULE_DEPTH", "RULE_TAU", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Cannot reuse state space when trace length optimisation is used.'", "'Verifying'", "'property'", "'formula'", "'at line'", "'Showing counter example.'", "'Showing example trace.'", "'('", "','", "')'", "'.'", "'-'", "'['", "']'", "'State'", "':'", "'->'", "'tau'", "'Delay:'", "'Transitions:'", "'-- Property is satisfied.'", "'-- Property is NOT satisfied.'", "'-- Formula is satisfied.'", "'-- Formula is NOT satisfied.'", "'='", "'<='", "'>='", "'?'", "'!'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_EDGE", "RULE_DEPTH", "RULE_TAU", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Cannot reuse state space when trace length optimisation is used.'", "'Verifying'", "'property'", "'formula'", "'at line'", "'Showing counter example.'", "'Showing example trace.'", "'('", "','", "')'", "'.'", "'-'", "'['", "']'", "'#tau'", "'State'", "':'", "'->'", "'tau'", "'Delay:'", "'Transitions:'", "'-- Property is satisfied.'", "'-- Formula is satisfied.'", "'-- Property MAY be satisfied.'", "'-- Formula MAY be satisfied.'", "'-- Property is NOT satisfied.'", "'-- Formula is NOT satisfied.'", "'-- Property MAY NOT be satisfied.'", "'-- Formula MAY NOT be satisfied.'", "'='", "'<='", "'>='", "'?'", "'!'"
     };
     public static final int RULE_DEPTH=7;
     public static final int RULE_EDGE=6;
-    public static final int RULE_STRING=9;
-    public static final int RULE_SL_COMMENT=11;
     public static final int T__19=19;
     public static final int T__15=15;
-    public static final int T__37=37;
     public static final int T__16=16;
-    public static final int T__38=38;
     public static final int T__17=17;
-    public static final int T__39=39;
     public static final int T__18=18;
-    public static final int T__33=33;
-    public static final int T__34=34;
-    public static final int T__35=35;
     public static final int T__14=14;
-    public static final int T__36=36;
-    public static final int EOF=-1;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
     public static final int RULE_ID=5;
-    public static final int RULE_WS=12;
-    public static final int RULE_ANY_OTHER=13;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
@@ -58,12 +43,32 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
+    public static final int T__20=20;
+    public static final int T__21=21;
+    public static final int RULE_STRING=9;
+    public static final int RULE_SL_COMMENT=11;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
+    public static final int T__33=33;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__36=36;
+    public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int RULE_WS=12;
+    public static final int RULE_ANY_OTHER=13;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__46=46;
+    public static final int T__47=47;
     public static final int T__40=40;
     public static final int T__41=41;
-    public static final int T__20=20;
     public static final int T__42=42;
     public static final int RULE_TAU=8;
-    public static final int T__21=21;
+    public static final int T__43=43;
 
     // delegates
     // delegators
@@ -499,7 +504,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                         int alt5=2;
                         int LA5_0 = input.LA(1);
 
-                        if ( (LA5_0==28||(LA5_0>=32 && LA5_0<=33)) ) {
+                        if ( (LA5_0==29||(LA5_0>=33 && LA5_0<=34)) ) {
                             alt5=1;
                         }
 
@@ -1007,7 +1012,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalDiagnosticTrace.g:399:4: otherlv_1= '-' ( (lv_secondNamedElementReference_2_0= ruleNamedElementReference ) )
                     {
-                    otherlv_1=(Token)match(input,25,FOLLOW_14); 
+                    otherlv_1=(Token)match(input,25,FOLLOW_16); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getVariableValueAccess().getHyphenMinusKeyword_1_0());
                         
@@ -1162,7 +1167,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSingleNamedElementReference"
-    // InternalDiagnosticTrace.g:474:1: ruleSingleNamedElementReference returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )* ) ;
+    // InternalDiagnosticTrace.g:474:1: ruleSingleNamedElementReference returns [EObject current=null] : ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )* ) | ( () otherlv_5= '#tau' ) ) ;
     public final EObject ruleSingleNamedElementReference() throws RecognitionException {
         EObject current = null;
 
@@ -1170,95 +1175,149 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
         Token otherlv_1=null;
         Token lv_indexes_2_0=null;
         Token otherlv_3=null;
+        Token otherlv_5=null;
 
          enterRule(); 
             
         try {
-            // InternalDiagnosticTrace.g:477:28: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )* ) )
-            // InternalDiagnosticTrace.g:478:1: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )* )
+            // InternalDiagnosticTrace.g:477:28: ( ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )* ) | ( () otherlv_5= '#tau' ) ) )
+            // InternalDiagnosticTrace.g:478:1: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )* ) | ( () otherlv_5= '#tau' ) )
             {
-            // InternalDiagnosticTrace.g:478:1: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )* )
-            // InternalDiagnosticTrace.g:478:2: ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )*
-            {
-            // InternalDiagnosticTrace.g:478:2: ( (otherlv_0= RULE_ID ) )
-            // InternalDiagnosticTrace.g:479:1: (otherlv_0= RULE_ID )
-            {
-            // InternalDiagnosticTrace.g:479:1: (otherlv_0= RULE_ID )
-            // InternalDiagnosticTrace.g:480:3: otherlv_0= RULE_ID
-            {
+            // InternalDiagnosticTrace.g:478:1: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )* ) | ( () otherlv_5= '#tau' ) )
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            			if (current==null) {
-            	            current = createModelElement(grammarAccess.getSingleNamedElementReferenceRule());
-            	        }
-                    
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_16); 
-
-            		newLeafNode(otherlv_0, grammarAccess.getSingleNamedElementReferenceAccess().getNamedElementNamedElementCrossReference_0_0()); 
-            	
-
+            if ( (LA11_0==RULE_ID) ) {
+                alt11=1;
             }
-
-
+            else if ( (LA11_0==28) ) {
+                alt11=2;
             }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 11, 0, input);
 
-            // InternalDiagnosticTrace.g:491:2: (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )*
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                throw nvae;
+            }
+            switch (alt11) {
+                case 1 :
+                    // InternalDiagnosticTrace.g:478:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )* )
+                    {
+                    // InternalDiagnosticTrace.g:478:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )* )
+                    // InternalDiagnosticTrace.g:478:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )*
+                    {
+                    // InternalDiagnosticTrace.g:478:3: ( (otherlv_0= RULE_ID ) )
+                    // InternalDiagnosticTrace.g:479:1: (otherlv_0= RULE_ID )
+                    {
+                    // InternalDiagnosticTrace.g:479:1: (otherlv_0= RULE_ID )
+                    // InternalDiagnosticTrace.g:480:3: otherlv_0= RULE_ID
+                    {
 
-                if ( (LA10_0==26) ) {
-                    alt10=1;
-                }
+                    			if (current==null) {
+                    	            current = createModelElement(grammarAccess.getSingleNamedElementReferenceRule());
+                    	        }
+                            
+                    otherlv_0=(Token)match(input,RULE_ID,FOLLOW_17); 
 
+                    		newLeafNode(otherlv_0, grammarAccess.getSingleNamedElementReferenceAccess().getNamedElementNamedElementCrossReference_0_0_0()); 
+                    	
 
-                switch (alt10) {
-            	case 1 :
-            	    // InternalDiagnosticTrace.g:491:4: otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']'
-            	    {
-            	    otherlv_1=(Token)match(input,26,FOLLOW_5); 
-
-            	        	newLeafNode(otherlv_1, grammarAccess.getSingleNamedElementReferenceAccess().getLeftSquareBracketKeyword_1_0());
-            	        
-            	    // InternalDiagnosticTrace.g:495:1: ( (lv_indexes_2_0= RULE_INT ) )
-            	    // InternalDiagnosticTrace.g:496:1: (lv_indexes_2_0= RULE_INT )
-            	    {
-            	    // InternalDiagnosticTrace.g:496:1: (lv_indexes_2_0= RULE_INT )
-            	    // InternalDiagnosticTrace.g:497:3: lv_indexes_2_0= RULE_INT
-            	    {
-            	    lv_indexes_2_0=(Token)match(input,RULE_INT,FOLLOW_17); 
-
-            	    			newLeafNode(lv_indexes_2_0, grammarAccess.getSingleNamedElementReferenceAccess().getIndexesINTTerminalRuleCall_1_1_0()); 
-            	    		
-
-            	    	        if (current==null) {
-            	    	            current = createModelElement(grammarAccess.getSingleNamedElementReferenceRule());
-            	    	        }
-            	           		addWithLastConsumed(
-            	           			current, 
-            	           			"indexes",
-            	            		lv_indexes_2_0, 
-            	            		"org.muml.uppaal.trace.DiagnosticTrace.INT");
-            	    	    
-
-            	    }
+                    }
 
 
-            	    }
+                    }
 
-            	    otherlv_3=(Token)match(input,27,FOLLOW_16); 
+                    // InternalDiagnosticTrace.g:491:2: (otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']' )*
+                    loop10:
+                    do {
+                        int alt10=2;
+                        int LA10_0 = input.LA(1);
 
-            	        	newLeafNode(otherlv_3, grammarAccess.getSingleNamedElementReferenceAccess().getRightSquareBracketKeyword_1_2());
-            	        
+                        if ( (LA10_0==26) ) {
+                            alt10=1;
+                        }
 
-            	    }
-            	    break;
 
-            	default :
-            	    break loop10;
-                }
-            } while (true);
+                        switch (alt10) {
+                    	case 1 :
+                    	    // InternalDiagnosticTrace.g:491:4: otherlv_1= '[' ( (lv_indexes_2_0= RULE_INT ) ) otherlv_3= ']'
+                    	    {
+                    	    otherlv_1=(Token)match(input,26,FOLLOW_5); 
 
+                    	        	newLeafNode(otherlv_1, grammarAccess.getSingleNamedElementReferenceAccess().getLeftSquareBracketKeyword_0_1_0());
+                    	        
+                    	    // InternalDiagnosticTrace.g:495:1: ( (lv_indexes_2_0= RULE_INT ) )
+                    	    // InternalDiagnosticTrace.g:496:1: (lv_indexes_2_0= RULE_INT )
+                    	    {
+                    	    // InternalDiagnosticTrace.g:496:1: (lv_indexes_2_0= RULE_INT )
+                    	    // InternalDiagnosticTrace.g:497:3: lv_indexes_2_0= RULE_INT
+                    	    {
+                    	    lv_indexes_2_0=(Token)match(input,RULE_INT,FOLLOW_18); 
+
+                    	    			newLeafNode(lv_indexes_2_0, grammarAccess.getSingleNamedElementReferenceAccess().getIndexesINTTerminalRuleCall_0_1_1_0()); 
+                    	    		
+
+                    	    	        if (current==null) {
+                    	    	            current = createModelElement(grammarAccess.getSingleNamedElementReferenceRule());
+                    	    	        }
+                    	           		addWithLastConsumed(
+                    	           			current, 
+                    	           			"indexes",
+                    	            		lv_indexes_2_0, 
+                    	            		"org.muml.uppaal.trace.DiagnosticTrace.INT");
+                    	    	    
+
+                    	    }
+
+
+                    	    }
+
+                    	    otherlv_3=(Token)match(input,27,FOLLOW_17); 
+
+                    	        	newLeafNode(otherlv_3, grammarAccess.getSingleNamedElementReferenceAccess().getRightSquareBracketKeyword_0_1_2());
+                    	        
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop10;
+                        }
+                    } while (true);
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalDiagnosticTrace.g:518:6: ( () otherlv_5= '#tau' )
+                    {
+                    // InternalDiagnosticTrace.g:518:6: ( () otherlv_5= '#tau' )
+                    // InternalDiagnosticTrace.g:518:7: () otherlv_5= '#tau'
+                    {
+                    // InternalDiagnosticTrace.g:518:7: ()
+                    // InternalDiagnosticTrace.g:519:5: 
+                    {
+
+                            current = forceCreateModelElement(
+                                grammarAccess.getSingleNamedElementReferenceAccess().getSingleNamedElementReferenceAction_1_0(),
+                                current);
+                        
+
+                    }
+
+                    otherlv_5=(Token)match(input,28,FOLLOW_2); 
+
+                        	newLeafNode(otherlv_5, grammarAccess.getSingleNamedElementReferenceAccess().getTauKeyword_1_1());
+                        
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -1280,7 +1339,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNamedElementReference"
-    // InternalDiagnosticTrace.g:525:1: entryRuleNamedElementReference returns [EObject current=null] : iv_ruleNamedElementReference= ruleNamedElementReference EOF ;
+    // InternalDiagnosticTrace.g:536:1: entryRuleNamedElementReference returns [EObject current=null] : iv_ruleNamedElementReference= ruleNamedElementReference EOF ;
     public final EObject entryRuleNamedElementReference() throws RecognitionException {
         EObject current = null;
 
@@ -1288,8 +1347,8 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDiagnosticTrace.g:526:2: (iv_ruleNamedElementReference= ruleNamedElementReference EOF )
-            // InternalDiagnosticTrace.g:527:2: iv_ruleNamedElementReference= ruleNamedElementReference EOF
+            // InternalDiagnosticTrace.g:537:2: (iv_ruleNamedElementReference= ruleNamedElementReference EOF )
+            // InternalDiagnosticTrace.g:538:2: iv_ruleNamedElementReference= ruleNamedElementReference EOF
             {
              newCompositeNode(grammarAccess.getNamedElementReferenceRule()); 
             pushFollow(FOLLOW_1);
@@ -1316,7 +1375,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNamedElementReference"
-    // InternalDiagnosticTrace.g:534:1: ruleNamedElementReference returns [EObject current=null] : ( ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) ) (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )? ) ;
+    // InternalDiagnosticTrace.g:545:1: ruleNamedElementReference returns [EObject current=null] : ( ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) ) (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )? ) ;
     public final EObject ruleNamedElementReference() throws RecognitionException {
         EObject current = null;
 
@@ -1329,22 +1388,22 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalDiagnosticTrace.g:537:28: ( ( ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) ) (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )? ) )
-            // InternalDiagnosticTrace.g:538:1: ( ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) ) (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )? )
+            // InternalDiagnosticTrace.g:548:28: ( ( ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) ) (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )? ) )
+            // InternalDiagnosticTrace.g:549:1: ( ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) ) (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )? )
             {
-            // InternalDiagnosticTrace.g:538:1: ( ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) ) (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )? )
-            // InternalDiagnosticTrace.g:538:2: ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) ) (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )?
+            // InternalDiagnosticTrace.g:549:1: ( ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) ) (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )? )
+            // InternalDiagnosticTrace.g:549:2: ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) ) (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )?
             {
-            // InternalDiagnosticTrace.g:538:2: ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) )
-            // InternalDiagnosticTrace.g:539:1: (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference )
+            // InternalDiagnosticTrace.g:549:2: ( (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference ) )
+            // InternalDiagnosticTrace.g:550:1: (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference )
             {
-            // InternalDiagnosticTrace.g:539:1: (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference )
-            // InternalDiagnosticTrace.g:540:3: lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference
+            // InternalDiagnosticTrace.g:550:1: (lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference )
+            // InternalDiagnosticTrace.g:551:3: lv_singleNamedElementReference_0_0= ruleSingleNamedElementReference
             {
              
             	        newCompositeNode(grammarAccess.getNamedElementReferenceAccess().getSingleNamedElementReferenceSingleNamedElementReferenceParserRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_19);
             lv_singleNamedElementReference_0_0=ruleSingleNamedElementReference();
 
             state._fsp--;
@@ -1366,26 +1425,26 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDiagnosticTrace.g:556:2: (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalDiagnosticTrace.g:567:2: (otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) ) )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0==24) ) {
-                alt11=1;
+            if ( (LA12_0==24) ) {
+                alt12=1;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:556:4: otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) )
+                    // InternalDiagnosticTrace.g:567:4: otherlv_1= '.' ( (lv_namedElementReference_2_0= ruleNamedElementReference ) )
                     {
-                    otherlv_1=(Token)match(input,24,FOLLOW_14); 
+                    otherlv_1=(Token)match(input,24,FOLLOW_16); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getNamedElementReferenceAccess().getFullStopKeyword_1_0());
                         
-                    // InternalDiagnosticTrace.g:560:1: ( (lv_namedElementReference_2_0= ruleNamedElementReference ) )
-                    // InternalDiagnosticTrace.g:561:1: (lv_namedElementReference_2_0= ruleNamedElementReference )
+                    // InternalDiagnosticTrace.g:571:1: ( (lv_namedElementReference_2_0= ruleNamedElementReference ) )
+                    // InternalDiagnosticTrace.g:572:1: (lv_namedElementReference_2_0= ruleNamedElementReference )
                     {
-                    // InternalDiagnosticTrace.g:561:1: (lv_namedElementReference_2_0= ruleNamedElementReference )
-                    // InternalDiagnosticTrace.g:562:3: lv_namedElementReference_2_0= ruleNamedElementReference
+                    // InternalDiagnosticTrace.g:572:1: (lv_namedElementReference_2_0= ruleNamedElementReference )
+                    // InternalDiagnosticTrace.g:573:3: lv_namedElementReference_2_0= ruleNamedElementReference
                     {
                      
                     	        newCompositeNode(grammarAccess.getNamedElementReferenceAccess().getNamedElementReferenceNamedElementReferenceParserRuleCall_1_1_0()); 
@@ -1439,7 +1498,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTraceItem"
-    // InternalDiagnosticTrace.g:586:1: entryRuleTraceItem returns [EObject current=null] : iv_ruleTraceItem= ruleTraceItem EOF ;
+    // InternalDiagnosticTrace.g:597:1: entryRuleTraceItem returns [EObject current=null] : iv_ruleTraceItem= ruleTraceItem EOF ;
     public final EObject entryRuleTraceItem() throws RecognitionException {
         EObject current = null;
 
@@ -1447,8 +1506,8 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDiagnosticTrace.g:587:2: (iv_ruleTraceItem= ruleTraceItem EOF )
-            // InternalDiagnosticTrace.g:588:2: iv_ruleTraceItem= ruleTraceItem EOF
+            // InternalDiagnosticTrace.g:598:2: (iv_ruleTraceItem= ruleTraceItem EOF )
+            // InternalDiagnosticTrace.g:599:2: iv_ruleTraceItem= ruleTraceItem EOF
             {
              newCompositeNode(grammarAccess.getTraceItemRule()); 
             pushFollow(FOLLOW_1);
@@ -1475,7 +1534,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTraceItem"
-    // InternalDiagnosticTrace.g:595:1: ruleTraceItem returns [EObject current=null] : (this_State_0= ruleState | this_Transition_1= ruleTransition ) ;
+    // InternalDiagnosticTrace.g:606:1: ruleTraceItem returns [EObject current=null] : (this_State_0= ruleState | this_Transition_1= ruleTransition ) ;
     public final EObject ruleTraceItem() throws RecognitionException {
         EObject current = null;
 
@@ -1487,28 +1546,28 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalDiagnosticTrace.g:598:28: ( (this_State_0= ruleState | this_Transition_1= ruleTransition ) )
-            // InternalDiagnosticTrace.g:599:1: (this_State_0= ruleState | this_Transition_1= ruleTransition )
+            // InternalDiagnosticTrace.g:609:28: ( (this_State_0= ruleState | this_Transition_1= ruleTransition ) )
+            // InternalDiagnosticTrace.g:610:1: (this_State_0= ruleState | this_Transition_1= ruleTransition )
             {
-            // InternalDiagnosticTrace.g:599:1: (this_State_0= ruleState | this_Transition_1= ruleTransition )
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // InternalDiagnosticTrace.g:610:1: (this_State_0= ruleState | this_Transition_1= ruleTransition )
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA12_0==28) ) {
-                alt12=1;
+            if ( (LA13_0==29) ) {
+                alt13=1;
             }
-            else if ( ((LA12_0>=32 && LA12_0<=33)) ) {
-                alt12=2;
+            else if ( ((LA13_0>=33 && LA13_0<=34)) ) {
+                alt13=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 13, 0, input);
 
                 throw nvae;
             }
-            switch (alt12) {
+            switch (alt13) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:600:5: this_State_0= ruleState
+                    // InternalDiagnosticTrace.g:611:5: this_State_0= ruleState
                     {
                      
                             newCompositeNode(grammarAccess.getTraceItemAccess().getStateParserRuleCall_0()); 
@@ -1526,7 +1585,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDiagnosticTrace.g:610:5: this_Transition_1= ruleTransition
+                    // InternalDiagnosticTrace.g:621:5: this_Transition_1= ruleTransition
                     {
                      
                             newCompositeNode(grammarAccess.getTraceItemAccess().getTransitionParserRuleCall_1()); 
@@ -1564,7 +1623,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleState"
-    // InternalDiagnosticTrace.g:626:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // InternalDiagnosticTrace.g:637:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -1575,8 +1634,8 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH", "RULE_TAU");
         	
         try {
-            // InternalDiagnosticTrace.g:630:2: (iv_ruleState= ruleState EOF )
-            // InternalDiagnosticTrace.g:631:2: iv_ruleState= ruleState EOF
+            // InternalDiagnosticTrace.g:641:2: (iv_ruleState= ruleState EOF )
+            // InternalDiagnosticTrace.g:642:2: iv_ruleState= ruleState EOF
             {
              newCompositeNode(grammarAccess.getStateRule()); 
             pushFollow(FOLLOW_1);
@@ -1606,7 +1665,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleState"
-    // InternalDiagnosticTrace.g:641:1: ruleState returns [EObject current=null] : (otherlv_0= 'State' (otherlv_1= ':' )? otherlv_2= '(' ( (lv_locationActivities_3_0= ruleLocationActivity ) )+ otherlv_4= ')' ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )? ) ;
+    // InternalDiagnosticTrace.g:652:1: ruleState returns [EObject current=null] : (otherlv_0= 'State' (otherlv_1= ':' )? otherlv_2= '(' ( (lv_locationActivities_3_0= ruleLocationActivity ) )+ otherlv_4= ')' ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )? ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
@@ -1626,28 +1685,28 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_DEPTH", "RULE_TAU");
             
         try {
-            // InternalDiagnosticTrace.g:645:28: ( (otherlv_0= 'State' (otherlv_1= ':' )? otherlv_2= '(' ( (lv_locationActivities_3_0= ruleLocationActivity ) )+ otherlv_4= ')' ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )? ) )
-            // InternalDiagnosticTrace.g:646:1: (otherlv_0= 'State' (otherlv_1= ':' )? otherlv_2= '(' ( (lv_locationActivities_3_0= ruleLocationActivity ) )+ otherlv_4= ')' ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )? )
+            // InternalDiagnosticTrace.g:656:28: ( (otherlv_0= 'State' (otherlv_1= ':' )? otherlv_2= '(' ( (lv_locationActivities_3_0= ruleLocationActivity ) )+ otherlv_4= ')' ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )? ) )
+            // InternalDiagnosticTrace.g:657:1: (otherlv_0= 'State' (otherlv_1= ':' )? otherlv_2= '(' ( (lv_locationActivities_3_0= ruleLocationActivity ) )+ otherlv_4= ')' ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )? )
             {
-            // InternalDiagnosticTrace.g:646:1: (otherlv_0= 'State' (otherlv_1= ':' )? otherlv_2= '(' ( (lv_locationActivities_3_0= ruleLocationActivity ) )+ otherlv_4= ')' ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )? )
-            // InternalDiagnosticTrace.g:646:3: otherlv_0= 'State' (otherlv_1= ':' )? otherlv_2= '(' ( (lv_locationActivities_3_0= ruleLocationActivity ) )+ otherlv_4= ')' ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )?
+            // InternalDiagnosticTrace.g:657:1: (otherlv_0= 'State' (otherlv_1= ':' )? otherlv_2= '(' ( (lv_locationActivities_3_0= ruleLocationActivity ) )+ otherlv_4= ')' ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )? )
+            // InternalDiagnosticTrace.g:657:3: otherlv_0= 'State' (otherlv_1= ':' )? otherlv_2= '(' ( (lv_locationActivities_3_0= ruleLocationActivity ) )+ otherlv_4= ')' ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )?
             {
-            otherlv_0=(Token)match(input,28,FOLLOW_19); 
+            otherlv_0=(Token)match(input,29,FOLLOW_20); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getStateAccess().getStateKeyword_0());
                 
-            // InternalDiagnosticTrace.g:650:1: (otherlv_1= ':' )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalDiagnosticTrace.g:661:1: (otherlv_1= ':' )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA13_0==29) ) {
-                alt13=1;
+            if ( (LA14_0==30) ) {
+                alt14=1;
             }
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:650:3: otherlv_1= ':'
+                    // InternalDiagnosticTrace.g:661:3: otherlv_1= ':'
                     {
-                    otherlv_1=(Token)match(input,29,FOLLOW_20); 
+                    otherlv_1=(Token)match(input,30,FOLLOW_21); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getStateAccess().getColonKeyword_1());
                         
@@ -1661,29 +1720,29 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_2, grammarAccess.getStateAccess().getLeftParenthesisKeyword_2());
                 
-            // InternalDiagnosticTrace.g:658:1: ( (lv_locationActivities_3_0= ruleLocationActivity ) )+
-            int cnt14=0;
-            loop14:
+            // InternalDiagnosticTrace.g:669:1: ( (lv_locationActivities_3_0= ruleLocationActivity ) )+
+            int cnt15=0;
+            loop15:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( (LA14_0==RULE_ID) ) {
-                    alt14=1;
+                if ( (LA15_0==RULE_ID) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt15) {
             	case 1 :
-            	    // InternalDiagnosticTrace.g:659:1: (lv_locationActivities_3_0= ruleLocationActivity )
+            	    // InternalDiagnosticTrace.g:670:1: (lv_locationActivities_3_0= ruleLocationActivity )
             	    {
-            	    // InternalDiagnosticTrace.g:659:1: (lv_locationActivities_3_0= ruleLocationActivity )
-            	    // InternalDiagnosticTrace.g:660:3: lv_locationActivities_3_0= ruleLocationActivity
+            	    // InternalDiagnosticTrace.g:670:1: (lv_locationActivities_3_0= ruleLocationActivity )
+            	    // InternalDiagnosticTrace.g:671:3: lv_locationActivities_3_0= ruleLocationActivity
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getStateAccess().getLocationActivitiesLocationActivityParserRuleCall_3_0()); 
             	    	    
-            	    pushFollow(FOLLOW_21);
+            	    pushFollow(FOLLOW_22);
             	    lv_locationActivities_3_0=ruleLocationActivity();
 
             	    state._fsp--;
@@ -1707,39 +1766,39 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt14 >= 1 ) break loop14;
+            	    if ( cnt15 >= 1 ) break loop15;
                         EarlyExitException eee =
-                            new EarlyExitException(14, input);
+                            new EarlyExitException(15, input);
                         throw eee;
                 }
-                cnt14++;
+                cnt15++;
             } while (true);
 
-            otherlv_4=(Token)match(input,23,FOLLOW_22); 
+            otherlv_4=(Token)match(input,23,FOLLOW_23); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getStateAccess().getRightParenthesisKeyword_4());
                 
-            // InternalDiagnosticTrace.g:680:1: ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // InternalDiagnosticTrace.g:691:1: ( ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )* )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==RULE_ID) ) {
-                alt17=1;
+            if ( (LA18_0==RULE_ID||LA18_0==28) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:680:2: ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )*
+                    // InternalDiagnosticTrace.g:691:2: ( (lv_variableValues_5_0= ruleVariableValue ) ) ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )*
                     {
-                    // InternalDiagnosticTrace.g:680:2: ( (lv_variableValues_5_0= ruleVariableValue ) )
-                    // InternalDiagnosticTrace.g:681:1: (lv_variableValues_5_0= ruleVariableValue )
+                    // InternalDiagnosticTrace.g:691:2: ( (lv_variableValues_5_0= ruleVariableValue ) )
+                    // InternalDiagnosticTrace.g:692:1: (lv_variableValues_5_0= ruleVariableValue )
                     {
-                    // InternalDiagnosticTrace.g:681:1: (lv_variableValues_5_0= ruleVariableValue )
-                    // InternalDiagnosticTrace.g:682:3: lv_variableValues_5_0= ruleVariableValue
+                    // InternalDiagnosticTrace.g:692:1: (lv_variableValues_5_0= ruleVariableValue )
+                    // InternalDiagnosticTrace.g:693:3: lv_variableValues_5_0= ruleVariableValue
                     {
                      
                     	        newCompositeNode(grammarAccess.getStateAccess().getVariableValuesVariableValueParserRuleCall_5_0_0()); 
                     	    
-                    pushFollow(FOLLOW_23);
+                    pushFollow(FOLLOW_24);
                     lv_variableValues_5_0=ruleVariableValue();
 
                     state._fsp--;
@@ -1761,33 +1820,33 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalDiagnosticTrace.g:698:2: ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )*
-                    loop16:
+                    // InternalDiagnosticTrace.g:709:2: ( (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) ) )*
+                    loop17:
                     do {
-                        int alt16=2;
-                        int LA16_0 = input.LA(1);
+                        int alt17=2;
+                        int LA17_0 = input.LA(1);
 
-                        if ( (LA16_0==RULE_ID||LA16_0==22) ) {
-                            alt16=1;
+                        if ( (LA17_0==RULE_ID||LA17_0==22||LA17_0==28) ) {
+                            alt17=1;
                         }
 
 
-                        switch (alt16) {
+                        switch (alt17) {
                     	case 1 :
-                    	    // InternalDiagnosticTrace.g:698:3: (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) )
+                    	    // InternalDiagnosticTrace.g:709:3: (otherlv_6= ',' )? ( (lv_variableValues_7_0= ruleVariableValue ) )
                     	    {
-                    	    // InternalDiagnosticTrace.g:698:3: (otherlv_6= ',' )?
-                    	    int alt15=2;
-                    	    int LA15_0 = input.LA(1);
+                    	    // InternalDiagnosticTrace.g:709:3: (otherlv_6= ',' )?
+                    	    int alt16=2;
+                    	    int LA16_0 = input.LA(1);
 
-                    	    if ( (LA15_0==22) ) {
-                    	        alt15=1;
+                    	    if ( (LA16_0==22) ) {
+                    	        alt16=1;
                     	    }
-                    	    switch (alt15) {
+                    	    switch (alt16) {
                     	        case 1 :
-                    	            // InternalDiagnosticTrace.g:698:5: otherlv_6= ','
+                    	            // InternalDiagnosticTrace.g:709:5: otherlv_6= ','
                     	            {
-                    	            otherlv_6=(Token)match(input,22,FOLLOW_14); 
+                    	            otherlv_6=(Token)match(input,22,FOLLOW_16); 
 
                     	                	newLeafNode(otherlv_6, grammarAccess.getStateAccess().getCommaKeyword_5_1_0());
                     	                
@@ -1797,16 +1856,16 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    // InternalDiagnosticTrace.g:702:3: ( (lv_variableValues_7_0= ruleVariableValue ) )
-                    	    // InternalDiagnosticTrace.g:703:1: (lv_variableValues_7_0= ruleVariableValue )
+                    	    // InternalDiagnosticTrace.g:713:3: ( (lv_variableValues_7_0= ruleVariableValue ) )
+                    	    // InternalDiagnosticTrace.g:714:1: (lv_variableValues_7_0= ruleVariableValue )
                     	    {
-                    	    // InternalDiagnosticTrace.g:703:1: (lv_variableValues_7_0= ruleVariableValue )
-                    	    // InternalDiagnosticTrace.g:704:3: lv_variableValues_7_0= ruleVariableValue
+                    	    // InternalDiagnosticTrace.g:714:1: (lv_variableValues_7_0= ruleVariableValue )
+                    	    // InternalDiagnosticTrace.g:715:3: lv_variableValues_7_0= ruleVariableValue
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getStateAccess().getVariableValuesVariableValueParserRuleCall_5_1_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_23);
+                    	    pushFollow(FOLLOW_24);
                     	    lv_variableValues_7_0=ruleVariableValue();
 
                     	    state._fsp--;
@@ -1833,7 +1892,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop16;
+                    	    break loop17;
                         }
                     } while (true);
 
@@ -1867,7 +1926,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEdgeActivity"
-    // InternalDiagnosticTrace.g:731:1: entryRuleEdgeActivity returns [EObject current=null] : iv_ruleEdgeActivity= ruleEdgeActivity EOF ;
+    // InternalDiagnosticTrace.g:742:1: entryRuleEdgeActivity returns [EObject current=null] : iv_ruleEdgeActivity= ruleEdgeActivity EOF ;
     public final EObject entryRuleEdgeActivity() throws RecognitionException {
         EObject current = null;
 
@@ -1875,8 +1934,8 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDiagnosticTrace.g:732:2: (iv_ruleEdgeActivity= ruleEdgeActivity EOF )
-            // InternalDiagnosticTrace.g:733:2: iv_ruleEdgeActivity= ruleEdgeActivity EOF
+            // InternalDiagnosticTrace.g:743:2: (iv_ruleEdgeActivity= ruleEdgeActivity EOF )
+            // InternalDiagnosticTrace.g:744:2: iv_ruleEdgeActivity= ruleEdgeActivity EOF
             {
              newCompositeNode(grammarAccess.getEdgeActivityRule()); 
             pushFollow(FOLLOW_1);
@@ -1903,7 +1962,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEdgeActivity"
-    // InternalDiagnosticTrace.g:740:1: ruleEdgeActivity returns [EObject current=null] : ( ( (lv_source_0_0= ruleLocationActivity ) ) otherlv_1= '->' ( (lv_target_2_0= ruleLocationActivity ) ) ( (lv_details_3_0= RULE_EDGE ) ) ) ;
+    // InternalDiagnosticTrace.g:751:1: ruleEdgeActivity returns [EObject current=null] : ( ( (lv_source_0_0= ruleLocationActivity ) ) otherlv_1= '->' ( (lv_target_2_0= ruleLocationActivity ) ) ( (lv_details_3_0= RULE_EDGE ) ) ) ;
     public final EObject ruleEdgeActivity() throws RecognitionException {
         EObject current = null;
 
@@ -1917,22 +1976,22 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalDiagnosticTrace.g:743:28: ( ( ( (lv_source_0_0= ruleLocationActivity ) ) otherlv_1= '->' ( (lv_target_2_0= ruleLocationActivity ) ) ( (lv_details_3_0= RULE_EDGE ) ) ) )
-            // InternalDiagnosticTrace.g:744:1: ( ( (lv_source_0_0= ruleLocationActivity ) ) otherlv_1= '->' ( (lv_target_2_0= ruleLocationActivity ) ) ( (lv_details_3_0= RULE_EDGE ) ) )
+            // InternalDiagnosticTrace.g:754:28: ( ( ( (lv_source_0_0= ruleLocationActivity ) ) otherlv_1= '->' ( (lv_target_2_0= ruleLocationActivity ) ) ( (lv_details_3_0= RULE_EDGE ) ) ) )
+            // InternalDiagnosticTrace.g:755:1: ( ( (lv_source_0_0= ruleLocationActivity ) ) otherlv_1= '->' ( (lv_target_2_0= ruleLocationActivity ) ) ( (lv_details_3_0= RULE_EDGE ) ) )
             {
-            // InternalDiagnosticTrace.g:744:1: ( ( (lv_source_0_0= ruleLocationActivity ) ) otherlv_1= '->' ( (lv_target_2_0= ruleLocationActivity ) ) ( (lv_details_3_0= RULE_EDGE ) ) )
-            // InternalDiagnosticTrace.g:744:2: ( (lv_source_0_0= ruleLocationActivity ) ) otherlv_1= '->' ( (lv_target_2_0= ruleLocationActivity ) ) ( (lv_details_3_0= RULE_EDGE ) )
+            // InternalDiagnosticTrace.g:755:1: ( ( (lv_source_0_0= ruleLocationActivity ) ) otherlv_1= '->' ( (lv_target_2_0= ruleLocationActivity ) ) ( (lv_details_3_0= RULE_EDGE ) ) )
+            // InternalDiagnosticTrace.g:755:2: ( (lv_source_0_0= ruleLocationActivity ) ) otherlv_1= '->' ( (lv_target_2_0= ruleLocationActivity ) ) ( (lv_details_3_0= RULE_EDGE ) )
             {
-            // InternalDiagnosticTrace.g:744:2: ( (lv_source_0_0= ruleLocationActivity ) )
-            // InternalDiagnosticTrace.g:745:1: (lv_source_0_0= ruleLocationActivity )
+            // InternalDiagnosticTrace.g:755:2: ( (lv_source_0_0= ruleLocationActivity ) )
+            // InternalDiagnosticTrace.g:756:1: (lv_source_0_0= ruleLocationActivity )
             {
-            // InternalDiagnosticTrace.g:745:1: (lv_source_0_0= ruleLocationActivity )
-            // InternalDiagnosticTrace.g:746:3: lv_source_0_0= ruleLocationActivity
+            // InternalDiagnosticTrace.g:756:1: (lv_source_0_0= ruleLocationActivity )
+            // InternalDiagnosticTrace.g:757:3: lv_source_0_0= ruleLocationActivity
             {
              
             	        newCompositeNode(grammarAccess.getEdgeActivityAccess().getSourceLocationActivityParserRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_25);
             lv_source_0_0=ruleLocationActivity();
 
             state._fsp--;
@@ -1954,20 +2013,20 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,30,FOLLOW_14); 
+            otherlv_1=(Token)match(input,31,FOLLOW_14); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getEdgeActivityAccess().getHyphenMinusGreaterThanSignKeyword_1());
                 
-            // InternalDiagnosticTrace.g:766:1: ( (lv_target_2_0= ruleLocationActivity ) )
-            // InternalDiagnosticTrace.g:767:1: (lv_target_2_0= ruleLocationActivity )
+            // InternalDiagnosticTrace.g:777:1: ( (lv_target_2_0= ruleLocationActivity ) )
+            // InternalDiagnosticTrace.g:778:1: (lv_target_2_0= ruleLocationActivity )
             {
-            // InternalDiagnosticTrace.g:767:1: (lv_target_2_0= ruleLocationActivity )
-            // InternalDiagnosticTrace.g:768:3: lv_target_2_0= ruleLocationActivity
+            // InternalDiagnosticTrace.g:778:1: (lv_target_2_0= ruleLocationActivity )
+            // InternalDiagnosticTrace.g:779:3: lv_target_2_0= ruleLocationActivity
             {
              
             	        newCompositeNode(grammarAccess.getEdgeActivityAccess().getTargetLocationActivityParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_26);
             lv_target_2_0=ruleLocationActivity();
 
             state._fsp--;
@@ -1989,11 +2048,11 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDiagnosticTrace.g:784:2: ( (lv_details_3_0= RULE_EDGE ) )
-            // InternalDiagnosticTrace.g:785:1: (lv_details_3_0= RULE_EDGE )
+            // InternalDiagnosticTrace.g:795:2: ( (lv_details_3_0= RULE_EDGE ) )
+            // InternalDiagnosticTrace.g:796:1: (lv_details_3_0= RULE_EDGE )
             {
-            // InternalDiagnosticTrace.g:785:1: (lv_details_3_0= RULE_EDGE )
-            // InternalDiagnosticTrace.g:786:3: lv_details_3_0= RULE_EDGE
+            // InternalDiagnosticTrace.g:796:1: (lv_details_3_0= RULE_EDGE )
+            // InternalDiagnosticTrace.g:797:3: lv_details_3_0= RULE_EDGE
             {
             lv_details_3_0=(Token)match(input,RULE_EDGE,FOLLOW_2); 
 
@@ -2036,7 +2095,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTauSynchronization"
-    // InternalDiagnosticTrace.g:812:1: entryRuleTauSynchronization returns [String current=null] : iv_ruleTauSynchronization= ruleTauSynchronization EOF ;
+    // InternalDiagnosticTrace.g:823:1: entryRuleTauSynchronization returns [String current=null] : iv_ruleTauSynchronization= ruleTauSynchronization EOF ;
     public final String entryRuleTauSynchronization() throws RecognitionException {
         String current = null;
 
@@ -2044,8 +2103,8 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDiagnosticTrace.g:813:2: (iv_ruleTauSynchronization= ruleTauSynchronization EOF )
-            // InternalDiagnosticTrace.g:814:2: iv_ruleTauSynchronization= ruleTauSynchronization EOF
+            // InternalDiagnosticTrace.g:824:2: (iv_ruleTauSynchronization= ruleTauSynchronization EOF )
+            // InternalDiagnosticTrace.g:825:2: iv_ruleTauSynchronization= ruleTauSynchronization EOF
             {
              newCompositeNode(grammarAccess.getTauSynchronizationRule()); 
             pushFollow(FOLLOW_1);
@@ -2072,7 +2131,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTauSynchronization"
-    // InternalDiagnosticTrace.g:821:1: ruleTauSynchronization returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'tau' ;
+    // InternalDiagnosticTrace.g:832:1: ruleTauSynchronization returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'tau' ;
     public final AntlrDatatypeRuleToken ruleTauSynchronization() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2081,10 +2140,10 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalDiagnosticTrace.g:824:28: (kw= 'tau' )
-            // InternalDiagnosticTrace.g:826:2: kw= 'tau'
+            // InternalDiagnosticTrace.g:835:28: (kw= 'tau' )
+            // InternalDiagnosticTrace.g:837:2: kw= 'tau'
             {
-            kw=(Token)match(input,31,FOLLOW_2); 
+            kw=(Token)match(input,32,FOLLOW_2); 
 
                     current.merge(kw);
                     newLeafNode(kw, grammarAccess.getTauSynchronizationAccess().getTauKeyword()); 
@@ -2107,7 +2166,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleChannelSynchronization"
-    // InternalDiagnosticTrace.g:839:1: entryRuleChannelSynchronization returns [EObject current=null] : iv_ruleChannelSynchronization= ruleChannelSynchronization EOF ;
+    // InternalDiagnosticTrace.g:850:1: entryRuleChannelSynchronization returns [EObject current=null] : iv_ruleChannelSynchronization= ruleChannelSynchronization EOF ;
     public final EObject entryRuleChannelSynchronization() throws RecognitionException {
         EObject current = null;
 
@@ -2115,8 +2174,8 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDiagnosticTrace.g:840:2: (iv_ruleChannelSynchronization= ruleChannelSynchronization EOF )
-            // InternalDiagnosticTrace.g:841:2: iv_ruleChannelSynchronization= ruleChannelSynchronization EOF
+            // InternalDiagnosticTrace.g:851:2: (iv_ruleChannelSynchronization= ruleChannelSynchronization EOF )
+            // InternalDiagnosticTrace.g:852:2: iv_ruleChannelSynchronization= ruleChannelSynchronization EOF
             {
              newCompositeNode(grammarAccess.getChannelSynchronizationRule()); 
             pushFollow(FOLLOW_1);
@@ -2143,7 +2202,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleChannelSynchronization"
-    // InternalDiagnosticTrace.g:848:1: ruleChannelSynchronization returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) ( (lv_kind_1_0= ruleSynchronizationKind ) ) ) ;
+    // InternalDiagnosticTrace.g:859:1: ruleChannelSynchronization returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) ( (lv_kind_1_0= ruleSynchronizationKind ) ) ) ;
     public final EObject ruleChannelSynchronization() throws RecognitionException {
         EObject current = null;
 
@@ -2154,24 +2213,24 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalDiagnosticTrace.g:851:28: ( ( ( (otherlv_0= RULE_ID ) ) ( (lv_kind_1_0= ruleSynchronizationKind ) ) ) )
-            // InternalDiagnosticTrace.g:852:1: ( ( (otherlv_0= RULE_ID ) ) ( (lv_kind_1_0= ruleSynchronizationKind ) ) )
+            // InternalDiagnosticTrace.g:862:28: ( ( ( (otherlv_0= RULE_ID ) ) ( (lv_kind_1_0= ruleSynchronizationKind ) ) ) )
+            // InternalDiagnosticTrace.g:863:1: ( ( (otherlv_0= RULE_ID ) ) ( (lv_kind_1_0= ruleSynchronizationKind ) ) )
             {
-            // InternalDiagnosticTrace.g:852:1: ( ( (otherlv_0= RULE_ID ) ) ( (lv_kind_1_0= ruleSynchronizationKind ) ) )
-            // InternalDiagnosticTrace.g:852:2: ( (otherlv_0= RULE_ID ) ) ( (lv_kind_1_0= ruleSynchronizationKind ) )
+            // InternalDiagnosticTrace.g:863:1: ( ( (otherlv_0= RULE_ID ) ) ( (lv_kind_1_0= ruleSynchronizationKind ) ) )
+            // InternalDiagnosticTrace.g:863:2: ( (otherlv_0= RULE_ID ) ) ( (lv_kind_1_0= ruleSynchronizationKind ) )
             {
-            // InternalDiagnosticTrace.g:852:2: ( (otherlv_0= RULE_ID ) )
-            // InternalDiagnosticTrace.g:853:1: (otherlv_0= RULE_ID )
+            // InternalDiagnosticTrace.g:863:2: ( (otherlv_0= RULE_ID ) )
+            // InternalDiagnosticTrace.g:864:1: (otherlv_0= RULE_ID )
             {
-            // InternalDiagnosticTrace.g:853:1: (otherlv_0= RULE_ID )
-            // InternalDiagnosticTrace.g:854:3: otherlv_0= RULE_ID
+            // InternalDiagnosticTrace.g:864:1: (otherlv_0= RULE_ID )
+            // InternalDiagnosticTrace.g:865:3: otherlv_0= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getChannelSynchronizationRule());
             	        }
                     
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_26); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_27); 
 
             		newLeafNode(otherlv_0, grammarAccess.getChannelSynchronizationAccess().getChannelVariableCrossReference_0_0()); 
             	
@@ -2181,11 +2240,11 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDiagnosticTrace.g:865:2: ( (lv_kind_1_0= ruleSynchronizationKind ) )
-            // InternalDiagnosticTrace.g:866:1: (lv_kind_1_0= ruleSynchronizationKind )
+            // InternalDiagnosticTrace.g:876:2: ( (lv_kind_1_0= ruleSynchronizationKind ) )
+            // InternalDiagnosticTrace.g:877:1: (lv_kind_1_0= ruleSynchronizationKind )
             {
-            // InternalDiagnosticTrace.g:866:1: (lv_kind_1_0= ruleSynchronizationKind )
-            // InternalDiagnosticTrace.g:867:3: lv_kind_1_0= ruleSynchronizationKind
+            // InternalDiagnosticTrace.g:877:1: (lv_kind_1_0= ruleSynchronizationKind )
+            // InternalDiagnosticTrace.g:878:3: lv_kind_1_0= ruleSynchronizationKind
             {
              
             	        newCompositeNode(grammarAccess.getChannelSynchronizationAccess().getKindSynchronizationKindEnumRuleCall_1_0()); 
@@ -2233,7 +2292,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDelayTransition"
-    // InternalDiagnosticTrace.g:891:1: entryRuleDelayTransition returns [EObject current=null] : iv_ruleDelayTransition= ruleDelayTransition EOF ;
+    // InternalDiagnosticTrace.g:902:1: entryRuleDelayTransition returns [EObject current=null] : iv_ruleDelayTransition= ruleDelayTransition EOF ;
     public final EObject entryRuleDelayTransition() throws RecognitionException {
         EObject current = null;
 
@@ -2241,8 +2300,8 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDiagnosticTrace.g:892:2: (iv_ruleDelayTransition= ruleDelayTransition EOF )
-            // InternalDiagnosticTrace.g:893:2: iv_ruleDelayTransition= ruleDelayTransition EOF
+            // InternalDiagnosticTrace.g:903:2: (iv_ruleDelayTransition= ruleDelayTransition EOF )
+            // InternalDiagnosticTrace.g:904:2: iv_ruleDelayTransition= ruleDelayTransition EOF
             {
              newCompositeNode(grammarAccess.getDelayTransitionRule()); 
             pushFollow(FOLLOW_1);
@@ -2269,7 +2328,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDelayTransition"
-    // InternalDiagnosticTrace.g:900:1: ruleDelayTransition returns [EObject current=null] : (otherlv_0= 'Delay:' ( (lv_duration_1_0= RULE_INT ) ) ) ;
+    // InternalDiagnosticTrace.g:911:1: ruleDelayTransition returns [EObject current=null] : (otherlv_0= 'Delay:' ( (lv_duration_1_0= RULE_INT ) ) ) ;
     public final EObject ruleDelayTransition() throws RecognitionException {
         EObject current = null;
 
@@ -2279,21 +2338,21 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalDiagnosticTrace.g:903:28: ( (otherlv_0= 'Delay:' ( (lv_duration_1_0= RULE_INT ) ) ) )
-            // InternalDiagnosticTrace.g:904:1: (otherlv_0= 'Delay:' ( (lv_duration_1_0= RULE_INT ) ) )
+            // InternalDiagnosticTrace.g:914:28: ( (otherlv_0= 'Delay:' ( (lv_duration_1_0= RULE_INT ) ) ) )
+            // InternalDiagnosticTrace.g:915:1: (otherlv_0= 'Delay:' ( (lv_duration_1_0= RULE_INT ) ) )
             {
-            // InternalDiagnosticTrace.g:904:1: (otherlv_0= 'Delay:' ( (lv_duration_1_0= RULE_INT ) ) )
-            // InternalDiagnosticTrace.g:904:3: otherlv_0= 'Delay:' ( (lv_duration_1_0= RULE_INT ) )
+            // InternalDiagnosticTrace.g:915:1: (otherlv_0= 'Delay:' ( (lv_duration_1_0= RULE_INT ) ) )
+            // InternalDiagnosticTrace.g:915:3: otherlv_0= 'Delay:' ( (lv_duration_1_0= RULE_INT ) )
             {
-            otherlv_0=(Token)match(input,32,FOLLOW_5); 
+            otherlv_0=(Token)match(input,33,FOLLOW_5); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getDelayTransitionAccess().getDelayKeyword_0());
                 
-            // InternalDiagnosticTrace.g:908:1: ( (lv_duration_1_0= RULE_INT ) )
-            // InternalDiagnosticTrace.g:909:1: (lv_duration_1_0= RULE_INT )
+            // InternalDiagnosticTrace.g:919:1: ( (lv_duration_1_0= RULE_INT ) )
+            // InternalDiagnosticTrace.g:920:1: (lv_duration_1_0= RULE_INT )
             {
-            // InternalDiagnosticTrace.g:909:1: (lv_duration_1_0= RULE_INT )
-            // InternalDiagnosticTrace.g:910:3: lv_duration_1_0= RULE_INT
+            // InternalDiagnosticTrace.g:920:1: (lv_duration_1_0= RULE_INT )
+            // InternalDiagnosticTrace.g:921:3: lv_duration_1_0= RULE_INT
             {
             lv_duration_1_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -2336,7 +2395,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleActionTransition"
-    // InternalDiagnosticTrace.g:934:1: entryRuleActionTransition returns [EObject current=null] : iv_ruleActionTransition= ruleActionTransition EOF ;
+    // InternalDiagnosticTrace.g:945:1: entryRuleActionTransition returns [EObject current=null] : iv_ruleActionTransition= ruleActionTransition EOF ;
     public final EObject entryRuleActionTransition() throws RecognitionException {
         EObject current = null;
 
@@ -2344,8 +2403,8 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDiagnosticTrace.g:935:2: (iv_ruleActionTransition= ruleActionTransition EOF )
-            // InternalDiagnosticTrace.g:936:2: iv_ruleActionTransition= ruleActionTransition EOF
+            // InternalDiagnosticTrace.g:946:2: (iv_ruleActionTransition= ruleActionTransition EOF )
+            // InternalDiagnosticTrace.g:947:2: iv_ruleActionTransition= ruleActionTransition EOF
             {
              newCompositeNode(grammarAccess.getActionTransitionRule()); 
             pushFollow(FOLLOW_1);
@@ -2372,7 +2431,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleActionTransition"
-    // InternalDiagnosticTrace.g:943:1: ruleActionTransition returns [EObject current=null] : (otherlv_0= 'Transitions:' ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+ ) ;
+    // InternalDiagnosticTrace.g:954:1: ruleActionTransition returns [EObject current=null] : (otherlv_0= 'Transitions:' ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+ ) ;
     public final EObject ruleActionTransition() throws RecognitionException {
         EObject current = null;
 
@@ -2383,39 +2442,39 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalDiagnosticTrace.g:946:28: ( (otherlv_0= 'Transitions:' ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+ ) )
-            // InternalDiagnosticTrace.g:947:1: (otherlv_0= 'Transitions:' ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+ )
+            // InternalDiagnosticTrace.g:957:28: ( (otherlv_0= 'Transitions:' ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+ ) )
+            // InternalDiagnosticTrace.g:958:1: (otherlv_0= 'Transitions:' ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+ )
             {
-            // InternalDiagnosticTrace.g:947:1: (otherlv_0= 'Transitions:' ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+ )
-            // InternalDiagnosticTrace.g:947:3: otherlv_0= 'Transitions:' ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+
+            // InternalDiagnosticTrace.g:958:1: (otherlv_0= 'Transitions:' ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+ )
+            // InternalDiagnosticTrace.g:958:3: otherlv_0= 'Transitions:' ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+
             {
-            otherlv_0=(Token)match(input,33,FOLLOW_14); 
+            otherlv_0=(Token)match(input,34,FOLLOW_14); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getActionTransitionAccess().getTransitionsKeyword_0());
                 
-            // InternalDiagnosticTrace.g:951:1: ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+
-            int cnt18=0;
-            loop18:
+            // InternalDiagnosticTrace.g:962:1: ( (lv_edgeActivities_1_0= ruleEdgeActivity ) )+
+            int cnt19=0;
+            loop19:
             do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
+                int alt19=2;
+                int LA19_0 = input.LA(1);
 
-                if ( (LA18_0==RULE_ID) ) {
-                    alt18=1;
+                if ( (LA19_0==RULE_ID) ) {
+                    alt19=1;
                 }
 
 
-                switch (alt18) {
+                switch (alt19) {
             	case 1 :
-            	    // InternalDiagnosticTrace.g:952:1: (lv_edgeActivities_1_0= ruleEdgeActivity )
+            	    // InternalDiagnosticTrace.g:963:1: (lv_edgeActivities_1_0= ruleEdgeActivity )
             	    {
-            	    // InternalDiagnosticTrace.g:952:1: (lv_edgeActivities_1_0= ruleEdgeActivity )
-            	    // InternalDiagnosticTrace.g:953:3: lv_edgeActivities_1_0= ruleEdgeActivity
+            	    // InternalDiagnosticTrace.g:963:1: (lv_edgeActivities_1_0= ruleEdgeActivity )
+            	    // InternalDiagnosticTrace.g:964:3: lv_edgeActivities_1_0= ruleEdgeActivity
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getActionTransitionAccess().getEdgeActivitiesEdgeActivityParserRuleCall_1_0()); 
             	    	    
-            	    pushFollow(FOLLOW_22);
+            	    pushFollow(FOLLOW_28);
             	    lv_edgeActivities_1_0=ruleEdgeActivity();
 
             	    state._fsp--;
@@ -2439,12 +2498,12 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt18 >= 1 ) break loop18;
+            	    if ( cnt19 >= 1 ) break loop19;
                         EarlyExitException eee =
-                            new EarlyExitException(18, input);
+                            new EarlyExitException(19, input);
                         throw eee;
                 }
-                cnt18++;
+                cnt19++;
             } while (true);
 
 
@@ -2468,7 +2527,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTransition"
-    // InternalDiagnosticTrace.g:977:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
+    // InternalDiagnosticTrace.g:988:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
     public final EObject entryRuleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -2476,8 +2535,8 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDiagnosticTrace.g:978:2: (iv_ruleTransition= ruleTransition EOF )
-            // InternalDiagnosticTrace.g:979:2: iv_ruleTransition= ruleTransition EOF
+            // InternalDiagnosticTrace.g:989:2: (iv_ruleTransition= ruleTransition EOF )
+            // InternalDiagnosticTrace.g:990:2: iv_ruleTransition= ruleTransition EOF
             {
              newCompositeNode(grammarAccess.getTransitionRule()); 
             pushFollow(FOLLOW_1);
@@ -2504,7 +2563,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTransition"
-    // InternalDiagnosticTrace.g:986:1: ruleTransition returns [EObject current=null] : (this_ActionTransition_0= ruleActionTransition | this_DelayTransition_1= ruleDelayTransition ) ;
+    // InternalDiagnosticTrace.g:997:1: ruleTransition returns [EObject current=null] : (this_ActionTransition_0= ruleActionTransition | this_DelayTransition_1= ruleDelayTransition ) ;
     public final EObject ruleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -2516,28 +2575,28 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalDiagnosticTrace.g:989:28: ( (this_ActionTransition_0= ruleActionTransition | this_DelayTransition_1= ruleDelayTransition ) )
-            // InternalDiagnosticTrace.g:990:1: (this_ActionTransition_0= ruleActionTransition | this_DelayTransition_1= ruleDelayTransition )
+            // InternalDiagnosticTrace.g:1000:28: ( (this_ActionTransition_0= ruleActionTransition | this_DelayTransition_1= ruleDelayTransition ) )
+            // InternalDiagnosticTrace.g:1001:1: (this_ActionTransition_0= ruleActionTransition | this_DelayTransition_1= ruleDelayTransition )
             {
-            // InternalDiagnosticTrace.g:990:1: (this_ActionTransition_0= ruleActionTransition | this_DelayTransition_1= ruleDelayTransition )
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalDiagnosticTrace.g:1001:1: (this_ActionTransition_0= ruleActionTransition | this_DelayTransition_1= ruleDelayTransition )
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA19_0==33) ) {
-                alt19=1;
+            if ( (LA20_0==34) ) {
+                alt20=1;
             }
-            else if ( (LA19_0==32) ) {
-                alt19=2;
+            else if ( (LA20_0==33) ) {
+                alt20=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 19, 0, input);
+                    new NoViableAltException("", 20, 0, input);
 
                 throw nvae;
             }
-            switch (alt19) {
+            switch (alt20) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:991:5: this_ActionTransition_0= ruleActionTransition
+                    // InternalDiagnosticTrace.g:1002:5: this_ActionTransition_0= ruleActionTransition
                     {
                      
                             newCompositeNode(grammarAccess.getTransitionAccess().getActionTransitionParserRuleCall_0()); 
@@ -2555,7 +2614,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDiagnosticTrace.g:1001:5: this_DelayTransition_1= ruleDelayTransition
+                    // InternalDiagnosticTrace.g:1012:5: this_DelayTransition_1= ruleDelayTransition
                     {
                      
                             newCompositeNode(grammarAccess.getTransitionAccess().getDelayTransitionParserRuleCall_1()); 
@@ -2593,7 +2652,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleResult"
-    // InternalDiagnosticTrace.g:1017:1: ruleResult returns [Enumerator current=null] : ( (enumLiteral_0= '-- Property is satisfied.' ) | (enumLiteral_1= '-- Property is NOT satisfied.' ) | (enumLiteral_2= '-- Formula is satisfied.' ) | (enumLiteral_3= '-- Formula is NOT satisfied.' ) ) ;
+    // InternalDiagnosticTrace.g:1028:1: ruleResult returns [Enumerator current=null] : ( (enumLiteral_0= '-- Property is satisfied.' ) | (enumLiteral_1= '-- Formula is satisfied.' ) | (enumLiteral_2= '-- Property MAY be satisfied.' ) | (enumLiteral_3= '-- Formula MAY be satisfied.' ) | (enumLiteral_4= '-- Property is NOT satisfied.' ) | (enumLiteral_5= '-- Formula is NOT satisfied.' ) | (enumLiteral_6= '-- Property MAY NOT be satisfied.' ) | (enumLiteral_7= '-- Formula MAY NOT be satisfied.' ) ) ;
     public final Enumerator ruleResult() throws RecognitionException {
         Enumerator current = null;
 
@@ -2601,50 +2660,74 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
         Token enumLiteral_1=null;
         Token enumLiteral_2=null;
         Token enumLiteral_3=null;
+        Token enumLiteral_4=null;
+        Token enumLiteral_5=null;
+        Token enumLiteral_6=null;
+        Token enumLiteral_7=null;
 
          enterRule(); 
         try {
-            // InternalDiagnosticTrace.g:1019:28: ( ( (enumLiteral_0= '-- Property is satisfied.' ) | (enumLiteral_1= '-- Property is NOT satisfied.' ) | (enumLiteral_2= '-- Formula is satisfied.' ) | (enumLiteral_3= '-- Formula is NOT satisfied.' ) ) )
-            // InternalDiagnosticTrace.g:1020:1: ( (enumLiteral_0= '-- Property is satisfied.' ) | (enumLiteral_1= '-- Property is NOT satisfied.' ) | (enumLiteral_2= '-- Formula is satisfied.' ) | (enumLiteral_3= '-- Formula is NOT satisfied.' ) )
+            // InternalDiagnosticTrace.g:1030:28: ( ( (enumLiteral_0= '-- Property is satisfied.' ) | (enumLiteral_1= '-- Formula is satisfied.' ) | (enumLiteral_2= '-- Property MAY be satisfied.' ) | (enumLiteral_3= '-- Formula MAY be satisfied.' ) | (enumLiteral_4= '-- Property is NOT satisfied.' ) | (enumLiteral_5= '-- Formula is NOT satisfied.' ) | (enumLiteral_6= '-- Property MAY NOT be satisfied.' ) | (enumLiteral_7= '-- Formula MAY NOT be satisfied.' ) ) )
+            // InternalDiagnosticTrace.g:1031:1: ( (enumLiteral_0= '-- Property is satisfied.' ) | (enumLiteral_1= '-- Formula is satisfied.' ) | (enumLiteral_2= '-- Property MAY be satisfied.' ) | (enumLiteral_3= '-- Formula MAY be satisfied.' ) | (enumLiteral_4= '-- Property is NOT satisfied.' ) | (enumLiteral_5= '-- Formula is NOT satisfied.' ) | (enumLiteral_6= '-- Property MAY NOT be satisfied.' ) | (enumLiteral_7= '-- Formula MAY NOT be satisfied.' ) )
             {
-            // InternalDiagnosticTrace.g:1020:1: ( (enumLiteral_0= '-- Property is satisfied.' ) | (enumLiteral_1= '-- Property is NOT satisfied.' ) | (enumLiteral_2= '-- Formula is satisfied.' ) | (enumLiteral_3= '-- Formula is NOT satisfied.' ) )
-            int alt20=4;
+            // InternalDiagnosticTrace.g:1031:1: ( (enumLiteral_0= '-- Property is satisfied.' ) | (enumLiteral_1= '-- Formula is satisfied.' ) | (enumLiteral_2= '-- Property MAY be satisfied.' ) | (enumLiteral_3= '-- Formula MAY be satisfied.' ) | (enumLiteral_4= '-- Property is NOT satisfied.' ) | (enumLiteral_5= '-- Formula is NOT satisfied.' ) | (enumLiteral_6= '-- Property MAY NOT be satisfied.' ) | (enumLiteral_7= '-- Formula MAY NOT be satisfied.' ) )
+            int alt21=8;
             switch ( input.LA(1) ) {
-            case 34:
-                {
-                alt20=1;
-                }
-                break;
             case 35:
                 {
-                alt20=2;
+                alt21=1;
                 }
                 break;
             case 36:
                 {
-                alt20=3;
+                alt21=2;
                 }
                 break;
             case 37:
                 {
-                alt20=4;
+                alt21=3;
+                }
+                break;
+            case 38:
+                {
+                alt21=4;
+                }
+                break;
+            case 39:
+                {
+                alt21=5;
+                }
+                break;
+            case 40:
+                {
+                alt21=6;
+                }
+                break;
+            case 41:
+                {
+                alt21=7;
+                }
+                break;
+            case 42:
+                {
+                alt21=8;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
+                    new NoViableAltException("", 21, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:1020:2: (enumLiteral_0= '-- Property is satisfied.' )
+                    // InternalDiagnosticTrace.g:1031:2: (enumLiteral_0= '-- Property is satisfied.' )
                     {
-                    // InternalDiagnosticTrace.g:1020:2: (enumLiteral_0= '-- Property is satisfied.' )
-                    // InternalDiagnosticTrace.g:1020:4: enumLiteral_0= '-- Property is satisfied.'
+                    // InternalDiagnosticTrace.g:1031:2: (enumLiteral_0= '-- Property is satisfied.' )
+                    // InternalDiagnosticTrace.g:1031:4: enumLiteral_0= '-- Property is satisfied.'
                     {
-                    enumLiteral_0=(Token)match(input,34,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,35,FOLLOW_2); 
 
                             current = grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_0()); 
@@ -2656,15 +2739,15 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDiagnosticTrace.g:1026:6: (enumLiteral_1= '-- Property is NOT satisfied.' )
+                    // InternalDiagnosticTrace.g:1037:6: (enumLiteral_1= '-- Formula is satisfied.' )
                     {
-                    // InternalDiagnosticTrace.g:1026:6: (enumLiteral_1= '-- Property is NOT satisfied.' )
-                    // InternalDiagnosticTrace.g:1026:8: enumLiteral_1= '-- Property is NOT satisfied.'
+                    // InternalDiagnosticTrace.g:1037:6: (enumLiteral_1= '-- Formula is satisfied.' )
+                    // InternalDiagnosticTrace.g:1037:8: enumLiteral_1= '-- Formula is satisfied.'
                     {
-                    enumLiteral_1=(Token)match(input,35,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,36,FOLLOW_2); 
 
-                            current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                            newLeafNode(enumLiteral_1, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_1()); 
+                            current = grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                            newLeafNode(enumLiteral_1, grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_1()); 
                         
 
                     }
@@ -2673,12 +2756,12 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDiagnosticTrace.g:1032:6: (enumLiteral_2= '-- Formula is satisfied.' )
+                    // InternalDiagnosticTrace.g:1043:6: (enumLiteral_2= '-- Property MAY be satisfied.' )
                     {
-                    // InternalDiagnosticTrace.g:1032:6: (enumLiteral_2= '-- Formula is satisfied.' )
-                    // InternalDiagnosticTrace.g:1032:8: enumLiteral_2= '-- Formula is satisfied.'
+                    // InternalDiagnosticTrace.g:1043:6: (enumLiteral_2= '-- Property MAY be satisfied.' )
+                    // InternalDiagnosticTrace.g:1043:8: enumLiteral_2= '-- Property MAY be satisfied.'
                     {
-                    enumLiteral_2=(Token)match(input,36,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,37,FOLLOW_2); 
 
                             current = grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_2()); 
@@ -2690,15 +2773,83 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDiagnosticTrace.g:1038:6: (enumLiteral_3= '-- Formula is NOT satisfied.' )
+                    // InternalDiagnosticTrace.g:1049:6: (enumLiteral_3= '-- Formula MAY be satisfied.' )
                     {
-                    // InternalDiagnosticTrace.g:1038:6: (enumLiteral_3= '-- Formula is NOT satisfied.' )
-                    // InternalDiagnosticTrace.g:1038:8: enumLiteral_3= '-- Formula is NOT satisfied.'
+                    // InternalDiagnosticTrace.g:1049:6: (enumLiteral_3= '-- Formula MAY be satisfied.' )
+                    // InternalDiagnosticTrace.g:1049:8: enumLiteral_3= '-- Formula MAY be satisfied.'
                     {
-                    enumLiteral_3=(Token)match(input,37,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,38,FOLLOW_2); 
 
-                            current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-                            newLeafNode(enumLiteral_3, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_3()); 
+                            current = grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                            newLeafNode(enumLiteral_3, grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_3()); 
+                        
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalDiagnosticTrace.g:1055:6: (enumLiteral_4= '-- Property is NOT satisfied.' )
+                    {
+                    // InternalDiagnosticTrace.g:1055:6: (enumLiteral_4= '-- Property is NOT satisfied.' )
+                    // InternalDiagnosticTrace.g:1055:8: enumLiteral_4= '-- Property is NOT satisfied.'
+                    {
+                    enumLiteral_4=(Token)match(input,39,FOLLOW_2); 
+
+                            current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+                            newLeafNode(enumLiteral_4, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_4()); 
+                        
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalDiagnosticTrace.g:1061:6: (enumLiteral_5= '-- Formula is NOT satisfied.' )
+                    {
+                    // InternalDiagnosticTrace.g:1061:6: (enumLiteral_5= '-- Formula is NOT satisfied.' )
+                    // InternalDiagnosticTrace.g:1061:8: enumLiteral_5= '-- Formula is NOT satisfied.'
+                    {
+                    enumLiteral_5=(Token)match(input,40,FOLLOW_2); 
+
+                            current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+                            newLeafNode(enumLiteral_5, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_5()); 
+                        
+
+                    }
+
+
+                    }
+                    break;
+                case 7 :
+                    // InternalDiagnosticTrace.g:1067:6: (enumLiteral_6= '-- Property MAY NOT be satisfied.' )
+                    {
+                    // InternalDiagnosticTrace.g:1067:6: (enumLiteral_6= '-- Property MAY NOT be satisfied.' )
+                    // InternalDiagnosticTrace.g:1067:8: enumLiteral_6= '-- Property MAY NOT be satisfied.'
+                    {
+                    enumLiteral_6=(Token)match(input,41,FOLLOW_2); 
+
+                            current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+                            newLeafNode(enumLiteral_6, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_6()); 
+                        
+
+                    }
+
+
+                    }
+                    break;
+                case 8 :
+                    // InternalDiagnosticTrace.g:1073:6: (enumLiteral_7= '-- Formula MAY NOT be satisfied.' )
+                    {
+                    // InternalDiagnosticTrace.g:1073:6: (enumLiteral_7= '-- Formula MAY NOT be satisfied.' )
+                    // InternalDiagnosticTrace.g:1073:8: enumLiteral_7= '-- Formula MAY NOT be satisfied.'
+                    {
+                    enumLiteral_7=(Token)match(input,42,FOLLOW_2); 
+
+                            current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+                            newLeafNode(enumLiteral_7, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_7()); 
                         
 
                     }
@@ -2727,7 +2878,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCompareOperator"
-    // InternalDiagnosticTrace.g:1048:1: ruleCompareOperator returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '>=' ) ) ;
+    // InternalDiagnosticTrace.g:1083:1: ruleCompareOperator returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '>=' ) ) ;
     public final Enumerator ruleCompareOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -2737,42 +2888,42 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // InternalDiagnosticTrace.g:1050:28: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '>=' ) ) )
-            // InternalDiagnosticTrace.g:1051:1: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '>=' ) )
+            // InternalDiagnosticTrace.g:1085:28: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '>=' ) ) )
+            // InternalDiagnosticTrace.g:1086:1: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '>=' ) )
             {
-            // InternalDiagnosticTrace.g:1051:1: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '>=' ) )
-            int alt21=3;
+            // InternalDiagnosticTrace.g:1086:1: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<=' ) | (enumLiteral_2= '>=' ) )
+            int alt22=3;
             switch ( input.LA(1) ) {
-            case 38:
+            case 43:
                 {
-                alt21=1;
+                alt22=1;
                 }
                 break;
-            case 39:
+            case 44:
                 {
-                alt21=2;
+                alt22=2;
                 }
                 break;
-            case 40:
+            case 45:
                 {
-                alt21=3;
+                alt22=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:1051:2: (enumLiteral_0= '=' )
+                    // InternalDiagnosticTrace.g:1086:2: (enumLiteral_0= '=' )
                     {
-                    // InternalDiagnosticTrace.g:1051:2: (enumLiteral_0= '=' )
-                    // InternalDiagnosticTrace.g:1051:4: enumLiteral_0= '='
+                    // InternalDiagnosticTrace.g:1086:2: (enumLiteral_0= '=' )
+                    // InternalDiagnosticTrace.g:1086:4: enumLiteral_0= '='
                     {
-                    enumLiteral_0=(Token)match(input,38,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,43,FOLLOW_2); 
 
                             current = grammarAccess.getCompareOperatorAccess().getEQEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getCompareOperatorAccess().getEQEnumLiteralDeclaration_0()); 
@@ -2784,12 +2935,12 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDiagnosticTrace.g:1057:6: (enumLiteral_1= '<=' )
+                    // InternalDiagnosticTrace.g:1092:6: (enumLiteral_1= '<=' )
                     {
-                    // InternalDiagnosticTrace.g:1057:6: (enumLiteral_1= '<=' )
-                    // InternalDiagnosticTrace.g:1057:8: enumLiteral_1= '<='
+                    // InternalDiagnosticTrace.g:1092:6: (enumLiteral_1= '<=' )
+                    // InternalDiagnosticTrace.g:1092:8: enumLiteral_1= '<='
                     {
-                    enumLiteral_1=(Token)match(input,39,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,44,FOLLOW_2); 
 
                             current = grammarAccess.getCompareOperatorAccess().getLEQEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getCompareOperatorAccess().getLEQEnumLiteralDeclaration_1()); 
@@ -2801,12 +2952,12 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDiagnosticTrace.g:1063:6: (enumLiteral_2= '>=' )
+                    // InternalDiagnosticTrace.g:1098:6: (enumLiteral_2= '>=' )
                     {
-                    // InternalDiagnosticTrace.g:1063:6: (enumLiteral_2= '>=' )
-                    // InternalDiagnosticTrace.g:1063:8: enumLiteral_2= '>='
+                    // InternalDiagnosticTrace.g:1098:6: (enumLiteral_2= '>=' )
+                    // InternalDiagnosticTrace.g:1098:8: enumLiteral_2= '>='
                     {
-                    enumLiteral_2=(Token)match(input,40,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,45,FOLLOW_2); 
 
                             current = grammarAccess.getCompareOperatorAccess().getGEQEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getCompareOperatorAccess().getGEQEnumLiteralDeclaration_2()); 
@@ -2838,7 +2989,7 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSynchronizationKind"
-    // InternalDiagnosticTrace.g:1073:1: ruleSynchronizationKind returns [Enumerator current=null] : ( (enumLiteral_0= '?' ) | (enumLiteral_1= '!' ) ) ;
+    // InternalDiagnosticTrace.g:1108:1: ruleSynchronizationKind returns [Enumerator current=null] : ( (enumLiteral_0= '?' ) | (enumLiteral_1= '!' ) ) ;
     public final Enumerator ruleSynchronizationKind() throws RecognitionException {
         Enumerator current = null;
 
@@ -2847,33 +2998,33 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // InternalDiagnosticTrace.g:1075:28: ( ( (enumLiteral_0= '?' ) | (enumLiteral_1= '!' ) ) )
-            // InternalDiagnosticTrace.g:1076:1: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '!' ) )
+            // InternalDiagnosticTrace.g:1110:28: ( ( (enumLiteral_0= '?' ) | (enumLiteral_1= '!' ) ) )
+            // InternalDiagnosticTrace.g:1111:1: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '!' ) )
             {
-            // InternalDiagnosticTrace.g:1076:1: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '!' ) )
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalDiagnosticTrace.g:1111:1: ( (enumLiteral_0= '?' ) | (enumLiteral_1= '!' ) )
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==41) ) {
-                alt22=1;
+            if ( (LA23_0==46) ) {
+                alt23=1;
             }
-            else if ( (LA22_0==42) ) {
-                alt22=2;
+            else if ( (LA23_0==47) ) {
+                alt23=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 23, 0, input);
 
                 throw nvae;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:1076:2: (enumLiteral_0= '?' )
+                    // InternalDiagnosticTrace.g:1111:2: (enumLiteral_0= '?' )
                     {
-                    // InternalDiagnosticTrace.g:1076:2: (enumLiteral_0= '?' )
-                    // InternalDiagnosticTrace.g:1076:4: enumLiteral_0= '?'
+                    // InternalDiagnosticTrace.g:1111:2: (enumLiteral_0= '?' )
+                    // InternalDiagnosticTrace.g:1111:4: enumLiteral_0= '?'
                     {
-                    enumLiteral_0=(Token)match(input,41,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,46,FOLLOW_2); 
 
                             current = grammarAccess.getSynchronizationKindAccess().getRECEIVEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getSynchronizationKindAccess().getRECEIVEEnumLiteralDeclaration_0()); 
@@ -2885,12 +3036,12 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDiagnosticTrace.g:1082:6: (enumLiteral_1= '!' )
+                    // InternalDiagnosticTrace.g:1117:6: (enumLiteral_1= '!' )
                     {
-                    // InternalDiagnosticTrace.g:1082:6: (enumLiteral_1= '!' )
-                    // InternalDiagnosticTrace.g:1082:8: enumLiteral_1= '!'
+                    // InternalDiagnosticTrace.g:1117:6: (enumLiteral_1= '!' )
+                    // InternalDiagnosticTrace.g:1117:8: enumLiteral_1= '!'
                     {
-                    enumLiteral_1=(Token)match(input,42,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,47,FOLLOW_2); 
 
                             current = grammarAccess.getSynchronizationKindAccess().getSENDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getSynchronizationKindAccess().getSENDEnumLiteralDeclaration_1()); 
@@ -2931,25 +3082,27 @@ public class InternalDiagnosticTraceParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000030000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000003C00000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000007F800000000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000180002L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000310000000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000310000002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000620000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000620000002L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000200002L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000C00000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000001C002000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000020200000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000800020L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000400022L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000060000000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000380002000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000010000020L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000040200000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000800020L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000010000022L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000010400022L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000C00000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000000022L});
 
 }

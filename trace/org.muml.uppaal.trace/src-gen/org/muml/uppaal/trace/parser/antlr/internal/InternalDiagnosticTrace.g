@@ -475,7 +475,7 @@ ruleSingleNamedElementReference returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+(((
 (
 		{
 			if ($current==null) {
@@ -484,19 +484,19 @@ ruleSingleNamedElementReference returns [EObject current=null]
         }
 	otherlv_0=RULE_ID
 	{
-		newLeafNode(otherlv_0, grammarAccess.getSingleNamedElementReferenceAccess().getNamedElementNamedElementCrossReference_0_0()); 
+		newLeafNode(otherlv_0, grammarAccess.getSingleNamedElementReferenceAccess().getNamedElementNamedElementCrossReference_0_0_0()); 
 	}
 
 )
 )(	otherlv_1='[' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getSingleNamedElementReferenceAccess().getLeftSquareBracketKeyword_1_0());
+    	newLeafNode(otherlv_1, grammarAccess.getSingleNamedElementReferenceAccess().getLeftSquareBracketKeyword_0_1_0());
     }
 (
 (
 		lv_indexes_2_0=RULE_INT
 		{
-			newLeafNode(lv_indexes_2_0, grammarAccess.getSingleNamedElementReferenceAccess().getIndexesINTTerminalRuleCall_1_1_0()); 
+			newLeafNode(lv_indexes_2_0, grammarAccess.getSingleNamedElementReferenceAccess().getIndexesINTTerminalRuleCall_0_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -512,9 +512,20 @@ ruleSingleNamedElementReference returns [EObject current=null]
 )
 )	otherlv_3=']' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getSingleNamedElementReferenceAccess().getRightSquareBracketKeyword_1_2());
+    	newLeafNode(otherlv_3, grammarAccess.getSingleNamedElementReferenceAccess().getRightSquareBracketKeyword_0_1_2());
     }
 )*)
+    |((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getSingleNamedElementReferenceAccess().getSingleNamedElementReferenceAction_1_0(),
+            $current);
+    }
+)	otherlv_5='#tau' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getSingleNamedElementReferenceAccess().getTauKeyword_1_1());
+    }
+))
 ;
 
 
@@ -1023,22 +1034,46 @@ ruleResult returns [Enumerator current=null]
         newLeafNode(enumLiteral_0, grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_0()); 
     }
 )
-    |(	enumLiteral_1='-- Property is NOT satisfied.' 
+    |(	enumLiteral_1='-- Formula is satisfied.' 
 	{
-        $current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_1()); 
+        $current = grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_1()); 
     }
 )
-    |(	enumLiteral_2='-- Formula is satisfied.' 
+    |(	enumLiteral_2='-- Property MAY be satisfied.' 
 	{
         $current = grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_2, grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_2()); 
     }
 )
-    |(	enumLiteral_3='-- Formula is NOT satisfied.' 
+    |(	enumLiteral_3='-- Formula MAY be satisfied.' 
 	{
-        $current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_3()); 
+        $current = grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getResultAccess().getSUCCESSEnumLiteralDeclaration_3()); 
+    }
+)
+    |(	enumLiteral_4='-- Property is NOT satisfied.' 
+	{
+        $current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_4()); 
+    }
+)
+    |(	enumLiteral_5='-- Formula is NOT satisfied.' 
+	{
+        $current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_5()); 
+    }
+)
+    |(	enumLiteral_6='-- Property MAY NOT be satisfied.' 
+	{
+        $current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_6, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_6()); 
+    }
+)
+    |(	enumLiteral_7='-- Formula MAY NOT be satisfied.' 
+	{
+        $current = grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_7, grammarAccess.getResultAccess().getFAILUREEnumLiteralDeclaration_7()); 
     }
 ));
 

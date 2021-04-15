@@ -27,7 +27,14 @@ Trace:
 ;
 
 enum Result:
-	SUCCESS='-- Property is satisfied.' | FAILURE='-- Property is NOT satisfied.' | SUCCESS='-- Formula is satisfied.' | FAILURE='-- Formula is NOT satisfied.'
+	SUCCESS='-- Property is satisfied.' | 
+	SUCCESS='-- Formula is satisfied.' | 
+	SUCCESS='-- Property MAY be satisfied.' |
+	SUCCESS='-- Formula MAY be satisfied.' |
+	FAILURE='-- Property is NOT satisfied.' | 
+	FAILURE='-- Formula is NOT satisfied.' |
+	FAILURE='-- Property MAY NOT be satisfied.' |
+	FAILURE='-- Formula MAY NOT be satisfied.'
 ;
 
 ProcessIdentifier:
@@ -47,7 +54,7 @@ enum CompareOperator:
 ;
 
 SingleNamedElementReference:
-	namedElement=[core::NamedElement] ('[' indexes+=INT ']')*
+	namedElement=[core::NamedElement] ('[' indexes+=INT ']')* | {SingleNamedElementReference} '#tau'
 ;
 
 terminal DEPTH:

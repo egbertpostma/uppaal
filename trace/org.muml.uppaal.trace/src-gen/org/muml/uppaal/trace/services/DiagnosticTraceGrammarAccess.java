@@ -278,46 +278,62 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class SingleNamedElementReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.muml.uppaal.trace.DiagnosticTrace.SingleNamedElementReference");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNamedElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cNamedElementNamedElementCrossReference_0_0 = (CrossReference)cNamedElementAssignment_0.eContents().get(0);
-		private final RuleCall cNamedElementNamedElementIDTerminalRuleCall_0_0_1 = (RuleCall)cNamedElementNamedElementCrossReference_0_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cIndexesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cIndexesINTTerminalRuleCall_1_1_0 = (RuleCall)cIndexesAssignment_1_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cNamedElementAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final CrossReference cNamedElementNamedElementCrossReference_0_0_0 = (CrossReference)cNamedElementAssignment_0_0.eContents().get(0);
+		private final RuleCall cNamedElementNamedElementIDTerminalRuleCall_0_0_0_1 = (RuleCall)cNamedElementNamedElementCrossReference_0_0_0.eContents().get(1);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
+		private final Assignment cIndexesAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cIndexesINTTerminalRuleCall_0_1_1_0 = (RuleCall)cIndexesAssignment_0_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_0_1_2 = (Keyword)cGroup_0_1.eContents().get(2);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cSingleNamedElementReferenceAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cTauKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		
 		//SingleNamedElementReference:
-		//	namedElement=[core::NamedElement] ('[' indexes+=INT ']')*;
+		//	namedElement=[core::NamedElement] ('[' indexes+=INT ']')* | {SingleNamedElementReference} '#tau';
 		@Override public ParserRule getRule() { return rule; }
 
+		//namedElement=[core::NamedElement] ('[' indexes+=INT ']')* | {SingleNamedElementReference} '#tau'
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//namedElement=[core::NamedElement] ('[' indexes+=INT ']')*
-		public Group getGroup() { return cGroup; }
+		public Group getGroup_0() { return cGroup_0; }
 
 		//namedElement=[core::NamedElement]
-		public Assignment getNamedElementAssignment_0() { return cNamedElementAssignment_0; }
+		public Assignment getNamedElementAssignment_0_0() { return cNamedElementAssignment_0_0; }
 
 		//[core::NamedElement]
-		public CrossReference getNamedElementNamedElementCrossReference_0_0() { return cNamedElementNamedElementCrossReference_0_0; }
+		public CrossReference getNamedElementNamedElementCrossReference_0_0_0() { return cNamedElementNamedElementCrossReference_0_0_0; }
 
 		//ID
-		public RuleCall getNamedElementNamedElementIDTerminalRuleCall_0_0_1() { return cNamedElementNamedElementIDTerminalRuleCall_0_0_1; }
+		public RuleCall getNamedElementNamedElementIDTerminalRuleCall_0_0_0_1() { return cNamedElementNamedElementIDTerminalRuleCall_0_0_0_1; }
 
 		//('[' indexes+=INT ']')*
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_0_1() { return cGroup_0_1; }
 
 		//'['
-		public Keyword getLeftSquareBracketKeyword_1_0() { return cLeftSquareBracketKeyword_1_0; }
+		public Keyword getLeftSquareBracketKeyword_0_1_0() { return cLeftSquareBracketKeyword_0_1_0; }
 
 		//indexes+=INT
-		public Assignment getIndexesAssignment_1_1() { return cIndexesAssignment_1_1; }
+		public Assignment getIndexesAssignment_0_1_1() { return cIndexesAssignment_0_1_1; }
 
 		//INT
-		public RuleCall getIndexesINTTerminalRuleCall_1_1_0() { return cIndexesINTTerminalRuleCall_1_1_0; }
+		public RuleCall getIndexesINTTerminalRuleCall_0_1_1_0() { return cIndexesINTTerminalRuleCall_0_1_1_0; }
 
 		//']'
-		public Keyword getRightSquareBracketKeyword_1_2() { return cRightSquareBracketKeyword_1_2; }
+		public Keyword getRightSquareBracketKeyword_0_1_2() { return cRightSquareBracketKeyword_0_1_2; }
+
+		//{SingleNamedElementReference} '#tau'
+		public Group getGroup_1() { return cGroup_1; }
+
+		//{SingleNamedElementReference}
+		public Action getSingleNamedElementReferenceAction_1_0() { return cSingleNamedElementReferenceAction_1_0; }
+
+		//'#tau'
+		public Keyword getTauKeyword_1_1() { return cTauKeyword_1_1; }
 	}
 
 	public class NamedElementReferenceElements extends AbstractParserRuleElementFinder {
@@ -632,20 +648,31 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cSUCCESSEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cSUCCESSPropertyIsSatisfiedKeyword_0_0 = (Keyword)cSUCCESSEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cFAILUREEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cFAILUREPropertyIsNOTSatisfiedKeyword_1_0 = (Keyword)cFAILUREEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSUCCESSEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSUCCESSFormulaIsSatisfiedKeyword_1_0 = (Keyword)cSUCCESSEnumLiteralDeclaration_1.eContents().get(0);
 		private final EnumLiteralDeclaration cSUCCESSEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cSUCCESSFormulaIsSatisfiedKeyword_2_0 = (Keyword)cSUCCESSEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cFAILUREEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cFAILUREFormulaIsNOTSatisfiedKeyword_3_0 = (Keyword)cFAILUREEnumLiteralDeclaration_3.eContents().get(0);
+		private final Keyword cSUCCESSPropertyMAYBeSatisfiedKeyword_2_0 = (Keyword)cSUCCESSEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cSUCCESSEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cSUCCESSFormulaMAYBeSatisfiedKeyword_3_0 = (Keyword)cSUCCESSEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cFAILUREEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cFAILUREPropertyIsNOTSatisfiedKeyword_4_0 = (Keyword)cFAILUREEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cFAILUREEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cFAILUREFormulaIsNOTSatisfiedKeyword_5_0 = (Keyword)cFAILUREEnumLiteralDeclaration_5.eContents().get(0);
+		private final EnumLiteralDeclaration cFAILUREEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cFAILUREPropertyMAYNOTBeSatisfiedKeyword_6_0 = (Keyword)cFAILUREEnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cFAILUREEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cFAILUREFormulaMAYNOTBeSatisfiedKeyword_7_0 = (Keyword)cFAILUREEnumLiteralDeclaration_7.eContents().get(0);
 		
 		//enum Result:
-		//	SUCCESS='-- Property is satisfied.' | FAILURE='-- Property is NOT satisfied.' | SUCCESS='-- Formula is satisfied.' |
-		//	FAILURE='-- Formula is NOT satisfied.';
+		//	SUCCESS='-- Property is satisfied.' | SUCCESS='-- Formula is satisfied.' | SUCCESS='-- Property MAY be satisfied.' |
+		//	SUCCESS='-- Formula MAY be satisfied.' | FAILURE='-- Property is NOT satisfied.' |
+		//	FAILURE='-- Formula is NOT satisfied.' | FAILURE='-- Property MAY NOT be satisfied.' |
+		//	FAILURE='-- Formula MAY NOT be satisfied.';
 		public EnumRule getRule() { return rule; }
 
-		//SUCCESS='-- Property is satisfied.' | FAILURE='-- Property is NOT satisfied.' | SUCCESS='-- Formula is satisfied.' |
-		//FAILURE='-- Formula is NOT satisfied.'
+		//SUCCESS='-- Property is satisfied.' | SUCCESS='-- Formula is satisfied.' | SUCCESS='-- Property MAY be satisfied.' |
+		//SUCCESS='-- Formula MAY be satisfied.' | FAILURE='-- Property is NOT satisfied.' |
+		//FAILURE='-- Formula is NOT satisfied.' | FAILURE='-- Property MAY NOT be satisfied.' | FAILURE='-- Formula MAY NOT be satisfied.'
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SUCCESS='-- Property is satisfied.'
@@ -654,23 +681,47 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 		//'-- Property is satisfied.'
 		public Keyword getSUCCESSPropertyIsSatisfiedKeyword_0_0() { return cSUCCESSPropertyIsSatisfiedKeyword_0_0; }
 
-		//FAILURE='-- Property is NOT satisfied.'
-		public EnumLiteralDeclaration getFAILUREEnumLiteralDeclaration_1() { return cFAILUREEnumLiteralDeclaration_1; }
-
-		//'-- Property is NOT satisfied.'
-		public Keyword getFAILUREPropertyIsNOTSatisfiedKeyword_1_0() { return cFAILUREPropertyIsNOTSatisfiedKeyword_1_0; }
-
 		//SUCCESS='-- Formula is satisfied.'
-		public EnumLiteralDeclaration getSUCCESSEnumLiteralDeclaration_2() { return cSUCCESSEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getSUCCESSEnumLiteralDeclaration_1() { return cSUCCESSEnumLiteralDeclaration_1; }
 
 		//'-- Formula is satisfied.'
-		public Keyword getSUCCESSFormulaIsSatisfiedKeyword_2_0() { return cSUCCESSFormulaIsSatisfiedKeyword_2_0; }
+		public Keyword getSUCCESSFormulaIsSatisfiedKeyword_1_0() { return cSUCCESSFormulaIsSatisfiedKeyword_1_0; }
+
+		//SUCCESS='-- Property MAY be satisfied.'
+		public EnumLiteralDeclaration getSUCCESSEnumLiteralDeclaration_2() { return cSUCCESSEnumLiteralDeclaration_2; }
+
+		//'-- Property MAY be satisfied.'
+		public Keyword getSUCCESSPropertyMAYBeSatisfiedKeyword_2_0() { return cSUCCESSPropertyMAYBeSatisfiedKeyword_2_0; }
+
+		//SUCCESS='-- Formula MAY be satisfied.'
+		public EnumLiteralDeclaration getSUCCESSEnumLiteralDeclaration_3() { return cSUCCESSEnumLiteralDeclaration_3; }
+
+		//'-- Formula MAY be satisfied.'
+		public Keyword getSUCCESSFormulaMAYBeSatisfiedKeyword_3_0() { return cSUCCESSFormulaMAYBeSatisfiedKeyword_3_0; }
+
+		//FAILURE='-- Property is NOT satisfied.'
+		public EnumLiteralDeclaration getFAILUREEnumLiteralDeclaration_4() { return cFAILUREEnumLiteralDeclaration_4; }
+
+		//'-- Property is NOT satisfied.'
+		public Keyword getFAILUREPropertyIsNOTSatisfiedKeyword_4_0() { return cFAILUREPropertyIsNOTSatisfiedKeyword_4_0; }
 
 		//FAILURE='-- Formula is NOT satisfied.'
-		public EnumLiteralDeclaration getFAILUREEnumLiteralDeclaration_3() { return cFAILUREEnumLiteralDeclaration_3; }
+		public EnumLiteralDeclaration getFAILUREEnumLiteralDeclaration_5() { return cFAILUREEnumLiteralDeclaration_5; }
 
 		//'-- Formula is NOT satisfied.'
-		public Keyword getFAILUREFormulaIsNOTSatisfiedKeyword_3_0() { return cFAILUREFormulaIsNOTSatisfiedKeyword_3_0; }
+		public Keyword getFAILUREFormulaIsNOTSatisfiedKeyword_5_0() { return cFAILUREFormulaIsNOTSatisfiedKeyword_5_0; }
+
+		//FAILURE='-- Property MAY NOT be satisfied.'
+		public EnumLiteralDeclaration getFAILUREEnumLiteralDeclaration_6() { return cFAILUREEnumLiteralDeclaration_6; }
+
+		//'-- Property MAY NOT be satisfied.'
+		public Keyword getFAILUREPropertyMAYNOTBeSatisfiedKeyword_6_0() { return cFAILUREPropertyMAYNOTBeSatisfiedKeyword_6_0; }
+
+		//FAILURE='-- Formula MAY NOT be satisfied.'
+		public EnumLiteralDeclaration getFAILUREEnumLiteralDeclaration_7() { return cFAILUREEnumLiteralDeclaration_7; }
+
+		//'-- Formula MAY NOT be satisfied.'
+		public Keyword getFAILUREFormulaMAYNOTBeSatisfiedKeyword_7_0() { return cFAILUREFormulaMAYNOTBeSatisfiedKeyword_7_0; }
 	}
 
 	public class CompareOperatorElements extends AbstractEnumRuleElementFinder {
@@ -845,8 +896,10 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum Result:
-	//	SUCCESS='-- Property is satisfied.' | FAILURE='-- Property is NOT satisfied.' | SUCCESS='-- Formula is satisfied.' |
-	//	FAILURE='-- Formula is NOT satisfied.';
+	//	SUCCESS='-- Property is satisfied.' | SUCCESS='-- Formula is satisfied.' | SUCCESS='-- Property MAY be satisfied.' |
+	//	SUCCESS='-- Formula MAY be satisfied.' | FAILURE='-- Property is NOT satisfied.' |
+	//	FAILURE='-- Formula is NOT satisfied.' | FAILURE='-- Property MAY NOT be satisfied.' |
+	//	FAILURE='-- Formula MAY NOT be satisfied.';
 	public ResultElements getResultAccess() {
 		return eResult;
 	}
@@ -897,7 +950,7 @@ public class DiagnosticTraceGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SingleNamedElementReference:
-	//	namedElement=[core::NamedElement] ('[' indexes+=INT ']')*;
+	//	namedElement=[core::NamedElement] ('[' indexes+=INT ']')* | {SingleNamedElementReference} '#tau';
 	public SingleNamedElementReferenceElements getSingleNamedElementReferenceAccess() {
 		return pSingleNamedElementReference;
 	}

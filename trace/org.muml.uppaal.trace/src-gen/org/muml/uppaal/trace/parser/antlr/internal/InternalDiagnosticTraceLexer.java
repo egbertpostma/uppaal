@@ -14,28 +14,13 @@ import java.util.ArrayList;
 public class InternalDiagnosticTraceLexer extends Lexer {
     public static final int RULE_DEPTH=7;
     public static final int RULE_EDGE=6;
-    public static final int RULE_STRING=9;
-    public static final int RULE_SL_COMMENT=11;
     public static final int T__19=19;
     public static final int T__15=15;
-    public static final int T__37=37;
     public static final int T__16=16;
-    public static final int T__38=38;
     public static final int T__17=17;
-    public static final int T__39=39;
     public static final int T__18=18;
-    public static final int T__33=33;
-    public static final int T__34=34;
-    public static final int T__35=35;
     public static final int T__14=14;
-    public static final int T__36=36;
-    public static final int EOF=-1;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
     public static final int RULE_ID=5;
-    public static final int RULE_WS=12;
-    public static final int RULE_ANY_OTHER=13;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
@@ -46,12 +31,32 @@ public class InternalDiagnosticTraceLexer extends Lexer {
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
+    public static final int T__20=20;
+    public static final int T__21=21;
+    public static final int RULE_STRING=9;
+    public static final int RULE_SL_COMMENT=11;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
+    public static final int T__33=33;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__36=36;
+    public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int RULE_WS=12;
+    public static final int RULE_ANY_OTHER=13;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__46=46;
+    public static final int T__47=47;
     public static final int T__40=40;
     public static final int T__41=41;
-    public static final int T__20=20;
     public static final int T__42=42;
     public static final int RULE_TAU=8;
-    public static final int T__21=21;
+    public static final int T__43=43;
 
     // delegates
     // delegators
@@ -358,10 +363,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:25:7: ( 'State' )
-            // InternalDiagnosticTrace.g:25:9: 'State'
+            // InternalDiagnosticTrace.g:25:7: ( '#tau' )
+            // InternalDiagnosticTrace.g:25:9: '#tau'
             {
-            match("State"); 
+            match("#tau"); 
 
 
             }
@@ -379,10 +384,11 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:26:7: ( ':' )
-            // InternalDiagnosticTrace.g:26:9: ':'
+            // InternalDiagnosticTrace.g:26:7: ( 'State' )
+            // InternalDiagnosticTrace.g:26:9: 'State'
             {
-            match(':'); 
+            match("State"); 
+
 
             }
 
@@ -399,11 +405,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:27:7: ( '->' )
-            // InternalDiagnosticTrace.g:27:9: '->'
+            // InternalDiagnosticTrace.g:27:7: ( ':' )
+            // InternalDiagnosticTrace.g:27:9: ':'
             {
-            match("->"); 
-
+            match(':'); 
 
             }
 
@@ -420,10 +425,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:28:7: ( 'tau' )
-            // InternalDiagnosticTrace.g:28:9: 'tau'
+            // InternalDiagnosticTrace.g:28:7: ( '->' )
+            // InternalDiagnosticTrace.g:28:9: '->'
             {
-            match("tau"); 
+            match("->"); 
 
 
             }
@@ -441,10 +446,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:29:7: ( 'Delay:' )
-            // InternalDiagnosticTrace.g:29:9: 'Delay:'
+            // InternalDiagnosticTrace.g:29:7: ( 'tau' )
+            // InternalDiagnosticTrace.g:29:9: 'tau'
             {
-            match("Delay:"); 
+            match("tau"); 
 
 
             }
@@ -462,10 +467,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:30:7: ( 'Transitions:' )
-            // InternalDiagnosticTrace.g:30:9: 'Transitions:'
+            // InternalDiagnosticTrace.g:30:7: ( 'Delay:' )
+            // InternalDiagnosticTrace.g:30:9: 'Delay:'
             {
-            match("Transitions:"); 
+            match("Delay:"); 
 
 
             }
@@ -483,10 +488,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:31:7: ( '-- Property is satisfied.' )
-            // InternalDiagnosticTrace.g:31:9: '-- Property is satisfied.'
+            // InternalDiagnosticTrace.g:31:7: ( 'Transitions:' )
+            // InternalDiagnosticTrace.g:31:9: 'Transitions:'
             {
-            match("-- Property is satisfied."); 
+            match("Transitions:"); 
 
 
             }
@@ -504,10 +509,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:32:7: ( '-- Property is NOT satisfied.' )
-            // InternalDiagnosticTrace.g:32:9: '-- Property is NOT satisfied.'
+            // InternalDiagnosticTrace.g:32:7: ( '-- Property is satisfied.' )
+            // InternalDiagnosticTrace.g:32:9: '-- Property is satisfied.'
             {
-            match("-- Property is NOT satisfied."); 
+            match("-- Property is satisfied."); 
 
 
             }
@@ -546,10 +551,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:34:7: ( '-- Formula is NOT satisfied.' )
-            // InternalDiagnosticTrace.g:34:9: '-- Formula is NOT satisfied.'
+            // InternalDiagnosticTrace.g:34:7: ( '-- Property MAY be satisfied.' )
+            // InternalDiagnosticTrace.g:34:9: '-- Property MAY be satisfied.'
             {
-            match("-- Formula is NOT satisfied."); 
+            match("-- Property MAY be satisfied."); 
 
 
             }
@@ -567,10 +572,11 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:35:7: ( '=' )
-            // InternalDiagnosticTrace.g:35:9: '='
+            // InternalDiagnosticTrace.g:35:7: ( '-- Formula MAY be satisfied.' )
+            // InternalDiagnosticTrace.g:35:9: '-- Formula MAY be satisfied.'
             {
-            match('='); 
+            match("-- Formula MAY be satisfied."); 
+
 
             }
 
@@ -587,10 +593,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:36:7: ( '<=' )
-            // InternalDiagnosticTrace.g:36:9: '<='
+            // InternalDiagnosticTrace.g:36:7: ( '-- Property is NOT satisfied.' )
+            // InternalDiagnosticTrace.g:36:9: '-- Property is NOT satisfied.'
             {
-            match("<="); 
+            match("-- Property is NOT satisfied."); 
 
 
             }
@@ -608,10 +614,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:37:7: ( '>=' )
-            // InternalDiagnosticTrace.g:37:9: '>='
+            // InternalDiagnosticTrace.g:37:7: ( '-- Formula is NOT satisfied.' )
+            // InternalDiagnosticTrace.g:37:9: '-- Formula is NOT satisfied.'
             {
-            match(">="); 
+            match("-- Formula is NOT satisfied."); 
 
 
             }
@@ -629,10 +635,11 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:38:7: ( '?' )
-            // InternalDiagnosticTrace.g:38:9: '?'
+            // InternalDiagnosticTrace.g:38:7: ( '-- Property MAY NOT be satisfied.' )
+            // InternalDiagnosticTrace.g:38:9: '-- Property MAY NOT be satisfied.'
             {
-            match('?'); 
+            match("-- Property MAY NOT be satisfied."); 
+
 
             }
 
@@ -649,10 +656,11 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:39:7: ( '!' )
-            // InternalDiagnosticTrace.g:39:9: '!'
+            // InternalDiagnosticTrace.g:39:7: ( '-- Formula MAY NOT be satisfied.' )
+            // InternalDiagnosticTrace.g:39:9: '-- Formula MAY NOT be satisfied.'
             {
-            match('!'); 
+            match("-- Formula MAY NOT be satisfied."); 
+
 
             }
 
@@ -664,13 +672,115 @@ public class InternalDiagnosticTraceLexer extends Lexer {
     }
     // $ANTLR end "T__42"
 
+    // $ANTLR start "T__43"
+    public final void mT__43() throws RecognitionException {
+        try {
+            int _type = T__43;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalDiagnosticTrace.g:40:7: ( '=' )
+            // InternalDiagnosticTrace.g:40:9: '='
+            {
+            match('='); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__43"
+
+    // $ANTLR start "T__44"
+    public final void mT__44() throws RecognitionException {
+        try {
+            int _type = T__44;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalDiagnosticTrace.g:41:7: ( '<=' )
+            // InternalDiagnosticTrace.g:41:9: '<='
+            {
+            match("<="); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__44"
+
+    // $ANTLR start "T__45"
+    public final void mT__45() throws RecognitionException {
+        try {
+            int _type = T__45;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalDiagnosticTrace.g:42:7: ( '>=' )
+            // InternalDiagnosticTrace.g:42:9: '>='
+            {
+            match(">="); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__45"
+
+    // $ANTLR start "T__46"
+    public final void mT__46() throws RecognitionException {
+        try {
+            int _type = T__46;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalDiagnosticTrace.g:43:7: ( '?' )
+            // InternalDiagnosticTrace.g:43:9: '?'
+            {
+            match('?'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__46"
+
+    // $ANTLR start "T__47"
+    public final void mT__47() throws RecognitionException {
+        try {
+            int _type = T__47;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalDiagnosticTrace.g:44:7: ( '!' )
+            // InternalDiagnosticTrace.g:44:9: '!'
+            {
+            match('!'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__47"
+
     // $ANTLR start "RULE_DEPTH"
     public final void mRULE_DEPTH() throws RecognitionException {
         try {
             int _type = RULE_DEPTH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:1091:12: ( '#depth=' RULE_INT )
-            // InternalDiagnosticTrace.g:1091:14: '#depth=' RULE_INT
+            // InternalDiagnosticTrace.g:1126:12: ( '#depth=' RULE_INT )
+            // InternalDiagnosticTrace.g:1126:14: '#depth=' RULE_INT
             {
             match("#depth="); 
 
@@ -691,8 +801,8 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = RULE_TAU;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:1093:10: ( '#tau=' RULE_INT )
-            // InternalDiagnosticTrace.g:1093:12: '#tau=' RULE_INT
+            // InternalDiagnosticTrace.g:1128:10: ( '#tau=' RULE_INT )
+            // InternalDiagnosticTrace.g:1128:12: '#tau=' RULE_INT
             {
             match("#tau="); 
 
@@ -713,11 +823,11 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = RULE_EDGE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:1095:11: ( '{' ( options {greedy=false; } : . )* '}' )
-            // InternalDiagnosticTrace.g:1095:13: '{' ( options {greedy=false; } : . )* '}'
+            // InternalDiagnosticTrace.g:1130:11: ( '{' ( options {greedy=false; } : . )* '}' )
+            // InternalDiagnosticTrace.g:1130:13: '{' ( options {greedy=false; } : . )* '}'
             {
             match('{'); 
-            // InternalDiagnosticTrace.g:1095:17: ( options {greedy=false; } : . )*
+            // InternalDiagnosticTrace.g:1130:17: ( options {greedy=false; } : . )*
             loop1:
             do {
                 int alt1=2;
@@ -733,7 +843,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalDiagnosticTrace.g:1095:45: .
+            	    // InternalDiagnosticTrace.g:1130:45: .
             	    {
             	    matchAny(); 
 
@@ -762,10 +872,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:1097:10: ( ( '-' )? ( '0' .. '9' )+ )
-            // InternalDiagnosticTrace.g:1097:12: ( '-' )? ( '0' .. '9' )+
+            // InternalDiagnosticTrace.g:1132:10: ( ( '-' )? ( '0' .. '9' )+ )
+            // InternalDiagnosticTrace.g:1132:12: ( '-' )? ( '0' .. '9' )+
             {
-            // InternalDiagnosticTrace.g:1097:12: ( '-' )?
+            // InternalDiagnosticTrace.g:1132:12: ( '-' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -774,7 +884,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:1097:12: '-'
+                    // InternalDiagnosticTrace.g:1132:12: '-'
                     {
                     match('-'); 
 
@@ -783,7 +893,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
 
             }
 
-            // InternalDiagnosticTrace.g:1097:17: ( '0' .. '9' )+
+            // InternalDiagnosticTrace.g:1132:17: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -797,7 +907,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalDiagnosticTrace.g:1097:18: '0' .. '9'
+            	    // InternalDiagnosticTrace.g:1132:18: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -829,10 +939,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:1099:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalDiagnosticTrace.g:1099:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalDiagnosticTrace.g:1134:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalDiagnosticTrace.g:1134:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalDiagnosticTrace.g:1099:11: ( '^' )?
+            // InternalDiagnosticTrace.g:1134:11: ( '^' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -841,7 +951,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:1099:11: '^'
+                    // InternalDiagnosticTrace.g:1134:11: '^'
                     {
                     match('^'); 
 
@@ -859,7 +969,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalDiagnosticTrace.g:1099:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalDiagnosticTrace.g:1134:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -908,10 +1018,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:1101:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalDiagnosticTrace.g:1101:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalDiagnosticTrace.g:1136:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalDiagnosticTrace.g:1136:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalDiagnosticTrace.g:1101:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalDiagnosticTrace.g:1136:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -929,10 +1039,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:1101:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalDiagnosticTrace.g:1136:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalDiagnosticTrace.g:1101:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalDiagnosticTrace.g:1136:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -948,7 +1058,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // InternalDiagnosticTrace.g:1101:21: '\\\\' .
+                    	    // InternalDiagnosticTrace.g:1136:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -956,7 +1066,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalDiagnosticTrace.g:1101:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalDiagnosticTrace.g:1136:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -981,10 +1091,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalDiagnosticTrace.g:1101:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalDiagnosticTrace.g:1136:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalDiagnosticTrace.g:1101:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalDiagnosticTrace.g:1136:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -1000,7 +1110,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalDiagnosticTrace.g:1101:54: '\\\\' .
+                    	    // InternalDiagnosticTrace.g:1136:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1008,7 +1118,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalDiagnosticTrace.g:1101:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalDiagnosticTrace.g:1136:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1051,12 +1161,12 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:1103:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalDiagnosticTrace.g:1103:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalDiagnosticTrace.g:1138:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalDiagnosticTrace.g:1138:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalDiagnosticTrace.g:1103:24: ( options {greedy=false; } : . )*
+            // InternalDiagnosticTrace.g:1138:24: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -1081,7 +1191,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalDiagnosticTrace.g:1103:52: .
+            	    // InternalDiagnosticTrace.g:1138:52: .
             	    {
             	    matchAny(); 
 
@@ -1111,12 +1221,12 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:1105:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalDiagnosticTrace.g:1105:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalDiagnosticTrace.g:1140:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalDiagnosticTrace.g:1140:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalDiagnosticTrace.g:1105:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalDiagnosticTrace.g:1140:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop10:
             do {
                 int alt10=2;
@@ -1129,7 +1239,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalDiagnosticTrace.g:1105:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalDiagnosticTrace.g:1140:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1149,7 +1259,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalDiagnosticTrace.g:1105:40: ( ( '\\r' )? '\\n' )?
+            // InternalDiagnosticTrace.g:1140:40: ( ( '\\r' )? '\\n' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1158,9 +1268,9 @@ public class InternalDiagnosticTraceLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalDiagnosticTrace.g:1105:41: ( '\\r' )? '\\n'
+                    // InternalDiagnosticTrace.g:1140:41: ( '\\r' )? '\\n'
                     {
-                    // InternalDiagnosticTrace.g:1105:41: ( '\\r' )?
+                    // InternalDiagnosticTrace.g:1140:41: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -1169,7 +1279,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // InternalDiagnosticTrace.g:1105:41: '\\r'
+                            // InternalDiagnosticTrace.g:1140:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1201,10 +1311,10 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:1107:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalDiagnosticTrace.g:1107:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalDiagnosticTrace.g:1142:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalDiagnosticTrace.g:1142:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalDiagnosticTrace.g:1107:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalDiagnosticTrace.g:1142:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -1258,8 +1368,8 @@ public class InternalDiagnosticTraceLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDiagnosticTrace.g:1109:16: ( . )
-            // InternalDiagnosticTrace.g:1109:18: .
+            // InternalDiagnosticTrace.g:1144:16: ( . )
+            // InternalDiagnosticTrace.g:1144:18: .
             {
             matchAny(); 
 
@@ -1274,8 +1384,8 @@ public class InternalDiagnosticTraceLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalDiagnosticTrace.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | RULE_DEPTH | RULE_TAU | RULE_EDGE | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt14=39;
+        // InternalDiagnosticTrace.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | RULE_DEPTH | RULE_TAU | RULE_EDGE | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt14=44;
         alt14 = dfa14.predict(input);
         switch (alt14) {
             case 1 :
@@ -1482,70 +1592,105 @@ public class InternalDiagnosticTraceLexer extends Lexer {
                 }
                 break;
             case 30 :
-                // InternalDiagnosticTrace.g:1:184: RULE_DEPTH
+                // InternalDiagnosticTrace.g:1:184: T__43
+                {
+                mT__43(); 
+
+                }
+                break;
+            case 31 :
+                // InternalDiagnosticTrace.g:1:190: T__44
+                {
+                mT__44(); 
+
+                }
+                break;
+            case 32 :
+                // InternalDiagnosticTrace.g:1:196: T__45
+                {
+                mT__45(); 
+
+                }
+                break;
+            case 33 :
+                // InternalDiagnosticTrace.g:1:202: T__46
+                {
+                mT__46(); 
+
+                }
+                break;
+            case 34 :
+                // InternalDiagnosticTrace.g:1:208: T__47
+                {
+                mT__47(); 
+
+                }
+                break;
+            case 35 :
+                // InternalDiagnosticTrace.g:1:214: RULE_DEPTH
                 {
                 mRULE_DEPTH(); 
 
                 }
                 break;
-            case 31 :
-                // InternalDiagnosticTrace.g:1:195: RULE_TAU
+            case 36 :
+                // InternalDiagnosticTrace.g:1:225: RULE_TAU
                 {
                 mRULE_TAU(); 
 
                 }
                 break;
-            case 32 :
-                // InternalDiagnosticTrace.g:1:204: RULE_EDGE
+            case 37 :
+                // InternalDiagnosticTrace.g:1:234: RULE_EDGE
                 {
                 mRULE_EDGE(); 
 
                 }
                 break;
-            case 33 :
-                // InternalDiagnosticTrace.g:1:214: RULE_INT
+            case 38 :
+                // InternalDiagnosticTrace.g:1:244: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 34 :
-                // InternalDiagnosticTrace.g:1:223: RULE_ID
+            case 39 :
+                // InternalDiagnosticTrace.g:1:253: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 35 :
-                // InternalDiagnosticTrace.g:1:231: RULE_STRING
+            case 40 :
+                // InternalDiagnosticTrace.g:1:261: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 36 :
-                // InternalDiagnosticTrace.g:1:243: RULE_ML_COMMENT
+            case 41 :
+                // InternalDiagnosticTrace.g:1:273: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 37 :
-                // InternalDiagnosticTrace.g:1:259: RULE_SL_COMMENT
+            case 42 :
+                // InternalDiagnosticTrace.g:1:289: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 38 :
-                // InternalDiagnosticTrace.g:1:275: RULE_WS
+            case 43 :
+                // InternalDiagnosticTrace.g:1:305: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 39 :
-                // InternalDiagnosticTrace.g:1:283: RULE_ANY_OTHER
+            case 44 :
+                // InternalDiagnosticTrace.g:1:313: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1559,19 +1704,19 @@ public class InternalDiagnosticTraceLexer extends Lexer {
 
     protected DFA14 dfa14 = new DFA14(this);
     static final String DFA14_eotS =
-        "\1\uffff\6\42\4\uffff\1\57\3\uffff\3\42\1\uffff\2\40\2\uffff\2\40\1\uffff\1\40\1\uffff\3\40\2\uffff\1\42\1\uffff\6\42\13\uffff\3\42\14\uffff\4\42\1\uffff\2\42\1\uffff\1\126\10\42\3\uffff\7\42\1\150\2\uffff\7\42\4\uffff\1\42\1\uffff\2\42\1\167\1\42\2\uffff\2\42\1\175\4\uffff\1\42\1\u0083\5\uffff\1\42\3\uffff\1\42\2\uffff\1\42\14\uffff";
+        "\1\uffff\6\42\4\uffff\1\57\2\uffff\1\40\1\uffff\3\42\1\uffff\2\40\2\uffff\1\40\1\uffff\1\40\1\uffff\3\40\2\uffff\1\42\1\uffff\6\42\15\uffff\3\42\12\uffff\4\42\1\uffff\2\42\2\uffff\1\130\10\42\2\uffff\1\144\1\uffff\7\42\1\154\4\uffff\7\42\4\uffff\1\42\1\uffff\2\42\1\173\1\42\2\uffff\2\42\1\u0081\4\uffff\1\42\1\u0087\5\uffff\1\42\3\uffff\1\42\2\uffff\1\42\30\uffff";
     static final String DFA14_eofS =
-        "\u0096\uffff";
+        "\u00a6\uffff";
     static final String DFA14_minS =
-        "\1\0\1\141\1\145\1\162\1\157\1\164\1\150\4\uffff\1\55\3\uffff\1\141\1\145\1\162\1\uffff\2\75\2\uffff\1\144\1\0\1\uffff\1\101\1\uffff\2\0\1\52\2\uffff\1\156\1\uffff\1\162\1\157\1\162\1\40\1\157\1\141\5\uffff\1\40\5\uffff\1\165\1\154\1\141\14\uffff\1\156\1\151\1\160\1\155\1\uffff\1\167\1\164\1\106\1\60\1\141\1\156\1\157\1\146\1\145\1\165\1\151\1\145\1\162\1\157\1\uffff\1\171\1\163\1\164\1\171\1\162\1\154\1\156\1\60\1\157\1\162\1\72\1\151\1\40\1\151\1\164\1\141\1\147\1\uffff\1\160\1\155\1\uffff\1\164\1\uffff\1\156\1\171\1\60\1\40\1\145\1\165\1\151\1\147\1\60\1\uffff\1\143\1\162\1\154\1\157\1\60\3\uffff\1\164\1\141\1\156\1\uffff\1\171\1\40\1\163\1\40\1\151\1\72\1\151\1\163\1\uffff\1\163\2\40\2\116\4\uffff";
+        "\1\0\1\141\1\145\1\162\1\157\1\164\1\150\4\uffff\1\55\2\uffff\1\144\1\uffff\1\141\1\145\1\162\1\uffff\2\75\2\uffff\1\0\1\uffff\1\101\1\uffff\2\0\1\52\2\uffff\1\156\1\uffff\1\162\1\157\1\162\1\40\1\157\1\141\5\uffff\1\40\4\uffff\1\141\2\uffff\1\165\1\154\1\141\12\uffff\1\156\1\151\1\160\1\155\1\uffff\1\167\1\164\1\106\1\165\1\60\1\141\1\156\1\157\1\146\1\145\1\165\1\151\1\145\1\162\1\157\1\75\1\uffff\1\171\1\163\1\164\1\171\1\162\1\154\1\156\1\60\1\157\1\162\2\uffff\1\72\1\151\1\40\1\151\1\164\1\141\1\147\1\uffff\1\160\1\155\1\uffff\1\164\1\uffff\1\156\1\171\1\60\1\40\1\145\1\165\1\151\1\147\1\60\1\uffff\1\143\1\162\1\154\1\157\1\60\3\uffff\1\164\1\141\1\156\1\uffff\1\171\1\40\1\163\1\40\1\115\1\72\1\115\1\163\1\101\1\uffff\1\163\1\101\1\40\1\131\1\40\1\131\1\116\1\40\1\116\1\40\2\uffff\1\116\2\uffff\1\116\4\uffff";
     static final String DFA14_maxS =
-        "\1\uffff\1\141\1\145\1\162\1\157\2\164\4\uffff\1\76\3\uffff\1\141\1\145\1\162\1\uffff\2\75\2\uffff\1\164\1\uffff\1\uffff\1\172\1\uffff\2\uffff\1\57\2\uffff\1\156\1\uffff\1\162\1\157\1\162\1\40\1\157\1\141\5\uffff\1\40\5\uffff\1\165\1\154\1\141\14\uffff\1\156\1\151\1\160\1\155\1\uffff\1\167\1\164\1\120\1\172\1\141\1\156\1\157\1\146\1\145\1\165\1\151\1\145\1\162\1\157\1\uffff\1\171\1\163\1\164\1\171\1\162\1\154\1\156\1\172\1\157\1\162\1\72\1\151\1\40\1\151\1\164\1\141\1\147\1\uffff\1\160\1\155\1\uffff\1\164\1\uffff\1\156\1\171\1\172\1\40\1\145\1\165\1\151\1\147\1\172\1\uffff\1\145\1\162\1\154\1\157\1\172\3\uffff\1\164\1\141\1\156\1\uffff\1\171\1\40\1\163\1\40\1\151\1\72\1\151\1\163\1\uffff\1\163\2\40\2\163\4\uffff";
+        "\1\uffff\1\141\1\145\1\162\1\157\2\164\4\uffff\1\76\2\uffff\1\164\1\uffff\1\141\1\145\1\162\1\uffff\2\75\2\uffff\1\uffff\1\uffff\1\172\1\uffff\2\uffff\1\57\2\uffff\1\156\1\uffff\1\162\1\157\1\162\1\40\1\157\1\141\5\uffff\1\40\4\uffff\1\141\2\uffff\1\165\1\154\1\141\12\uffff\1\156\1\151\1\160\1\155\1\uffff\1\167\1\164\1\120\1\165\1\172\1\141\1\156\1\157\1\146\1\145\1\165\1\151\1\145\1\162\1\157\1\75\1\uffff\1\171\1\163\1\164\1\171\1\162\1\154\1\156\1\172\1\157\1\162\2\uffff\1\72\1\151\1\40\1\151\1\164\1\141\1\147\1\uffff\1\160\1\155\1\uffff\1\164\1\uffff\1\156\1\171\1\172\1\40\1\145\1\165\1\151\1\147\1\172\1\uffff\1\145\1\162\1\154\1\157\1\172\3\uffff\1\164\1\141\1\156\1\uffff\1\171\1\40\1\163\1\40\1\151\1\72\1\151\1\163\1\101\1\uffff\1\163\1\101\1\40\1\131\1\40\1\131\1\163\1\40\1\163\1\40\2\uffff\1\142\2\uffff\1\142\4\uffff";
     static final String DFA14_acceptS =
-        "\7\uffff\1\10\1\11\1\12\1\13\1\uffff\1\15\1\16\1\20\3\uffff\1\31\2\uffff\1\34\1\35\2\uffff\1\41\1\uffff\1\42\3\uffff\1\46\1\47\1\uffff\1\42\6\uffff\1\10\1\11\1\12\1\13\1\21\1\uffff\1\14\1\41\1\15\1\16\1\20\3\uffff\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\43\1\44\1\45\1\46\4\uffff\1\5\16\uffff\1\22\21\uffff\1\17\2\uffff\1\23\1\uffff\1\1\11\uffff\1\4\5\uffff\1\3\1\6\1\7\3\uffff\1\2\10\uffff\1\24\5\uffff\1\27\1\30\1\25\1\26";
+        "\7\uffff\1\10\1\11\1\12\1\13\1\uffff\1\15\1\16\1\uffff\1\21\3\uffff\1\36\2\uffff\1\41\1\42\1\uffff\1\46\1\uffff\1\47\3\uffff\1\53\1\54\1\uffff\1\47\6\uffff\1\10\1\11\1\12\1\13\1\22\1\uffff\1\14\1\46\1\15\1\16\1\uffff\1\43\1\21\3\uffff\1\36\1\37\1\40\1\41\1\42\1\45\1\50\1\51\1\52\1\53\4\uffff\1\5\20\uffff\1\23\12\uffff\1\44\1\17\7\uffff\1\20\2\uffff\1\24\1\uffff\1\1\11\uffff\1\4\5\uffff\1\3\1\6\1\7\3\uffff\1\2\11\uffff\1\25\12\uffff\1\27\1\33\1\uffff\1\26\1\32\1\uffff\1\31\1\35\1\30\1\34";
     static final String DFA14_specialS =
-        "\1\0\27\uffff\1\1\3\uffff\1\2\1\3\170\uffff}>";
+        "\1\0\27\uffff\1\1\3\uffff\1\3\1\2\u0088\uffff}>";
     static final String[] DFA14_transitionS = {
-            "\11\40\2\37\2\40\1\37\22\40\1\37\1\26\1\34\1\27\3\40\1\35\1\7\1\11\2\40\1\10\1\13\1\12\1\36\12\31\1\16\1\40\1\23\1\22\1\24\1\25\1\40\2\33\1\1\1\20\16\33\1\6\1\21\1\33\1\2\4\33\1\14\1\40\1\15\1\32\1\33\1\40\1\5\4\33\1\4\11\33\1\3\3\33\1\17\6\33\1\30\uff84\40",
+            "\11\40\2\37\2\40\1\37\22\40\1\37\1\27\1\34\1\16\3\40\1\35\1\7\1\11\2\40\1\10\1\13\1\12\1\36\12\31\1\17\1\40\1\24\1\23\1\25\1\26\1\40\2\33\1\1\1\21\16\33\1\6\1\22\1\33\1\2\4\33\1\14\1\40\1\15\1\32\1\33\1\40\1\5\4\33\1\4\11\33\1\3\3\33\1\20\6\33\1\30\uff84\40",
             "\1\41",
             "\1\43",
             "\1\44",
@@ -1585,16 +1730,16 @@ public class InternalDiagnosticTraceLexer extends Lexer {
             "\1\56\2\uffff\12\60\4\uffff\1\55",
             "",
             "",
+            "\1\64\17\uffff\1\63",
             "",
-            "\1\64",
-            "\1\65",
             "\1\66",
-            "",
+            "\1\67",
             "\1\70",
-            "\1\71",
+            "",
+            "\1\72",
+            "\1\73",
             "",
             "",
-            "\1\74\17\uffff\1\75",
             "\0\76",
             "",
             "\32\42\4\uffff\1\42\1\uffff\32\42",
@@ -1622,33 +1767,32 @@ public class InternalDiagnosticTraceLexer extends Lexer {
             "",
             "",
             "",
-            "",
             "\1\113",
+            "",
+            "",
             "\1\114",
             "\1\115",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\116",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\117",
             "\1\120",
             "\1\121",
-            "",
             "\1\122",
+            "",
             "\1\123",
-            "\1\125\11\uffff\1\124",
-            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\1\124",
+            "\1\126\11\uffff\1\125",
             "\1\127",
-            "\1\130",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "\1\131",
             "\1\132",
             "\1\133",
@@ -1657,66 +1801,83 @@ public class InternalDiagnosticTraceLexer extends Lexer {
             "\1\136",
             "\1\137",
             "\1\140",
-            "",
             "\1\141",
             "\1\142",
             "\1\143",
-            "\1\144",
+            "",
             "\1\145",
             "\1\146",
             "\1\147",
-            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\1\150",
             "\1\151",
             "\1\152",
             "\1\153",
-            "\1\154",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "\1\155",
             "\1\156",
+            "",
+            "",
             "\1\157",
             "\1\160",
             "\1\161",
-            "",
             "\1\162",
             "\1\163",
-            "",
             "\1\164",
-            "",
             "\1\165",
+            "",
             "\1\166",
-            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\1\167",
+            "",
             "\1\170",
+            "",
             "\1\171",
             "\1\172",
-            "\1\173",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "\1\174",
-            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
-            "",
-            "\1\176\1\uffff\1\177",
+            "\1\175",
+            "\1\176",
+            "\1\177",
             "\1\u0080",
-            "\1\u0081",
-            "\1\u0082",
             "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "",
-            "",
-            "",
+            "\1\u0082\1\uffff\1\u0083",
             "\1\u0084",
             "\1\u0085",
             "\1\u0086",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "",
-            "\1\u0087",
+            "",
+            "",
             "\1\u0088",
             "\1\u0089",
             "\1\u008a",
+            "",
             "\1\u008b",
             "\1\u008c",
             "\1\u008d",
             "\1\u008e",
-            "",
-            "\1\u008f",
-            "\1\u0090",
+            "\1\u0090\33\uffff\1\u008f",
             "\1\u0091",
-            "\1\u0093\44\uffff\1\u0092",
-            "\1\u0095\44\uffff\1\u0094",
+            "\1\u0093\33\uffff\1\u0092",
+            "\1\u0094",
+            "\1\u0095",
+            "",
+            "\1\u0096",
+            "\1\u0097",
+            "\1\u0098",
+            "\1\u0099",
+            "\1\u009a",
+            "\1\u009b",
+            "\1\u009d\44\uffff\1\u009c",
+            "\1\u009e",
+            "\1\u00a0\44\uffff\1\u009f",
+            "\1\u00a1",
+            "",
+            "",
+            "\1\u00a3\23\uffff\1\u00a2",
+            "",
+            "",
+            "\1\u00a5\23\uffff\1\u00a4",
             "",
             "",
             "",
@@ -1753,7 +1914,7 @@ public class InternalDiagnosticTraceLexer extends Lexer {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | RULE_DEPTH | RULE_TAU | RULE_EDGE | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | RULE_DEPTH | RULE_TAU | RULE_EDGE | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -1789,25 +1950,25 @@ public class InternalDiagnosticTraceLexer extends Lexer {
 
                         else if ( (LA14_0==']') ) {s = 13;}
 
-                        else if ( (LA14_0==':') ) {s = 14;}
+                        else if ( (LA14_0=='#') ) {s = 14;}
 
-                        else if ( (LA14_0=='t') ) {s = 15;}
+                        else if ( (LA14_0==':') ) {s = 15;}
 
-                        else if ( (LA14_0=='D') ) {s = 16;}
+                        else if ( (LA14_0=='t') ) {s = 16;}
 
-                        else if ( (LA14_0=='T') ) {s = 17;}
+                        else if ( (LA14_0=='D') ) {s = 17;}
 
-                        else if ( (LA14_0=='=') ) {s = 18;}
+                        else if ( (LA14_0=='T') ) {s = 18;}
 
-                        else if ( (LA14_0=='<') ) {s = 19;}
+                        else if ( (LA14_0=='=') ) {s = 19;}
 
-                        else if ( (LA14_0=='>') ) {s = 20;}
+                        else if ( (LA14_0=='<') ) {s = 20;}
 
-                        else if ( (LA14_0=='?') ) {s = 21;}
+                        else if ( (LA14_0=='>') ) {s = 21;}
 
-                        else if ( (LA14_0=='!') ) {s = 22;}
+                        else if ( (LA14_0=='?') ) {s = 22;}
 
-                        else if ( (LA14_0=='#') ) {s = 23;}
+                        else if ( (LA14_0=='!') ) {s = 23;}
 
                         else if ( (LA14_0=='{') ) {s = 24;}
 
@@ -1840,20 +2001,20 @@ public class InternalDiagnosticTraceLexer extends Lexer {
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA14_28 = input.LA(1);
+                        int LA14_29 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_28>='\u0000' && LA14_28<='\uFFFF')) ) {s = 63;}
+                        if ( ((LA14_29>='\u0000' && LA14_29<='\uFFFF')) ) {s = 63;}
 
                         else s = 32;
 
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA14_29 = input.LA(1);
+                        int LA14_28 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_29>='\u0000' && LA14_29<='\uFFFF')) ) {s = 63;}
+                        if ( ((LA14_28>='\u0000' && LA14_28<='\uFFFF')) ) {s = 63;}
 
                         else s = 32;
 
